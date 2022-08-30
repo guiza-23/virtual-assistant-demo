@@ -16,7 +16,8 @@
           <%= f.input :skills, as: :check_boxes, class: "text-primary", collection: ["Organization Skills", "Problem Solving Skills", "Flexibility", "Communication Skills", "Creativity", "Responsibility", "Computer proficiency", "Customer service", "Research Skills", "Computer Software and Application Knowledge", "Marketing", "Content creation", "Administrative", "Writing and editing Skills", "Languages", "Design"] %>
       </div>
       <div class="col mt-2">
-          <label for="exampleFormControlTextarea1">Describe the skills you marked</label>
+          <label for="exampleFormControlTextarea1">
+          <p>Describe the skills you marked</p></label>
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
           <%= f.input :availability, collection: %w[Any Part-time Full-time] %>
           <%= f.input :cv, as: :file, placeholder: "Must be PDF or DOC type" %>

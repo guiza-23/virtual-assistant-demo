@@ -19,6 +19,22 @@ class AssistantsController < ApplicationController
     @assistant = Assistant.find(current_user.assistant_id)
   end
 
+  def new
+    @assistant = Assistant.new
+    #authorize @flat
+  end
+
+  def create
+    @assistant = Assistant.new(assistant_params)
+    @assistant.user_id = current_user.id
+    if @assistant.save
+      redirect_to assistants_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+    #authorize @flat
+  end
+
   private
 
   def set_assistant
