@@ -6,7 +6,8 @@ class Assistant < ApplicationRecord
   has_many :applications
   validates :skills, inclusion: { in: SKILLS }
   validates :availability, inclusion: { in: AVAILABILITY }
-  validates :cv, presence: true
+  validates :firstname, presence: true
+  validates :lastname, presence: true
   has_one_attached :cv
   validate :correct_cv_mime_type
 

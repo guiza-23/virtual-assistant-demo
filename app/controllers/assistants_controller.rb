@@ -1,9 +1,9 @@
 class AssistantsController < ApplicationController
   before_action :set_assistant, only: [:show, :edit, :update, :destroy]
-  ASSISTANTS_PER_PAGE = 6
+  #ASSISTANTS_PER_PAGE = 6
 
   def index
-    #@assistants = policy_scope(Assistant)
+    # @assistants = policy_scope(Assistant)
     if params[:query].present?
       sql_query = "skills ILIKE :query OR availability ILIKE :query"
       @assistants = Assistant.where(sql_query, query: "%#{params[:query]}%")
@@ -15,6 +15,10 @@ class AssistantsController < ApplicationController
     end
   end
 
+  def show
+    @assistant = Assistant.find(current_user.assistant_id)
+  end
+
   private
 
   def set_assistant
@@ -22,6 +26,6 @@ class AssistantsController < ApplicationController
   end
 
   def assistant_params
-    params.require(:assistant).permit(:cv, :skills, :availability,:user_id)
+    params.require(:assistant).permit(:cv, :firstname, :lastname, :skills, :availability, :user_id)
   end
 end
