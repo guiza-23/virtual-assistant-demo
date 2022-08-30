@@ -1,0 +1,6 @@
+<%= simple_form_for(flat) do |f| %>
+  <%= f.input :skills, collection: %w[SKILLS] %>
+  <%= f.input :availability, collection: %w[Any Part-time Full-time] %>
+  <%= f.input :cv, as: :file, placeholder: "Must be PDF or DOC type" %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

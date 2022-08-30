@@ -8,7 +8,6 @@ class Assistant < ApplicationRecord
   validates :availability, inclusion: { in: AVAILABILITY }
   validates :cv, presence: true
   has_one_attached :cv
-
   validate :correct_cv_mime_type
 
   private
