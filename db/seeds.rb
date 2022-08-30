@@ -24,3 +24,5 @@ assistant2 = Assistant.new(user_id: user3.id, skills: 'comunicational skills', a
 company1.save!
 assistant1.save!
 assistant2.save!
+
+# offer1 = Offer.new()

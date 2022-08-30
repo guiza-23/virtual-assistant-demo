@@ -7,8 +7,10 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :validatable
 
   has_many :reviews
+  has_one :company
+  has_one :user
 
-  # validates :type_of_user, inclusion: { in: TYPES }
+  validates :type_of_user, inclusion: { in: ["Company", "Assistant"] }
   # validates :username, uniqueness: { scope: :username, message: "username already taken" }
   validates :email, uniqueness: { scope: :email, message: "email already has an account" }
   # validates :avatar, presence: true
