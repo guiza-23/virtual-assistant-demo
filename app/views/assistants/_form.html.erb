@@ -1,8 +1,29 @@
-<%= simple_form_for(assistant) do |f| %>
-  <%= f.input :firstname, placeholder: "Write your given name"  %>
-  <%= f.input :lastname, placeholder: "Write your last name"  %>
-  <%= f.input :skills, collection: %w["Organization Skills", "Problem Solving Skills", "Flexibility", "Communication Skills", "Creativity", "Responsibility", "Computer proficiency", "Customer service", "Research Skills", "Computer Software and Application Knowledge", "Marketing", "Content creation", "Administrative", "Writing and editing Skills", "Languages", "Design"] %>
-  <%= f.input :availability, collection: %w[Any Part-time Full-time] %>
-  <%= f.input :cv, as: :file, placeholder: "Must be PDF or DOC type" %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+<div class="container d-flex m-5">
+  <form>
+    <div class="row">
+      <div class="card-header">
+        <h1>Update Profile</h1>
+      </div>
+      <div class="col mt-2">
+        <%= simple_form_for(assistant) do |f| %>
+          <%= f.input :firstname, placeholder: "Write your given name" %>
+      </div>
+      <div class="col mt-2">
+          <%= f.input :lastname, placeholder: "Write your last name"  %>
+      </div>
+      <div class="w-100"></div>
+      <div class="col mt-2">
+          <%= f.input :skills, as: :check_boxes, class: "text-primary", collection: ["Organization Skills", "Problem Solving Skills", "Flexibility", "Communication Skills", "Creativity", "Responsibility", "Computer proficiency", "Customer service", "Research Skills", "Computer Software and Application Knowledge", "Marketing", "Content creation", "Administrative", "Writing and editing Skills", "Languages", "Design"] %>
+      </div>
+      <div class="col mt-2">
+          <label for="exampleFormControlTextarea1">Describe the skills you marked</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+          <%= f.input :availability, collection: %w[Any Part-time Full-time] %>
+          <%= f.input :cv, as: :file, placeholder: "Must be PDF or DOC type" %>
+          <%= f.submit class: "btn btn-primary btn-lg active" %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </form>
+</div>
