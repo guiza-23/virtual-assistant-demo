@@ -19,6 +19,15 @@
       <div class="row">
         <% @assistants.each do |assistant| %>
         <div class="col-md-4">
+          <div class="assistant-card">
+            <div class="assistant-card-content">
+              <div class="assistant-card-title">
+                <h4><%= user.username %></h4>
+              </div>
+                <p><%= assistant.skills %></p>
+                <p><%= assistant.cv %></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
