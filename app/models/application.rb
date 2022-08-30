@@ -1,4 +1,4 @@
 class Application < ApplicationRecord
-  belongs_to :offers
-  belongs_to :assistants
+  belongs_to :offer
+  belongs_to :assistant
 end

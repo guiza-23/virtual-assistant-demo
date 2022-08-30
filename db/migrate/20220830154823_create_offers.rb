@@ -4,7 +4,7 @@ class CreateOffers < ActiveRecord::Migration[7.0]
       t.text :description
       t.boolean :status
       t.string :tag
-      t.references :companies, null: false, foreign_key: true
+      t.references :company, null: false, foreign_key: true
 
       t.timestamps
     end

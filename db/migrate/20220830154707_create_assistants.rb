@@ -4,7 +4,7 @@ class CreateAssistants < ActiveRecord::Migration[7.0]
       t.string :cv
       t.string :skills
       t.string :availability
-      t.references :users, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

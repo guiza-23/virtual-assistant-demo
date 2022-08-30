@@ -1,3 +1,4 @@
 class Offer < ApplicationRecord
-  belongs_to :companies
+  belongs_to :company
+  has_many :applications
 end
