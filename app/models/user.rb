@@ -1,12 +1,14 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  TYPES = ["Company", "Assistant"]
 
-  devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
+  TYPES = %w[Assistant Company]
   has_many :reviews
+
+  has_one :company
+  has_one :assistant
 
   validates :type_of_user, inclusion: { in: TYPES }
   # validates :username, uniqueness: { scope: :username, message: "username already taken" }
