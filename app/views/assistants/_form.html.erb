@@ -1,0 +1,6 @@
+<%= simple_form_for(assistant) do |f| %>
+  <%= f.input :skills, collection: %w["Organization Skills", "Problem Solving Skills", "Flexibility", "Communication Skills", "Creativity", "Responsibility", "Computer proficiency", "Customer service", "Research Skills", "Computer Software and Application Knowledge", "Marketing", "Content creation", "Administrative", "Writing and editing Skills", "Languages", "Design"] %>
+  <%= f.input :availability, collection: %w[Any Part-time Full-time] %>
+  <%= f.input :cv, as: :file, placeholder: "Must be PDF or DOC type" %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
