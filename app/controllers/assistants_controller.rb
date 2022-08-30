@@ -21,7 +21,7 @@ class AssistantsController < ApplicationController
     @assistant = Assistant.find(params[:id])
   end
 
-  def flat_params
+  def assistant_params
     params.require(:assistant).permit(:cv, :skills, :availability,:user_id)
   end
 end
