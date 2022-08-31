@@ -21,7 +21,7 @@ class AssistantsController < ApplicationController
 
   def new
     @assistant = Assistant.new
-    #authorize @flat
+    #authorize @assistant
   end
 
   def create
@@ -32,7 +32,30 @@ class AssistantsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-    #authorize @flat
+    #authorize @assistant
+  end
+
+  def edit
+    authorize @assistant
+  end
+
+  def update
+    authorize @assistant
+    if @assistant.update(assistant_params)
+      redirect_to assistant_path(@assistant)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    authorize @assistant
+    @assistant.destroy
+    redirect_to assistants_path, status: :see_other
+  end
+
+  def my_applications
+    @applications = Application.where("assistant_id: #{current_user.id}")
   end
 
   private

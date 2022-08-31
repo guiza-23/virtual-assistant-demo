@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_195314) do
   end
 
   create_table "companies", force: :cascade do |t|
+    t.string "name"
     t.text "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -74,7 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_195314) do
 
   create_table "offers", force: :cascade do |t|
     t.text "description"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.string "tag"
     t.bigint "company_id", null: false
     t.datetime "created_at", null: false

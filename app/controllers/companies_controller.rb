@@ -1,10 +1,11 @@
 class CompaniesController < ApplicationController
   def index
+    # para mi que index no va
     @companies = Company.all
   end
 
   def show
-    @company = Company.find(current_user.company_id)
+    @company = Company.find(current_user.company.id)
   end
 
   def new
@@ -13,18 +14,19 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new
+    @company = Company.new(company_params)
     @company.user_id = current_user.id
-    @company.description = @description
     # authorize @company
     if @company.save
-      redirect_to company_path(current_user.company_id)
+      redirect_to company_path(current_user.company.id)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def my_offers
-    @offers = Offer.where("company_id: #{current_user.id}")
+  private
+
+  def company_params
+    params.require(:company).permit(:description, :name)
   end
 end
