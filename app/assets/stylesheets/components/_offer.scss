@@ -1,13 +1,25 @@
-body {
-  background: #a71b3e;
-  color: white;
-  font: 14px/1.5 Helvetica, Arial, sans-serif;
-  margin: 20px auto;
-  width: 800px;
-  padding: 100px;
+.register {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-a {
-  color: #efaaca;
-  text-decoration: none;
+.register-btn {
+  height: 25px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid #2b2684;
+  border-radius: 10px;
+  color: #2b2684;
+  transition: 0.5s;
+  justify-content: center;
+}
+
+.register p {
+  margin: 0 11px;
 }

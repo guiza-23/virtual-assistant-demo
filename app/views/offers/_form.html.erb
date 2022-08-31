@@ -1,8 +1,18 @@
-<%= simple_form_for(@offer) do |f| %>
-  <div class="pass-icon">
-    <%= f.input_field :description, placeholder: "Description", input_html: {class: "form-control"} %>
-    <%= f.input_field :tag, placeholder: "tag", input_html: {class: "form-control"} %>
-  </div>
+<%= simple_form_for (@offer) do |f| %>
+  <%= f.error_notification %>
 
-  <%= f.button :submit, "Submit", id:"login-btn" %>
+  <%= f.input :title %>
+
+  <%= f.input :description %>
+
+  <%= f.input :tag, as: :check_boxes, collection: %i[Any Part-time Full-time], wrapper: :vertical_collection_inline %>
+
+  <%= f.input :language, collection: ['English', 'French', 'Germain', 'Spanish', 'Russian'], prompt: :translate %>
+
+  <%= f.input :choises, collection: ["Organization Skills", "Problem Solving Skills", "Flexibility", "Communication Skills", "Creativity", "Responsibility", "Computer proficiency", "Customer service", "Research Skills", "Computer Software and Application Knowledge", "Marketing", "Content creation", "Administrative", "Writing and editing Skills", "Languages", "Design"] %>
+
+  <%= f.input :terms %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
 <% end %>
