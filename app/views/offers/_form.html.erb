@@ -1,8 +1,8 @@
 <%= simple_form_for(@offer) do |f| %>
-  <%= f.input :description, placeholder: "describe what you are looking for" %>
-  <%= f.input :tag, placeholder: "tag" %>
-  <%= f.submit class: "btn btn-primary" %>
+  <div class="pass-icon">
+    <%= f.input_field :description, placeholder: "Description", input_html: {class: "form-control"} %>
+    <%= f.input_field :tag, placeholder: "tag", input_html: {class: "form-control"} %>
+  </div>
+
+  <%= f.button :submit, "Submit", id:"login-btn" %>
 <% end %>
-
-
-<%# <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}, class:"simple-form-registrer") do |f| %> %>
