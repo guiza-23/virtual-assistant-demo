@@ -1,5 +1,6 @@
 class AssistantsController < ApplicationController
   before_action :set_assistant, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
   #ASSISTANTS_PER_PAGE = 6
 
   def index
@@ -17,7 +18,7 @@ class AssistantsController < ApplicationController
 
   #profile / show externo de mas info
   def show
-    @assistant = Assistant.find(params[:id])
+    #@assistant = Assistant.find(params[:id])
   end
 
   def new
@@ -37,7 +38,7 @@ class AssistantsController < ApplicationController
   end
 
   def edit
-    #authorize @assistant
+    authorize @assistant
   end
 
   def update
@@ -65,6 +66,10 @@ class AssistantsController < ApplicationController
 
   def set_assistant
     @assistant = Assistant.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
   end
 
   def assistant_params

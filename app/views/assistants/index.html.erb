@@ -20,7 +20,7 @@
                 <p>Skills: <%= assistant.skills %></p>
                 <p><%= assistant.cv %></p></p>
                 <a href="#" class="card-link">CV link</a>
-                <a href="#" class="card-link">Profile link</a>
+                <%= link_to "Profile", assistant_path(assistant) %>
             </div>
           </div>
         </div>
