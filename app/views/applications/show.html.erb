@@ -1,16 +1,5 @@
-<div class="container vh-100 d-flex m-5">
-  <form>
-    <div class="row">
-      <div class="card-header">
-      <h1>Assistants index</h1>
-      </div>
-      <%= form_with url: assistants_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an assistant by skills or availability" %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-
-      <div class="card-group">
-      <% @assistants.each do |assistant| %>
+<div class="card-group">
+      <% @applications.each do |application| %>
         <div class="col-md-4">
           <div class="card border-dark mb-3" style="width: 18rem;">
             <div class="card-body">
@@ -26,6 +15,3 @@
         </div>
       <% end %>
       </div>
-    </div>
-  </form>
-</div>

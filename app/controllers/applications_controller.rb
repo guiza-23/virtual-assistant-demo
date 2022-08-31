@@ -8,8 +8,12 @@ class ApplicationsController < ApplicationController
   end
 
   def new
-    @application = Application.new
-    # authorize @application
+    if @user.assistant != nil
+      @application = Application.new
+    else
+      redirect_to new_assistant_path
+    # authorize @offer
+    end
   end
 
   def create
