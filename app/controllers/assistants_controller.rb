@@ -39,11 +39,11 @@ class AssistantsController < ApplicationController
   end
 
   def edit
-    authorize @assistant
+    #authorize @assistant
   end
 
   def update
-    authorize @assistant
+    #authorize @assistant
     if @assistant.update(assistant_params)
       redirect_to assistant_path(@assistant)
     else

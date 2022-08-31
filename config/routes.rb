@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :assistants
   resources :companies
   resources :offers
-
+  resources :applications
 end
