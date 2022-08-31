@@ -2,14 +2,19 @@
 
   <%# <div class="main-img"></div> %>
   <div class="wrapper">
+    <%# TODO: CAMBIAR LA REDIRECCION A COMPANY O ASSISTANT %>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}, class:"simple-form-registrer") do |f| %>
       <h1>Sign Up</h1>
       <%= f.error_notification %>
       <div class="pass-icon">
-        <%= f.input_field :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, id:"email", placeholder:"Email" %>
+        <%= f.input_field :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, id:"name@domain.com", placeholder:"Email" %>
         <%= f.input_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, class:"password", placeholder:"Password" %>
         <%= f.input_field :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, class:"password", placeholder:"Confirm Password" %>
-        <%= f.input :file, as: :file, hint: 'Choose a profile picture' %>
+
+        <%# <%= f.input :file, as: :file, hint: 'Choose a profile picture', :label => false %>
+        <%= f.input :type_of_user, collection: %w[Assistant Company] %>
+
+
       </div>
 
       <%= f.button :submit, "Sign up", id:"Sign-up-btn" %>
