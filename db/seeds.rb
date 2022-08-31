@@ -18,11 +18,13 @@ user3 = User.new(username: 'coco', email: 'coco@gmail.com', password: '123456', 
 user3.save!
 
 company1 = Company.new(user_id: user1.id, description: 'la empresa mas grande del mundo en venta de bebidas gaseosas saborizadas')
-assistant1 = Assistant.new(user_id: user2.id, skills: 'excelent english', availability: 'full-time')
-assistant2 = Assistant.new(user_id: user3.id, skills: 'comunicational skills', availability: 'any')
+assistant1 = Assistant.new(user_id: user2.id, skills: 'Organization Skills', availability: 'Full-time')
+assistant2 = Assistant.new(user_id: user3.id, skills: 'Flexibility', availability: 'Any')
 
 company1.save!
 assistant1.save!
 assistant2.save!
 
-# offer1 = Offer.new()
+
+puts "Finished"
+
