@@ -20,3 +20,6 @@ assistant2 = Assistant.new(user_id: user3.id, skills: "Flexibility", availabilit
 company1.save!
 assistant1.save!
 assistant2.save!
+
+
+puts "Finished"
