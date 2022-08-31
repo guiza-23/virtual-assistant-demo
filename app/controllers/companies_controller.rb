@@ -9,14 +9,14 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
-    authorize @company
+    # authorize @company
   end
 
   def create
     @company = Company.new
     @company.user_id = current_user.id
     @company.description = @description
-    authorize @company
+    # authorize @company
     if @company.save
       redirect_to company_path(current_user.company_id)
     else
