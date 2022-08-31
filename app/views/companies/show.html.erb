@@ -1,17 +1,23 @@
 
-
-
-<h3>my posted offers</h3>
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-6 m-auto">
-      <div class="flat-form">
-        <h1>name = <%= @company.name %></h1>
-        <div class="mt-3">
-          <h3>description: <%= @company.description %></h3>
-          <h3>my posted offers</h3>
-        </div>
-      </div>
-    </div>
+<h1>Dashboard<h1>
+<div class="card" style="width: 50rem;">
+  <img class="card-img-top" src="https://images.unsplash.com/photo-1535990379313-5cd271a2da2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80" alt="Card image cap">
+  <div class="card-body">
+    <h3 class="card-title"><%= @company.name %></h3>
+    <p class="card-text"><%= @company.description %></p>
+    <a href="#" class="btn btn-primary">see applications</a>
   </div>
 </div>
+
+<h2>Open offers</h2>
+<% @offers.each do |offer|%>
+<div class="card" style="width: 30rem;">
+  <div class="card-body">
+    <h3 class="card-title"><%= offer.tag %></h3>
+    <p class="card-text"><%= offer.description %></p>
+    <a href="applications_path" class="btn btn-primary">see applications</a>
+    <a href="#" class="btn btn-primary">edit</a>
+    <a href="#" class="btn btn-primary">delete</a>
+  </div>
+</div>
+<% end %>

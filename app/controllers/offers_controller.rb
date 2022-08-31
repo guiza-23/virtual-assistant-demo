@@ -11,11 +11,11 @@ class OffersController < ApplicationController
   end
 
   def new
-    if @user.company != nil
-      @offer = Offer.new
-    else
+    if @user.company = nil
       redirect_to new_company_path
-    # authorize @offer
+    else
+      @offer = Offer.new
+      # authorize @offer
     end
   end
 
@@ -32,7 +32,9 @@ class OffersController < ApplicationController
     # authorize @offer
   end
 
-  def edit; end
+  def edit
+
+  end
 
   def update
     if @offer.update(offer_params)

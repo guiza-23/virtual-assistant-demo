@@ -24,5 +24,6 @@ company1.save!
 assistant1.save!
 assistant2.save!
 
-
+offer1 = Offer.new(company_id: company1.id, description: 'busco asistente para 5 personas', tag: 'part-time')
+offer1.save
 puts "Finished"
