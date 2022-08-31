@@ -15,8 +15,9 @@ class AssistantsController < ApplicationController
     end
   end
 
+  #profile / show externo de mas info
   def show
-    @assistant = Assistant.find(current_user.assistant_id)
+    @assistant = Assistant.find(params[:id])
   end
 
   def new
@@ -36,7 +37,7 @@ class AssistantsController < ApplicationController
   end
 
   def edit
-    authorize @assistant
+    #authorize @assistant
   end
 
   def update
@@ -48,14 +49,16 @@ class AssistantsController < ApplicationController
     end
   end
 
-  def destroy
-    authorize @assistant
-    @assistant.destroy
-    redirect_to assistants_path, status: :see_other
-  end
+  # directamente en User
+  # def destroy
+  #   authorize @assistant
+  #   @assistant.destroy
+  #   redirect_to assistants_path, status: :see_other
+  # end
 
+  # incluir en Profile
   def my_applications
-    @applications = Application.where("assistant_id: #{current_user.id}")
+    @applications = Application.where("assistant_id: #{current_user.assistant.id}")
   end
 
   private

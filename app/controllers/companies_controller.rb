@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+
   def index
     # para mi que index no va
     @companies = Company.all
@@ -6,6 +7,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(current_user.company.id)
+    @offers = Offer.where("company_id = #{current_user.company.id}")
   end
 
   def new
@@ -24,9 +26,23 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def edit
+    @company = Company.find(current_user.company.id)
+    authorize @company
+  end
+
+  def update
+    authorize @company
+    if @company.update(company_params)
+      redirect_to company_path(@company)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def company_params
-    params.require(:company).permit(:description, :name)
+    params.require(:company).permit(:description, :name, :photo)
   end
 end
