@@ -1,0 +1,10 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= offer.company.name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= offer.title %></h6>
+    <p class="card-text"><%= offer.description %></p>
+    <p class="card-text register"><%= offer.tag %></p>
+    <%= link_to 'Edit', edit_offer_path(@offer), class:"card-link"> %>
+    <%= link_to 'Back', offers_path, class:"card-link"> %>
+  </div>
+</div>
