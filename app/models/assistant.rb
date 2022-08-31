@@ -8,14 +8,14 @@ class Assistant < ApplicationRecord
   validates :availability, inclusion: { in: AVAILABILITY }
   validates :firstname, presence: true
   validates :lastname, presence: true
-  has_one_attached :cv
-  validate :correct_cv_mime_type
+  # has_one_attached :cv
+  # validate :correct_cv_mime_type
 
   private
 
-  def correct_cv_mime_type
-    if cv.attached? && !cv.content_type.in?(%w[application/msword application/pdf])
-      errors.add(:cv, 'Must be a PDF or a DOC file')
-    end
-  end
+  # def correct_cv_mime_type
+  #   if cv.attached? && !cv.content_type.in?(%w[application/msword application/pdf])
+  #     errors.add(:cv, 'Must be a PDF or a DOC file')
+  #   end
+  # end
 end
