@@ -12,7 +12,7 @@
         </div>
         <div class="w-100"></div>
         <div class="col mt-2">
-          <%= f.input :skills, as: :check_boxes, class: "text-primary", collection: ["Organization Skills", "Problem Solving Skills", "Flexibility", "Communication Skills", "Creativity", "Responsibility", "Computer proficiency", "Customer service", "Research Skills", "Computer Software and Application Knowledge", "Marketing", "Content creation", "Administrative", "Writing and editing Skills", "Languages", "Design"] %>
+          <%= f.input :skills, as: :check_boxes, collection: %w[Organization Problem-Solving Flexibility Communication Creativity Responsibility Computer-proficiency Customer-service Research Computer-Software Marketing Content-creation Administrative Writing-editing Languages Design], include_blank: false, class: "text-primary" %>
         </div>
         <div class="col mt-2">
           <label for="exampleFormControlTextarea1">
@@ -20,6 +20,7 @@
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
           <%= f.input :availability, collection: %w[Any Part-time Full-time] %>
           <%= f.input :cv, as: :file, placeholder: "Must be PDF or DOC type" %>
+          <%= f.input :photo, as: :file %>
           <%= f.submit class: "btn btn-primary btn-lg active" %>
         </div>
           <% end %>
