@@ -3,8 +3,15 @@ class ApplicationsController < ApplicationController
   before_action :set_application, only: %i[show edit update destroy]
 
   def index
-    @applications = Application.where(assistant: @user.assistant)
-    @applications = Application.select {|app| app.company == @user.company}
+    if user_signed_in?
+      if current_user.assistant != nil
+        @applications = Application.where(assistant: @user.assistant)
+      elsif current_user.company != nil
+        @applications = Application.select {|app| app.company == @user.company}
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def show
@@ -21,20 +28,27 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    @application = Application.new(application_params)
-    @application.assistant_id = 1
-    if @application.save
-      redirect_to applications_path
+    if @user.assistant.nil?
+      redirect_to new_assistant_path
+    # authorize @offer
     else
-      raise
-      render :new, status: :unprocessable_entity
+
+      @application = Application.new
+      @application.assistant_id = current_user.assistant.id
+      if @application.save
+        redirect_to applications_path
+      else
+        render :new, status: :unprocessable_entity
+      end
+
+
     end
   end
 
   private
 
   def application_params
-    params.require(:application).permit(:offer_id, :assistant_id, :status)
+    params.require(:application).permit(:offer_id, :assistant_id)
   end
 
   def set_application

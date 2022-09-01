@@ -15,6 +15,29 @@
             <div class="my-2 ">
             <p><%= @offer.description %></p>
             </div>
+               <table class="table mb-0">
+               <tbody>
+               <% @applications.each do |application| %>
+                  <tr class="fw-normal">
+                    <td class="align-middle">
+                      <span><%= application.assistant.firstname %></span>
+                    </td>
+                    <td class="align-middle">
+                      <h6 class="mb-0"><span class="badge bg-success"><%= application.status %></span></h6>
+                    </td>
+                    <td class="align-middle">
+                      <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
+                          class="fas fa-check text-success me-3"></i></a>
+                      <a href="#!" data-mdb-toggle="tooltip" title="Remove"><i
+                          class="fas fa-trash-alt text-danger"></i></a>
+                    </td>
+                  </tr>
+                <% end %>
+                </tbody>
+            </table>
+
+
+            </ul>
             <ul class="tags-ul">
               <li class="tags mt-2">
                 <%= link_to 'Back', offers_path, class:"card-link" %>
