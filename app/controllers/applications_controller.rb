@@ -32,7 +32,6 @@ class ApplicationsController < ApplicationController
       redirect_to new_assistant_path
     # authorize @offer
     else
-
       @application = Application.new
       @application.assistant_id = current_user.assistant.id
       if @application.save
@@ -40,8 +39,6 @@ class ApplicationsController < ApplicationController
       else
         render :new, status: :unprocessable_entity
       end
-
-
     end
   end
 

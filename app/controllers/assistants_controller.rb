@@ -30,12 +30,12 @@ class AssistantsController < ApplicationController
   def create
     @assistant = Assistant.new(assistant_params)
     @assistant.user_id = current_user.id
+    authorize @assistant
     if @assistant.save
       redirect_to assistants_path
     else
       render :new, status: :unprocessable_entity
     end
-    authorize @assistant
   end
 
   def edit
