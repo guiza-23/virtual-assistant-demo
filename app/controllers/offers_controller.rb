@@ -16,10 +16,12 @@ class OffersController < ApplicationController
   end
 
   def show
+    @offer = Offer.find(params[:id])
+    @applications = Application.where(offer: @offer)
+    # @application = Application.find(params[:id])
   end
 
   def new
-
     if @user.company != nil
       @offer = Offer.new
     else
@@ -41,11 +43,13 @@ class OffersController < ApplicationController
     # authorize @offer
   end
 
-  def edit; end
+  def edit
+
+  end
 
   def update
     if @offer.update(offer_params)
-      redirect_to offer_path
+      redirect_to company_path
     else
       render "Edit"
     end
