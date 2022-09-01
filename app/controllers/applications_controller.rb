@@ -28,6 +28,7 @@ class ApplicationsController < ApplicationController
   end
 
   def create
+    @application.offer_id = @offer
     if @user.assistant.nil?
       redirect_to new_assistant_path
     # authorize @offer
