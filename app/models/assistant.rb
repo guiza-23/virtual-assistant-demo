@@ -1,6 +1,7 @@
 class Assistant < ApplicationRecord
   SKILLS = ["Organization Skills", "Problem Solving Skills", "Flexibility", "Communication Skills", "Creativity", "Responsibility", "Computer proficiency", "Customer service", "Research Skills", "Computer Software and Application Knowledge", "Marketing", "Content creation", "Administrative", "Writing and editing Skills", "Languages", "Design"]
   AVAILABILITY = ["Any", "Part-time", "Full-time"]
+
   belongs_to :user
   has_many :applications
   validates :skills, inclusion: { in: SKILLS }
