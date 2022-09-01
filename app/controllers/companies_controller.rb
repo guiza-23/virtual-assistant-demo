@@ -28,11 +28,12 @@ class CompaniesController < ApplicationController
 
   def edit
     @company = Company.find(current_user.company.id)
-    authorize @company
+    # authorize @company
   end
 
   def update
-    authorize @company
+    # authorize @company
+    @company = Company.find(current_user.company.id)
     if @company.update(company_params)
       redirect_to company_path(@company)
     else
