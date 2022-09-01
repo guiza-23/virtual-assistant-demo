@@ -1,16 +1,16 @@
-<div class="container-fluid vh-100 banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path 'background.jpg' %>);">
   <div class="card-container flex-wrap ">
   <div class="py-2">
-    <h1>Welcome to <strong><span style="color: #00A699;">Air</span><span style="color: #FF385C;">Clone</span></strong> </h1>
+    <h1>The N°1 <strong><span style="color: #00A699;">Offer</span><span style="color: #FF385C;">Marketplace</span></strong> </h1>
   </div>
   <div class="py-2">
-    <h3>Find the ideal place to stay anywhere arround the globe</h3>
+    <h2>Find your dream in 1 click !</h2>
   </div>
   <div class="py-2">
     <%= link_to "see all avilable offers", offers_path, class:"btn btn-look btn-outline-light"%>
     <% if user_signed_in? == false %>
-    <%= link_to "Log in", new_user_session_path, class: "btn btn-look btn-outline-light" %>
-    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-look btn-outline-light" %>
+    <%= link_to "Ours Assistants", assistants_path, class: "btn btn-look btn-outline-light" %>
+    <%= link_to "Ours Companies", companies_path, class: "btn btn-look btn-outline-light" %>
     <% end %>
   </div>
   </div>
