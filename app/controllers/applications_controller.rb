@@ -3,7 +3,8 @@ class ApplicationsController < ApplicationController
   before_action :set_application, only: %i[show edit update destroy]
 
   def index
-    @applications = Application.all
+    @applications = Application.where(assistant: @user.assistant)
+    @applications = Application.select {|app| app.company == @user.company}
   end
 
   def show
