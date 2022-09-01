@@ -22,10 +22,11 @@ company2 = Company.new(user_id: user4.id, name: 'Netflix', description: 'la empr
 company1.save!
 company2.save!
 
-assistant1 = Assistant.new(user_id: user2.id, skills: "Computer Software and Application Knowledge", availability: 'Full-time', firstname: "Pedro", lastname: "Piedra")
-assistant2 = Assistant.new(user_id: user3.id, skills: "Flexibility", availability: 'Any', firstname: "Coco", lastname: "Chanel")
-
+assistant1 = Assistant.new(user_id: user2.id, skills: "Computer Software", availability: 'Full-time', firstname: "Pedro", lastname: "Piedra")
+assistant1.photo.attach(io: URI.open("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"), filename: "assistant1.png", content_type: "image/jpeg")
 assistant1.save!
+assistant2 = Assistant.new(user_id: user3.id, skills: "Flexibility", availability: 'Any', firstname: "Coco", lastname: "Chanel")
+assistant2.photo.attach(io: URI.open("https://images.unsplash.com/photo-1629747387925-6905ff5a558a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"), filename: "assistant2.png", content_type: "image/jpeg")
 assistant2.save!
 
 offer1 = Offer.new(company_id: company1.id, title: 'Asistente para oficina en Minessota', description: 'busco asistente para 5 personas', tag: 'part-time')
