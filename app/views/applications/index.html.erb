@@ -36,8 +36,7 @@
                     <h6 class="mb-0"><span class="badge bg-success"><%= application.status %></span></h6>
                   </td>
                   <td class="align-middle">
-                    <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
-                        class="fas fa-check text-success me-3"></i></a>
+                    <%= link_to "", edit_application_path(application), class:"fas fa-check text-success" %>
                     <%= link_to "", application_path(application), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"fas fa-trash-alt text-danger" %>
                   </td>
                 </tr>

@@ -1,0 +1,14 @@
+<section id="services">
+  <div  class="wrapper-offers">
+    <h1>Add a new offer</h1>
+      <div class="service-cards">
+        <div class="service-card ui">
+          <%= simple_form_for (@application) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :status, collection: %w[applied interview pending accepted rejected], default: @application.status %>
+            <%= f.button :submit, class: "btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</section>
