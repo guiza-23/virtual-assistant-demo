@@ -7,6 +7,7 @@ class Assistant < ApplicationRecord
   #validates :skills, inclusion: { in: SKILLS }
   validates :skills, presence: true
   validates :availability, inclusion: { in: AVAILABILITY }
+  has_one_attached :photo
   # validates :cv, presence: true
   # has_one_attached :cv
   # validate :correct_cv_mime_type
