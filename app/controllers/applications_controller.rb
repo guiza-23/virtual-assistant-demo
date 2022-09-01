@@ -28,11 +28,16 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    @application = Application.new
-    @application.assistant_id = @user.assistant
-
+     if @user.assistant.nil?
+      redirect_to new_assistant_path
+     else
+     @application.offer_id = @offer
+     @application.assistant_id = @user.assistant
+     end
+    
     if @application.save
       redirect_to applications_path
+
     else
       render :new, status: :unprocessable_entity
     end

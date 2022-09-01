@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :assistants
   resources :companies
-  resources :offers
-  resources :applications
+  resources :offers do
+    resources :applications, only: :new
+  end
+  resources :applications, except: :new
 end
