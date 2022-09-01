@@ -1,0 +1,16 @@
+<% @applications.each do |application| %>
+    <div class="card-deck">
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><%= application.offer.description %></h4>
+        <h4 class="card-subtitle mb-2 text-muted"><%= offer.assistant.firstname %></h4>
+        <p class="card-text"><%=  %></p>
+        <div class="register">
+          <p class="register-btn"><%=  %></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<% end %>
