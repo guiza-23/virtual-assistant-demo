@@ -12,13 +12,11 @@
           <li class="nav-item rounded"><%= link_to "Offers", offers_path, class: "nav-link" %></li>
           <li class="nav-link nav-item rounded">Message<%#= link_to "Message", chatroom_messages, class: "nav-link" %></li>
           <li class="nav-item rounded"><%= link_to "Contact", "/", class: "nav-link" %></li>
-          <%# if user_signed_in? == current_user.company %>
-            <%# <li class="nav-item rounded"><%= link_to "Company Dashboard", "companies/#{current_user.company.id}",  class: "nav-link" %>
-            <%# </li> %>
-          <%# else %>
-            <%# <li class="nav-item rounded"><%= link_to "Assistant Dashboard", "assistant/#{current_user.assistant.id}",  class: "nav-link" %>
-            <%# </li> %>
-          <%# end %>
+          <% if current_user.type_of_user == 'Company' && current_user.company != nil %>
+          <li class="nav-item rounded"><%= link_to "Company Dashboard", company_path(current_user.company.id),  class: "nav-link"%></li>
+          <% elsif current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
+          <li class="nav-item rounded"><%= link_to "other Dashboard", assistant_path(current_user.assistant.id),  class: "nav-link"%></li>
+          <% end %>
           <a class="nav-link nav-item rounded" href="#" data-bs-toggle="dropdown"><%= current_user.type_of_user %></a>
           <li class="nav-item rounded dropdown"><%= image_tag "https://kitt.lewagon.com/placeholder/users/=", class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
