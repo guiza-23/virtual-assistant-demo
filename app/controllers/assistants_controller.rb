@@ -1,9 +1,10 @@
 class AssistantsController < ApplicationController
-  before_action :set_assistant, only: [:show, :edit, :update, :destroy]
+  before_action :set_assistant, only: [:show, :edit, :update]
+  before_action :set_user
   #ASSISTANTS_PER_PAGE = 6
 
   def index
-    # @assistants = policy_scope(Assistant)
+    #@assistants = policy_scope(Assistant)
     if params[:query].present?
       sql_query = "skills ILIKE :query OR availability ILIKE :query"
       @assistants = Assistant.where(sql_query, query: "%#{params[:query]}%")
@@ -17,12 +18,13 @@ class AssistantsController < ApplicationController
 
   #profile / show externo de mas info
   def show
-    @assistant = Assistant.find(params[:id])
+    #@assistant = Assistant.find(params[:id])
+    #authorize @assistant
   end
 
   def new
     @assistant = Assistant.new
-    #authorize @assistant
+    authorize @assistant
   end
 
   def create
@@ -33,7 +35,7 @@ class AssistantsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-    #authorize @assistant
+    authorize @assistant
   end
 
   def edit
@@ -41,7 +43,7 @@ class AssistantsController < ApplicationController
   end
 
   def update
-    authorize @assistant
+    #authorize @assistant
     if @assistant.update(assistant_params)
       redirect_to assistant_path(@assistant)
     else
@@ -65,6 +67,10 @@ class AssistantsController < ApplicationController
 
   def set_assistant
     @assistant = Assistant.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
   end
 
   def assistant_params

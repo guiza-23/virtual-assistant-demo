@@ -19,6 +19,7 @@ class OffersController < ApplicationController
   end
 
   def new
+
     if @user.company != nil
       @offer = Offer.new
     else

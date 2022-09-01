@@ -8,6 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-md-auto gap-2">
         <% if user_signed_in? %>
+
           <li class="nav-item rounded"><%= link_to "Home", root_path, class: "nav-link active", "aria-current":"page" %></li>
           <li class="nav-item rounded"><%= link_to "Offers", offers_path, class: "nav-link" %></li>
           <li class="nav-link nav-item rounded">Message<%#= link_to "Message", chatroom_messages, class: "nav-link" %></li>
@@ -17,16 +18,19 @@
           <% elsif current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
           <li class="nav-item rounded"><%= link_to "other Dashboard", assistant_path(current_user.assistant.id),  class: "nav-link"%></li>
           <% end %>
-          <a class="nav-link nav-item rounded" href="#" data-bs-toggle="dropdown"><%= current_user.type_of_user %></a>
+          
+          <a class="nav-link nav-item rounded" href="#" data-bs-toggle="dropdown"><%= current_user.email %></a>
+
           <li class="nav-item rounded dropdown"><%= image_tag "https://kitt.lewagon.com/placeholder/users/=", class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><%= link_to "Dashboard", "/", class: "dropdown-item" %></li>
+
               <li><%= link_to "Offers", offers_path, class: "dropdown-item" %></li>
               <li><%= link_to "Edit account", edit_user_registration_path, class: "dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>
               <li><%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %></li>
             </ul>
           </li>
+
         <% else %>
           <li class="nav-item rounded"><%= link_to "Home", root_path, class: "nav-link active", "aria-current":"page" %></li>
           <li class="nav-item rounded"><%= link_to "Offers", offers_path, class: "nav-link" %></li>

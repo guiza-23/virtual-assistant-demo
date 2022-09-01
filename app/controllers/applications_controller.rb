@@ -1,6 +1,10 @@
 class ApplicationsController < ApplicationController
+  before_action :set_user
+  before_action :set_application, only: %i[show edit update destroy]
+
   def index
-    @applications = Application.all
+    @applications = Application.where(assistant: @user.assistant)
+    @applications = Application.select {|app| app.company == @user.company}
   end
 
   def show
@@ -30,6 +34,14 @@ class ApplicationsController < ApplicationController
   private
 
   def application_params
-    params.require(:application).permit(:offer_id, :assistant_id)
+    params.require(:application).permit(:offer_id, :assistant_id, :status)
+  end
+
+  def set_application
+    @application = Application.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
   end
 end
