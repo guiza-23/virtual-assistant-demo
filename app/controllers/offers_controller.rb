@@ -3,19 +3,28 @@ class OffersController < ApplicationController
   before_action :set_offer, only: %i[show edit update destroy]
 
   def index
-    @offers = Offer.all
+    # @assistants = policy_scope(Assistant)
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR tag ILIKE :query"
+      @offers = Offer.where(sql_query, query: "%#{params[:query]}%")
+      # @page =  params[:page].to_i
+    else
+      @offers = Offer.all
+      # @page =  params[:page].to_i
+      # @flats = Flat.offset(@page * FLATS_PER_PAGE).limit(FLATS_PER_PAGE)
+    end
   end
 
   def show
-    @offer = Offer.find(params[:id])
   end
 
   def new
-    if @user.company.nil?
-      redirect_to new_company_path
-    else
+
+    if @user.company != nil
       @offer = Offer.new
-      # authorize @offer
+    else
+      redirect_to new_company_path
+    # authorize @offer
     end
   end
 
@@ -32,9 +41,7 @@ class OffersController < ApplicationController
     # authorize @offer
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
     if @offer.update(offer_params)
@@ -46,7 +53,7 @@ class OffersController < ApplicationController
 
   def destroy
     @offer.destroy
-    redirect_to offers_path
+    redirect_to offers_path, status: :see_other
   end
 
   private
@@ -62,4 +69,5 @@ class OffersController < ApplicationController
   def set_user
     @user = current_user
   end
+
 end

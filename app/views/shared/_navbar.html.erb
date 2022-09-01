@@ -10,7 +10,7 @@
         <% if user_signed_in? %>
 
           <li class="nav-item rounded"><%= link_to "Home", root_path, class: "nav-link active", "aria-current":"page" %></li>
-          <li class="nav-item rounded"><%= link_to "About Us", "/", class: "nav-link" %></li>
+          <li class="nav-item rounded"><%= link_to "Offers", offers_path, class: "nav-link" %></li>
           <li class="nav-link nav-item rounded">Message<%#= link_to "Message", chatroom_messages, class: "nav-link" %></li>
           <li class="nav-item rounded"><%= link_to "Contact", "/", class: "nav-link" %></li>
           <% if current_user.type_of_user == 'Company' && current_user.company != nil %>
@@ -18,7 +18,9 @@
           <% elsif current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
           <li class="nav-item rounded"><%= link_to "other Dashboard", assistant_path(current_user.assistant.id),  class: "nav-link"%></li>
           <% end %>
+          
           <a class="nav-link nav-item rounded" href="#" data-bs-toggle="dropdown"><%= current_user.email %></a>
+
           <li class="nav-item rounded dropdown"><%= image_tag "https://kitt.lewagon.com/placeholder/users/=", class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
@@ -31,7 +33,9 @@
 
         <% else %>
           <li class="nav-item rounded"><%= link_to "Home", root_path, class: "nav-link active", "aria-current":"page" %></li>
-          <li class="nav-item rounded"><%= link_to "About Us", "/", class: "nav-link" %></li>
+          <li class="nav-item rounded"><%= link_to "Offers", offers_path, class: "nav-link" %></li>
+          <li class="nav-item rounded"><%= link_to "Assistants", assistants_path, class: "nav-link" %></li>
+          <li class="nav-item rounded"><%= link_to "Companies", companies_path, class: "nav-link" %></li>
           <li class="nav-item rounded"><%= link_to "Contact", "/", class: "nav-link" %></li>
           <li class="nav-item rounded"><%= link_to "Log In", new_user_session_path, class:"nav-link" %></li>
           <li class="nav-item rounded"><%= link_to "Sign Up", new_user_registration_path, class:"nav-link" %></li>
