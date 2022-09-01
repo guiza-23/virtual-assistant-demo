@@ -28,29 +28,28 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    if @user.assistant.nil?
-      redirect_to new_assistant_path
-    # authorize @offer
+    @application = Application.new
+    @application.assistant_id = @user.assistant
+
+    if @application.save
+      redirect_to applications_path
     else
-      @application = Application.new
-      @application.assistant_id = current_user.assistant.id
-      if @application.save
-        redirect_to applications_path
-      else
-        render :new, status: :unprocessable_entity
-      end
+      render :new, status: :unprocessable_entity
     end
   end
 
-  def destroy
-    @application.destroy
-    redirect_to applications_path, status: :see_other
+  def edit
+  end
+
+  def update
+    @application.update(application_params)
+    redirect_to applications_path
   end
 
   private
 
   def application_params
-    params.require(:application).permit(:offer_id, :assistant_id)
+    params.require(:application).permit(:status)
   end
 
   def set_application
