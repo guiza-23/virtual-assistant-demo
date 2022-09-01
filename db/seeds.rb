@@ -26,4 +26,7 @@ assistant2.save!
 
 offer1 = Offer.new(company_id: company1.id, description: 'busco asistente para 5 personas', tag: 'part-time')
 offer1.save
+
+application1 = Application.new(assistant_id: assistant1.id, offer_id: offer1.id, status: "Interview")
+application1.save
 puts "Finished"
