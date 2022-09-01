@@ -1,31 +1,36 @@
-<div class="container vh-100 d-flex m-5">
-  <form>
-    <div class="row">
-      <div class="card-header">
-      <h1>Assistants index</h1>
+<section id="services">
+  <div  class="wrapper-offers">
+    <h1>How can I help you?</h1>
+    <h2>See all our Assistants</h2>
+      <div class="container">
+        <%= form_with url: assistants_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an assistant by skills or availability" %>
+        <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+        <% end %>
       </div>
-      <%= form_with url: assistants_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an assistant by skills or availability" %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-
-      <div class="card-group">
+      <div class="container service-cards">
       <% @assistants.each do |assistant| %>
-        <div class="col-md-4">
-          <div class="card border-dark mb-3" style="width: 18rem;">
-            <div class="card-body">
-              <h4 class="card-tittle"><%= assistant.firstname %> <%= assistant.lastname %></h4>
-              <h6 class="card-subtitle mb-2 text-muted">Assistant</h6>
-                <p class="card-text"> <p>Available: <%= assistant.availability %></p>
-                <p>Skills: <%= assistant.skills %></p>
-                <p><%= assistant.cv %></p></p>
-                <a href="#" class="card-link">CV link</a>
-                <%= link_to "Profile", assistant_path(assistant) %>
+          <div class="service-card ux">
+            <div class="my-2 ">
+              <%= cl_image_tag assistant.photo.key, class:"avatar-square-shadow-m", crop: :thumb, gravity: :face %>
+              <h2><%= assistant.firstname %> <%= assistant.lastname %></h2>
             </div>
+            <div class="my-2 ">
+              <h3>Available: <%= assistant.availability %></h3>
+            </div>
+            <div class="my-2 ">
+              <p>Skills: <%= assistant.skills.chop.gsub(/\"/, '').split(",").drop(1).join(",") %></p>
+            </div>
+            <ul class="tags-ul">
+              <li class="tags mt-2">
+                cv<%= assistant.cv %>
+              </li>
+              <li class="tags mt-2">
+                <%= link_to "Profile", assistant_path(assistant) %>
+              </li>
+            </ul>
           </div>
-        </div>
-      <% end %>
+        <% end %>
       </div>
-    </div>
-  </form>
-</div>
+  </div>
+</section>
