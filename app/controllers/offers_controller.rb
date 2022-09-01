@@ -46,16 +46,6 @@ class OffersController < ApplicationController
   end
 
   def update
-    # authorize @company
-    @company = Company.find(current_user.company.id)
-    if @company.update(company_params)
-      redirect_to company_path(@company)
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
-  def update
     if @offer.update(offer_params)
       redirect_to company_path
     else
@@ -74,12 +64,11 @@ class OffersController < ApplicationController
     params.require(:offer).permit(:description, :tag, :title, :company_id)
   end
 
-   def set_offer
-     @offer = Offer.find(params[:id])
-   end
+  def set_offer
+    @offer = Offer.find(params[:id])
+  end
 
   def set_user
     @user = current_user
   end
-
 end

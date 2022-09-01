@@ -2,8 +2,7 @@
   <%= f.error_notification %>
   <%= f.input :title %>
   <%= f.input :description %>
-
   <%= f.input :tag, as: :radio_buttons, collection: %i[Any Part-time Full-time], wrapper: :vertical_collection_inline %>
   <%= f.button :submit, class: "btn-primary" %>
-  <%= link_to 'Back', offers_path, class:"btn btn-primary" %>
+  <%= link_to 'Back', company_path, class:"btn btn-primary" %>
 <% end %>
