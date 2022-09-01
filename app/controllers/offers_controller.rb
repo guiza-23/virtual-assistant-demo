@@ -11,7 +11,7 @@ class OffersController < ApplicationController
   end
 
   def new
-    if @user.company = nil
+    if @user.company.nil?
       redirect_to new_company_path
     else
       @offer = Offer.new

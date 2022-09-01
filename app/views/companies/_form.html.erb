@@ -1,10 +1,8 @@
 <div class="container d-flex m-5">
- <form>
-  <%= simple_form_for(company) do |f| %>
+  <%= simple_form_for(@company) do |f| %>
     <%= f.input :name, placeholder: "what's the name of the company?"  %>
     <%= f.input :description, placeholder: "tell us about your company"  %>
     <%= f.input :logo, as: :file, placeholder: "add the logo of your company" %>
     <%= f.submit class: "btn btn-primary" %>
   <% end %>
- </form>
 </div>
