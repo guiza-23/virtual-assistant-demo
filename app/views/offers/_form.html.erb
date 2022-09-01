@@ -2,7 +2,7 @@
   <%= f.error_notification %>
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :tag, as: :check_boxes, collection: %i[any part-time full-time], wrapper: :vertical_collection_inline %>
+  <%= f.input :tag, as: :radio_buttons, collection: %w[any part-time full-time], wrapper: :vertical_collection_inline %>
   <%= f.button :submit, class: "btn-primary" %>
   <%= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
 <% end %>

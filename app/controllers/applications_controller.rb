@@ -3,8 +3,15 @@ class ApplicationsController < ApplicationController
   before_action :set_application, only: %i[show edit update destroy]
 
   def index
-    @applications = Application.where(assistant: @user.assistant)
-    @applications = Application.select {|app| app.company == @user.company}
+    if user_signed_in?
+      if current_user.assistant != nil
+        @applications = Application.where(assistant: @user.assistant)
+      elsif current_user.company != nil
+        @applications = Application.select {|app| app.company == @user.company}
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def show
@@ -26,7 +33,6 @@ class ApplicationsController < ApplicationController
     if @application.save
       redirect_to applications_path
     else
-      raise
       render :new, status: :unprocessable_entity
     end
   end
