@@ -18,13 +18,13 @@
           <% elsif current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
           <li class="nav-item rounded"><%= link_to "other Dashboard", assistant_path(current_user.assistant.id),  class: "nav-link"%></li>
           <% end %>
-          
+
           <a class="nav-link nav-item rounded" href="#" data-bs-toggle="dropdown"><%= current_user.email %></a>
 
           <li class="nav-item rounded dropdown"><%= image_tag "https://kitt.lewagon.com/placeholder/users/=", class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-              <li><%= link_to "Offers", offers_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Post a Job Offer", new_offer_path, class: "dropdown-item" %></li>
               <li><%= link_to "Edit account", edit_user_registration_path, class: "dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>
               <li><%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %></li>
