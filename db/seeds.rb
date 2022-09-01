@@ -28,9 +28,9 @@ assistant2 = Assistant.new(user_id: user3.id, skills: "Flexibility", availabilit
 assistant1.save!
 assistant2.save!
 
-offer1 = Offer.new(company_id: company1.id, description: 'busco asistente para 5 personas', tag: 'part-time')
-offer2 = Offer.new(company_id: company2.id, description: 'busco asistente para 2 personas', tag: 'full-time')
-offer3 = Offer.new(company_id: company1.id, description: ' asistente para 3 personas', tag: 'full-time')
+offer1 = Offer.new(company_id: company1.id, title: 'Asistente para oficina en Minessota', description: 'busco asistente para 5 personas', tag: 'part-time')
+offer2 = Offer.new(company_id: company2.id, title: 'Employees for LA office', description: 'busco asistente para 2 personas', tag: 'full-time')
+offer3 = Offer.new(company_id: company1.id, title: 'Looking for remote assistant', description: ' asistente para 3 personas', tag: 'full-time')
 
 offer1.save!
 offer2.save!
