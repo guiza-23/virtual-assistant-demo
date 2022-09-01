@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
 
-.container {
+.container-log {
   // margin: 5% auto;
   background-color: #F5F5F5;
   padding: 20px 20px 20px 0;
@@ -10,14 +10,14 @@
   align-items: center;
 }
 
-.wrapper {
+.wrapper-log {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 450px;
 }
 
-.simple_form {
+.simple-form {
   display: flex;
   flex-direction: column;
   width: 250px;
