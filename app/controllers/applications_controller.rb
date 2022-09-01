@@ -45,6 +45,11 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def destroy
+    @application.destroy
+    redirect_to applications_path, status: :see_other
+  end
+
   private
 
   def application_params

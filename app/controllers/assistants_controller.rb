@@ -4,7 +4,7 @@ class AssistantsController < ApplicationController
   #ASSISTANTS_PER_PAGE = 6
 
   def index
-    #@assistants = policy_scope(Assistant)
+    @assistants = policy_scope(Assistant)
     if params[:query].present?
       sql_query = "skills ILIKE :query OR availability ILIKE :query"
       @assistants = Assistant.where(sql_query, query: "%#{params[:query]}%")
@@ -19,7 +19,7 @@ class AssistantsController < ApplicationController
   #profile / show externo de mas info
   def show
     #@assistant = Assistant.find(params[:id])
-    #authorize @assistant
+    authorize @assistant
   end
 
   def new
@@ -39,11 +39,11 @@ class AssistantsController < ApplicationController
   end
 
   def edit
-    #authorize @assistant
+    authorize @assistant
   end
 
   def update
-    #authorize @assistant
+    authorize @assistant
     if @assistant.update(assistant_params)
       redirect_to assistant_path(@assistant)
     else
@@ -74,6 +74,6 @@ class AssistantsController < ApplicationController
   end
 
   def assistant_params
-    params.require(:assistant).permit(:cv, :firstname, :lastname, :skills, :availability, :user_id)
+    params.require(:assistant).permit(:cv, :firstname, :lastname, {skills:[]}, :availability, :user_id)
   end
 end
