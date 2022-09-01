@@ -16,36 +16,48 @@ class OffersController < ApplicationController
   end
 
   def show
+    @offer = Offer.find(params[:id])
+    @applications = Application.where(offer: @offer)
+    # @application = Application.find(params[:id])
   end
 
   def new
-
-    if @user.company != nil
-      @offer = Offer.new
-    else
+    if @user.company.nil?
       redirect_to new_company_path
-    # authorize @offer
+    else
+      @offer = Offer.new
+      # authorize @offer
     end
   end
 
   def create
     @offer = Offer.new(offer_params)
-
     @offer.company_id = @user.company.id
-
     if @offer.save
-      redirect_to new_offer_path
+      redirect_to company_path(@user.company)
     else
       render :new, status: :unprocessable_entity
     end
     # authorize @offer
   end
 
-  def edit; end
+  def edit
+    # authorize @company
+  end
+
+  def update
+    # authorize @company
+    @company = Company.find(current_user.company.id)
+    if @company.update(company_params)
+      redirect_to company_path(@company)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   def update
     if @offer.update(offer_params)
-      redirect_to offer_path
+      redirect_to company_path
     else
       render "Edit"
     end
@@ -53,18 +65,18 @@ class OffersController < ApplicationController
 
   def destroy
     @offer.destroy
-    redirect_to offers_path, status: :see_other
+    redirect_to company_path, status: :see_other
   end
 
   private
 
   def offer_params
-    params.require(:offer).permit(:description, :tag, :company_id)
+    params.require(:offer).permit(:description, :tag, :title, :company_id)
   end
 
-  def set_offer
-    @offer = Offer.find(params[:id])
-  end
+   def set_offer
+     @offer = Offer.find(params[:id])
+   end
 
   def set_user
     @user = current_user
