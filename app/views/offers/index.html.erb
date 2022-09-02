@@ -12,7 +12,7 @@
         <% @offers.each do |offer| %>
           <div class="service-card ux">
             <div class="my-2 ">
-              <img src="https://malousloth.com/img/Icon%20material-computer.png" alt="Avatar company" class="avatar-square">
+              <%= cl_image_tag offer.company.photo.key, class:"avatar-square-shadow-m", crop: :thumb, gravity: :face %>
               <h2><%= offer.company.name %></h3>
             </div>
             <div class="my-2 ">
