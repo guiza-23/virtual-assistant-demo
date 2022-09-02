@@ -39,7 +39,6 @@ class ApplicationsController < ApplicationController
     # @application.offer_id = @offer
     # @application.assistant_id = @user.assistant
     # end
-
     if @application.save
       redirect_to applications_path
 
