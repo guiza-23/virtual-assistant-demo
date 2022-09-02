@@ -1,6 +1,7 @@
+<h4>Apply to this offer</h4>
 <%= simple_form_for(@application) do |f| %>
   <%= f.error_notification %>
   <%= f.input :offer_id, as: :hidden, input_html: { value: params[:offer_id] } %>
-  <%= f.button :submit, class: "btn-primary" %>
-  <%= link_to 'Back', offers_path, class:"btn btn-primary" %>
+  <%= f.button :submit, "Applied", class: "btn-outline-succes" %>
+  <%= link_to 'Back', offers_path, class:"btn btn-outline-primary" %>
 <% end %>
