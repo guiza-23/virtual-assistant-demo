@@ -1,0 +1,6 @@
+<%= simple_form_for(@application) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :offer_id, as: :hidden, input_html: { value: params[:offer_id] } %>
+  <%= f.button :submit, class: "btn-primary" %>
+  <%= link_to 'Back', offers_path, class:"btn btn-primary" %>
+<% end %>
