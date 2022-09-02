@@ -1,5 +1,12 @@
-<div class="container d-flex m-5">
-  <%= simple_form_for(@application) do |f| %>
-    <%= f.submit class: "btn btn-primary" %>
-  <% end %>
-</div>
+
+<section id="services">
+  <div  class="wrapper-offers">
+    <h1>Add a new offer</h1>
+      <div class="service-cards">
+        <div class="service-card ui">
+          <%= render "form", application: @application %>
+        </div>
+      </div>
+  </div>
+</section>
+

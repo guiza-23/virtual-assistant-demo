@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_130902) do
   end
 
   create_table "applications", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "Applied"
     t.bigint "offer_id", null: false
     t.bigint "assistant_id", null: false
     t.datetime "created_at", null: false
