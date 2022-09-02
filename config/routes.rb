@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     resources :applications, only: :new
   end
   resources :applications, except: :new
+  resources :reviews, only: [:new, :create]
 end
