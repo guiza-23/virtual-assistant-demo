@@ -1,7 +1,7 @@
 <section id="services">
   <div  class="wrapper-companies w-75">
     <h1>How can I help you?</h1>
-    <h2>See all ours companies</h2>
+    <h2>See all our companies</h2>
       <div class="container w-75 my-4">
         <%= form_with url: companies_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a company" %>
