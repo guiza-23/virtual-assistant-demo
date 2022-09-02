@@ -1,0 +1,2 @@
+class Chatrom < ApplicationRecord
+end
