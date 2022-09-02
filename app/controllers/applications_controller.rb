@@ -28,13 +28,19 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-     if @user.assistant.nil?
+    raise
+    @offer = Offer.find(params)
+    @application = Application.new
+    raise
+
+    if @user.assistant.nil?
       redirect_to new_assistant_path
-     else
-     @application.offer_id = @offer
-     @application.assistant_id = @user.assistant
-     end
-    
+    else
+      @application.offer_id = @offer
+      @application.assistant_id = @user.assistant
+      raise
+    end
+
     if @application.save
       redirect_to applications_path
 

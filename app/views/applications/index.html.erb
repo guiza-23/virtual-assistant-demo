@@ -36,11 +36,20 @@
                     <h6 class="mb-0"><span class="badge bg-success"><%= application.status %></span></h6>
                   </td>
                   <td class="align-middle">
-                    <%= link_to "", edit_application_path(application), class:"fas fa-check text-success" %>
-                    <%= link_to "", application_path(application), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"fas fa-trash-alt text-danger" %>
+                    <% if current_user.type_of_user == 'Company' %>
+                      <%= link_to "", edit_application_path(application), class:"fas fa-check text-success" %>
+                      <%= link_to "", application_path(application), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"fas fa-trash-alt text-danger" %>
+                    <% elsif application.status == 'Interview' %>
+                      <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                      <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+                      <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ignaciozanotto/consulta-particular'});return false;">shelude your interview</a>
+                    <% else %>
+                      <%= link_to "remove application", application_path(application), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"text-danger" %>
+                    <% end %>
                   </td>
                 </tr>
                 <% end %>
+
               </tbody>
             </table>
           </div>
