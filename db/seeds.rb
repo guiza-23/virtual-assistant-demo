@@ -31,9 +31,9 @@ assistant2 = Assistant.new(user_id: user3.id, skills: "Flexibility", availabilit
 assistant2.photo.attach(io: URI.open("https://images.unsplash.com/photo-1629747387925-6905ff5a558a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"), filename: "assistant2.png", content_type: "image/jpeg")
 assistant2.save!
 
-offer1 = Offer.new(company_id: company1.id, title: 'Administrative assistant for our biggest office in Minnesota', description: 'Looking for a virtual assistant for 5 employees', tag: 'part-time')
-offer2 = Offer.new(company_id: company2.id, title: 'An organizational tasks virtual assistant for multiple employees for our LA office', description: 'Need an assistant for 2 executives', tag: 'full-time')
-offer3 = Offer.new(company_id: company1.id, title: 'Looking for remote bilingual assistant', description: 'Bilingual assistant for 3 people', tag: 'full-time')
+offer1 = Offer.new(company_id: company1.id, title: 'Administrative assistant for our biggest office in Minnesota', description: 'Looking for a virtual assistant for 5 employees', tag: 'Part-time')
+offer2 = Offer.new(company_id: company2.id, title: 'An organizational tasks virtual assistant for multiple employees for our LA office', description: 'Need an assistant for 2 executives', tag: 'Full-time')
+offer3 = Offer.new(company_id: company1.id, title: 'Looking for remote bilingual assistant', description: 'Bilingual assistant for 3 people', tag: 'Full-time')
 
 offer1.save!
 offer2.save!
