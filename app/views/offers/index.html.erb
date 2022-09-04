@@ -1,36 +1,117 @@
-<section class="container-log vh-100" id="services">
-  <div  class="wrapper-offers">
-    <h1>How can I help you?</h1>
-    <h2>See all ours offers</h2>
-      <div class="container">
-        <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an offer by Tag: part-time, full-time, any OR by title" %>
-          <%= submit_tag "Search", class: "btn btn-outline-primary" %>
-        <% end %>
+<h1 class="py-4 m-0">All offers</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 card-margin">
+      <div class="card search-form">
+        <div class="card-body p-0">
+          <%= form_with url: offers_path, method: :get, id:"search-form", class: "d-flex" do %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an offer by Tag: part-time, full-time, any OR by title" %>
+            <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+          <% end %>
+        </div>
       </div>
-      <div class="container service-cards">
-        <% @offers.each do |offer| %>
-          <div class="service-card ux">
-            <div class="my-2 ">
-              <%= cl_image_tag offer.company.photo.key, class:"avatar-square-shadow-m", crop: :thumb, gravity: :face %>
-              <h2><%= offer.company.name %></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-margin">
+        <div class="card-body">
+          <div class="row search-body">
+            <div class="col-lg-12">
+              <div class="search-result">
+                <div class="result-header">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="records">Showing: <b>1-20</b> of <b>200</b> result</div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="result-actions">
+                        <div class="result-sorting">
+                          <span>Sort By:</span>
+                          <select class="form-control border-0" id="exampleOption">
+                            <option value="1">Relevance</option>
+                            <option value="2">Names (A-Z)</option>
+                            <option value="3">Names (Z-A)</option>
+                          </select>
+                        </div>
+                        <div class="result-views">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="result-body">
+                  <div class="table-responsive">
+                    <table class="table widget-26">
+
+                    <% @offers.each do |offer| %>
+                      <tbody>
+                          <tr>
+                          <td>
+                            <div class="widget-26-job-emp-img">
+                              <%= cl_image_tag offer.company.photo.key, class:"avatar-circle-new", crop: :thumb, gravity: :face %>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="widget-26-job-title">
+                              <h6><%= offer.title %></h6>
+                              <p class="m-0"><%= offer.company.name %> <span class="text-muted time"><%= (Time.now - offer.created_at).round %> days ago</span><p>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="widget-26-job-info">
+                              <p class="type m-0"><%= offer.tag %></p>
+                              <p class="text-muted m-0">in <span class="location"><%= offer.location %></span></p>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="widget-26-job-salary">$ <%= offer.cost_hour %>/hr</div>
+                          </td>
+                          <td>
+                            <div class="widget-26-job-category bg-soft-base">
+                                <i class="indicator bg-base"></i>
+                                <span><%= offer.title %></span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="widget-26-job-starred">
+                              <%= link_to "Apply", new_offer_application_path(offer) %>
+                                </svg>
+                              </a>
+                            </div>
+                          </td>
+                          </tr>
+                        </tbody>
+                      <% end %>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="my-2 ">
-            <h3><%= offer.title %></h3>
-            </div>
-            <div class="my-2 ">
-            <p><%= offer.description %></p>
-            </div>
-            <ul class="tags-ul">
-              <li class="tags mt-2">
-                <%= offer.tag %>
+          </div>
+          <nav class="d-flex justify-content-center">
+            <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
+              <li class="page-item">
+                <a class="page-link no-border" href="#">
+                  <span aria-hidden="true">«</span>
+                  <span class="sr-only">Previous</span>
+                </a>
               </li>
-              <li class="tags mt-2">
-                <%= link_to "Apply", new_offer_application_path(offer) %>
+              <li class="page-item active"><a class="page-link no-border" href="#">1</a></li>
+              <li class="page-item"><a class="page-link no-border" href="#">2</a></li>
+              <li class="page-item"><a class="page-link no-border" href="#">3</a></li>
+              <li class="page-item"><a class="page-link no-border" href="#">4</a></li>
+              <li class="page-item">
+                <a class="page-link no-border" href="#">
+                  <span aria-hidden="true">»</span>
+                  <span class="sr-only">Next</span>
+                </a>
               </li>
             </ul>
-          </div>
-        <% end %>
+          </nav>
+        </div>
       </div>
+    </div>
   </div>
-</section>
+</div>

@@ -17,5 +17,5 @@ class User < ApplicationRecord
   # validates :username, uniqueness: { scope: :username, message: "username already taken" }
   validates :email, uniqueness: { scope: :email, message: "email already has an account" }
   # validates :avatar, presence: true
-  # has_one_attached :avatar
+  has_one_attached :photo
 end
