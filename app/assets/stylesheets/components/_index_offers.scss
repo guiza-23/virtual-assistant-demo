@@ -6,30 +6,51 @@ body{
 .widget-26 {
 color: #3c4142;
 font-weight: 400;
+text-align: center;
+letter-spacing: .8px;
 }
 
-.widget-26 tr:first-child td {
+.widget-26 tr:first-child td, .widget-26 tr:first-child th {
 border: 0;
+width: 200px;
+min-width: 150px;
+}
+.widget-26-app tr:first-child th {
+  border: 0;
+  width: 350px;
+  }
+.widget-26-app tr:first-child td {
+  border: 0;
+  width: 350px;
+  }
+
+// .widget-26 .widget-26-job-emp-img img {
+// width: 35px;
+// height: 35px;
+// border-radius: 50%;
+// }
+
+// .widget-26 .widget-26-job-title {
+// min-width: 180px;
+// }
+
+.widget-26-job-application p {
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #3c4142;
+  font-size: 0.8125rem;
 }
 
-.widget-26 .widget-26-job-emp-img img {
-width: 35px;
-height: 35px;
-border-radius: 50%;
-}
-
-.widget-26 .widget-26-job-title {
-min-width: 200px;
-}
-
-.widget-26 .widget-26-job-title a {
-font-weight: 400;
-font-size: 0.875rem;
+.widget-26 .widget-26-job-title span {
+// min-width: 150px;
+font-weight: 500;
+font-size: 1.2rem;
 color: #3c4142;
 line-height: 1.5;
 }
 
-.widget-26 .widget-26-job-title a:hover {
+.widget-26 .widget-26-job-title span:hover {
 color: #68CBD7;
 text-decoration: none;
 }
@@ -40,7 +61,6 @@ line-height: 1.5;
 font-weight: 400;
 color: #3c4142;
 font-size: 0.8125rem;
-color: #3c4142;
 }
 
 .widget-26 .widget-26-job-title .employer-name:hover {
@@ -90,10 +110,12 @@ float: left;
 border-radius: 50%;
 }
 
-.widget-26 .widget-26-job-category span {
-font-size: 0.8125rem;
+.widget-26 .widget-26-job-category p {
+font-size: 0.7rem;
 color: #3c4142;
-font-weight: 600;
+font-weight: 500;
+margin: 0;
+letter-spacing: normal;
 }
 
 .widget-26 .widget-26-job-starred svg {

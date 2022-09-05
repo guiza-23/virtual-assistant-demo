@@ -1,7 +1,7 @@
 <h1 class="py-4 m-0">All offers</h1>
-<div class="container">
+<div class="container d-flex flex-column">
   <div class="row">
-    <div class="col-lg-12 card-margin">
+    <div class="col-12">
       <div class="card search-form">
         <div class="card-body p-0">
           <%= form_with url: offers_path, method: :get, id:"search-form", class: "d-flex" do %>
@@ -17,14 +17,14 @@
       <div class="card card-margin">
         <div class="card-body">
           <div class="row search-body">
-            <div class="col-lg-12">
+            <div class="col-12">
               <div class="search-result">
                 <div class="result-header">
-                  <div class="row">
-                    <div class="col-lg-6">
+                  <%# <div class="row d-flex align-items-center">
+                    <div class="col-12 col-md-6 col-lg-6">
                       <div class="records">Showing: <b>1-20</b> of <b>200</b> result</div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-12 col-md-6 col-lg-6">
                       <div class="result-actions">
                         <div class="result-sorting">
                           <span>Sort By:</span>
@@ -38,54 +38,65 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> %>
                 </div>
                 <div class="result-body">
-                  <div class="table-responsive">
+                  <%# <div class="table-responsive"> %>
                     <table class="table widget-26">
-
+                      <thead class="d-flex align-items-center">
+                        <tr class="d-flex align-items-center justify-content-between row">
+                        </tr>
+                      </thead>
                     <% @offers.each do |offer| %>
-                      <tbody>
-                          <tr>
-                          <td>
-                            <div class="widget-26-job-emp-img">
-                              <%= cl_image_tag offer.company.photo.key, class:"avatar-circle-new", crop: :thumb, gravity: :face %>
+                      <tbody class="d-flex align-items-center">
+                        <tr class="d-flex align-items-center justify-content-between row">
+                          <td class="px-2 col">
+                            <div>
+                              <%= cl_image_tag offer.company.photo.key, class:"avatar-square-shadow-m", crop: :thumb, gravity: :face %>
                             </div>
                           </td>
-                          <td>
+                          <td class="px-2 col">
                             <div class="widget-26-job-title">
-                              <h6><%= offer.title %></h6>
-                              <p class="m-0"><%= offer.company.name %> <span class="text-muted time"><%= (Time.now - offer.created_at).round %> days ago</span><p>
+                              <span class="m-0"><%= offer.company.name %><span>
                             </div>
                           </td>
-                          <td>
+                          <td class="px-2 col">
+                            <div class="widget-26-job-title">
+                              <span class="text-muted time"><%= (Time.now - offer.created_at).round %> days ago</span>
+                            </div>
+                          </td>
+                          <td class="px-2 col">
                             <div class="widget-26-job-info">
                               <p class="type m-0"><%= offer.tag %></p>
-                              <p class="text-muted m-0">in <span class="location"><%= offer.location %></span></p>
                             </div>
                           </td>
-                          <td>
+                          <td class="px-2 col">
+                            <div class="widget-26-job-info">
+                              <p class="text-muted m-0"><span class="location"><%= offer.location %></span></p>
+                            </div>
+                          </td>
+                          <td class="px-2 col">
                             <div class="widget-26-job-salary">$ <%= offer.cost_hour %>/hr</div>
                           </td>
-                          <td>
+                          <td class="px-2 col">
                             <div class="widget-26-job-category bg-soft-base">
                                 <i class="indicator bg-base"></i>
-                                <span><%= offer.title %></span>
+                                <p><%= offer.title %></p>
                             </div>
                           </td>
-                          <td>
+                          <td class="px-2 col">
                             <div class="widget-26-job-starred">
                               <%= link_to "Apply", new_offer_application_path(offer) %>
                                 </svg>
                               </a>
                             </div>
                           </td>
-                          </tr>
+                        </tr>
                         </tbody>
                       <% end %>
                     </table>
 
-                  </div>
+                  <%# </div> %>
                 </div>
               </div>
             </div>

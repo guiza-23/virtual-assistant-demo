@@ -34,11 +34,11 @@ assistant2.save!
 
 puts "Created OFFERS"
 
-offer1 = Offer.new(company_id: company1.id, title: 'Administrative assistant', location: 'Minnesota - US', description: 'Looking for a virtual assistant for 5 employees', tag: 'Part-time')
+offer1 = Offer.new(company_id: company1.id, title: 'Administrative assistant', location: 'Minnesota', description: 'Looking for a virtual assistant for 5 employees', cost_hour: 25, tag: 'Part-time')
 offer1.save!
-offer2 = Offer.new(company_id: company2.id, title: 'Organizational tasks', location: 'Los Angeles - US', description: 'Need an assistant virtual assistant for 2 executives', tag: 'Full-time')
+offer2 = Offer.new(company_id: company2.id, title: 'Organizational tasks', location: 'Los Angeles', description: 'Need an assistant virtual assistant for 2 executives', cost_hour: 32, tag: 'Full-time')
 offer2.save!
-offer3 = Offer.new(company_id: company1.id, title: 'A remote bilingual', location: 'Buenos Aires - AR', description: 'Bilingual assistant for 3 people', tag: 'Any')
+offer3 = Offer.new(company_id: company1.id, title: 'A remote bilingual', location: 'Buenos Aires', description: 'Bilingual assistant for 3 people', cost_hour: 18, tag: 'Any')
 offer3.save!
 
 puts "Created APPLICATIONS"
