@@ -4,6 +4,7 @@ class Assistant < ApplicationRecord
 
   belongs_to :user
   has_many :applications
+  has_many :reviews
   #validates :skills, inclusion: { in: SKILLS }
   validates :skills, presence: true
   validates :availability, inclusion: { in: AVAILABILITY }
