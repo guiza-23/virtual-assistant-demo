@@ -1,9 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_assistant, only: %i[new create]
 
-  def index
-    
-  end
   def new
     @assistant = Assistant.find(params[:assistant_id])
     # @company = Company.find(params[:user_id])
