@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   end
   resources :applications, except: :new
 
+  resources :comments
 end
