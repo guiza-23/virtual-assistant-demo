@@ -1,2 +1,0 @@
-class Chatrom < ApplicationRecord
-end

@@ -1,0 +1,5 @@
+<h4>you want to iniciate a conversation to this person?</h4>
+<%= simple_form_for (@chatroom) do |f| %>
+  <%= f.input :assistant_id, as: :hidden, input_html: { value: params[:id] } %>
+  <%= f.button :submit, "begin conversation", class: "btn-outline-succes" %>
+<% end %>

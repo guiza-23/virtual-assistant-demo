@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_04_003132) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_140640) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,9 +66,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_003132) do
   end
 
   create_table "chatrooms", force: :cascade do |t|
-    t.string "chatroom"
+    t.string "name"
+    t.bigint "assistant_id", null: false
+    t.bigint "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["assistant_id"], name: "index_chatrooms_on_assistant_id"
+    t.index ["company_id"], name: "index_chatrooms_on_company_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -79,6 +83,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_003132) do
     t.datetime "updated_at", null: false
     t.string "photo"
     t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "mensajes", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_mensajes_on_chatroom_id"
+    t.index ["user_id"], name: "index_mensajes_on_user_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -125,7 +139,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_003132) do
   add_foreign_key "applications", "assistants"
   add_foreign_key "applications", "offers"
   add_foreign_key "assistants", "users"
+  add_foreign_key "chatrooms", "assistants"
+  add_foreign_key "chatrooms", "companies"
   add_foreign_key "companies", "users"
+  add_foreign_key "mensajes", "chatrooms"
+  add_foreign_key "mensajes", "users"
   add_foreign_key "offers", "companies"
   add_foreign_key "reviews", "users"
 end
