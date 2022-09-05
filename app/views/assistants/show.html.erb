@@ -170,7 +170,11 @@
             </div>
           </div>
         </div>
-        <%= link_to "Add a review", new_assistant_review_path(@assistant.id), type: "button", class:"btn btn-outline-primary ms-1" %>
+        <% if current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
+          <%= link_to "Leave us your comment about the platform", new_assistant_review_path(@assistant.id), type: "button", class:"btn btn-outline-primary ms-1" %>
+        <% else %>
+          <%= link_to "Add a review for this assistant", new_assistant_review_path(@assistant.id), type: "button", class:"btn btn-outline-primary ms-1" %>
+        <% end %>
       </div>
     </div>
   </div>
