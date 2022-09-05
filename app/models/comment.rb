@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  #belongs_to :assistant
+  belongs_to :assistant
 
   validates :title, presence: true
   validates :title, length: { minimum: 5, maximum: 20 }

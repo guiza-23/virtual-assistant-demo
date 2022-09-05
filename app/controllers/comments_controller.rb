@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.assistant_id = current_user.assistant.id
     if @comment.save
       redirect_to comments_path
     else
@@ -27,6 +28,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:title, :content, :rating, :name)
+    params.require(:comment).permit(:title, :content, :rating, :name, :assistant_id)
   end
 end

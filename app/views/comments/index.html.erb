@@ -25,7 +25,7 @@
       <div class="card">
         <div class="card-body">
           <div class="d-flex align-items-center">
-            <div><%#= cl_image_tag company.photo.key, class:"avatar-square-shadow-m", crop: :thumb, gravity: :face %></div>
+            <div><%= cl_image_tag comment.assistant.photo.key, class:"avatar-md rounded-circle img-thumbnail", crop: :thumb, gravity: :face %></div>
             <div class="flex-1 ms-3">
               <h3 class="font-size-16 mb-1">
                 "<%= comment.title %>"

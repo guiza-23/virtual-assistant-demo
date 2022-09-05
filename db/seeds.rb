@@ -63,11 +63,11 @@ review2.save!
 
 puts "Created COMMENTS"
 
-comment1 = Comment.new(title: 'Amazing Job', content: 'It allows people with skills like me all over the world be able to work remote/online', rating: 5, name: "Pedro")
+comment1 = Comment.new(title: 'Amazing Job', content: 'It allows people with skills like me all over the world be able to work remote/online', rating: 5, name: "Pedro", assistant_id: assistant1.id)
 comment1.save!
-comment2 = Comment.new(title: 'Great platform', content: 'I was able to work remote with an excellent salary and grow my skills and portfolio', rating: 4, name: "Coco")
+comment2 = Comment.new(title: 'Great platform', content: 'I was able to work remote with an excellent salary and grow my skills and portfolio', rating: 4, name: "Coco", assistant_id: assistant2.id)
 comment2.save!
-comment3 = Comment.new(title: 'Excellent', content: 'I am working remote with an excellent salary and getting to know great companies', rating: 5, name: "Anonymous")
+comment3 = Comment.new(title: 'Excellent', content: 'I am working remote with an excellent salary and getting to know great companies', rating: 5, name: "Anonymous", assistant_id: assistant1.id)
 comment3.save!
 
 puts "FINISH --- SEED CREATED"
