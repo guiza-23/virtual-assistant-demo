@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_140640) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_200327) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,6 +67,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_140640) do
     t.index ["user_id"], name: "index_assistants_on_user_id"
   end
 
+  create_table "chatroms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
     t.bigint "assistant_id", null: false
@@ -73,6 +81,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_140640) do
     t.datetime "updated_at", null: false
     t.index ["assistant_id"], name: "index_chatrooms_on_assistant_id"
     t.index ["company_id"], name: "index_chatrooms_on_company_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.bigint "assistant_id"
+    t.index ["assistant_id"], name: "index_comments_on_assistant_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -85,6 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_140640) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
+
   create_table "mensajes", force: :cascade do |t|
     t.string "content"
     t.bigint "chatroom_id", null: false
@@ -93,6 +113,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_140640) do
     t.datetime "updated_at", null: false
     t.index ["chatroom_id"], name: "index_mensajes_on_chatroom_id"
     t.index ["user_id"], name: "index_mensajes_on_user_id"
+
   end
 
   create_table "offers", force: :cascade do |t|
@@ -110,11 +131,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_140640) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "content"
-    t.float "rating"
-    t.bigint "user_id", null: false
+    t.bigint "assistant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.integer "rating"
+    t.index ["assistant_id"], name: "index_reviews_on_assistant_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -139,11 +160,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_140640) do
   add_foreign_key "applications", "assistants"
   add_foreign_key "applications", "offers"
   add_foreign_key "assistants", "users"
+  add_foreign_key "comments", "assistants"
+  add_foreign_key "companies", "users"
   add_foreign_key "chatrooms", "assistants"
   add_foreign_key "chatrooms", "companies"
   add_foreign_key "companies", "users"
   add_foreign_key "mensajes", "chatrooms"
   add_foreign_key "mensajes", "users"
   add_foreign_key "offers", "companies"
-  add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "assistants"
 end
