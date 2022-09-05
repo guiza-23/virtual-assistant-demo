@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def index
-    @comment = Comment.all
+    @comments = Comment.all
   end
 
   def new
@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to root_path
+      redirect_to comments_path
     else
       flash[:alert] = "Something went wrong."
       render :new, status: :unprocessable_entity
@@ -27,6 +27,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:title, :content, :rating)
+    params.require(:comment).permit(:title, :content, :rating, :name)
   end
 end
