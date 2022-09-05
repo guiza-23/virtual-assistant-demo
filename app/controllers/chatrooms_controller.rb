@@ -4,15 +4,15 @@ class ChatroomsController < ApplicationController
   end
 
   def new
+    @assistant = Assistant.find(params[:assistant_id])
     @chatroom = Chatroom.new
   end
 
   def create
     @chatroom = Chatroom.new(chatroom_params)
     @chatroom.company_id = current_user.company.id
-    if @chatroom.save
-      redirect_to chatroom_path(@chatroom)
-    end
+    @chatroom.save
+    redirect_to chatroom_path(@chatroom)
   end
 
   def show
