@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_194213) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_200327) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,6 +84,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_194213) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.bigint "assistant_id"
+    t.index ["assistant_id"], name: "index_comments_on_assistant_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -150,6 +152,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_194213) do
   add_foreign_key "applications", "assistants"
   add_foreign_key "applications", "offers"
   add_foreign_key "assistants", "users"
+  add_foreign_key "comments", "assistants"
   add_foreign_key "companies", "users"
   add_foreign_key "messages", "chatroms"
   add_foreign_key "messages", "users"
