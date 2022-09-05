@@ -1,44 +1,83 @@
-<div class="container py-5 mt-5">
-  <h1>Dashboard<h1>
-  <div class="card" style="width: 50rem;">
-    <img class="card-img-top" src="https://images.unsplash.com/photo-1535990379313-5cd271a2da2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80" alt="Card image cap">
-    <div class="card-body">
-      <h3 class="card-title"><%= @company.name %></h3>
-      <p class="card-text"><%= @company.description %></p>
-      <%= link_to "edit information", edit_company_path, class: "btn btn-primary" %>
-      <%= link_to "see all applications", applications_path, class: "btn btn-primary" %>
-      <%= link_to "post a new job offer", new_offer_path, class: "btn btn-primary" %>
+<h1 class="margin-padding">About <%= @company.name %></h1>
+<div class="container py-4">
+  <div class="row g-3">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card mb-4">
+        <div class="card-body text-center">
+          <%= cl_image_tag @company.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb, gravity: :face %>
+          <h3 class="my-3"><%= @company.name %></h3>
+          <div class="d-flex justify-content-center mb-2">
+            <%# if policy(@company).edit? %>
+              <%= link_to "My Applications", applications_path, type: "button", class:"btn btn-outline-primary ms-1" %>
+              <%= link_to "Edit Profile", edit_company_path, type: "button", class:"btn btn-outline-primary ms-1" %>
+              <%= link_to "Post offer", new_offer_path, type: "button", class:"btn btn-outline-primary ms-1" %>
+              <%#= link_to "Cancel", assitant_path(@company), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            <%# else %>
+              <%#= link_to "Chat", applications_path, type: "button", class:"btn btn-outline-primary ms-1" %>
+              <%#= link_to "My Applications", applications_path, type: "button", class:"btn btn-outline-primary ms-1" %>
+              <%#= link_to "Edit Profile", edit_company_path, type: "button", class:"btn btn-outline-primary ms-1" %>
+            <%# end %>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-4 mb-lg-0">
+        <div class="card-body p-0">
+          <ul class="list-group list-group-flush rounded-3">
+            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+              <i class="fas fa-globe fa-lg text-warning"></i>
+              <p class="mb-0">https://yourcompany.com</p>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+              <p class="mb-0"><%= @company.description %></p>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-
-
-
-<section id="services">
-  <div  class="wrapper-offers">
-    <h2> All open offers</h2>
-      <div class="container service-cards">
+    <div class="col-12 col-md-6 col-lg-8">
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="mb-0">Email</p>
+            </div>
+            <div class="col-sm-9">
+              <p class="text-muted mb-0"><%= @company.user.email %></p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="mb-0">Phone</p>
+            </div>
+            <div class="col-sm-9">
+              <p class="text-muted mb-0"><%= @company.user.phone %></p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="mb-0">Address</p>
+            </div>
+            <div class="col-sm-9">
+              <p class="text-muted mb-0"><%= @company.user.address %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="row">
         <% @offers.each do |offer| %>
-          <div class="service-card ux">
-            <div class="my-2 ">
-              <%= cl_image_tag offer.company.photo.key, class:"avatar-square-shadow-m", crop: :thumb, gravity: :face %>
-              <h2><%= offer.company.name %></h3>
+          <div class="col-12 col-md-12 col-lg-6">
+            <div class="card py2">
+              <div class="card-body">
+                <p class="py-2 m-0"><span class="text-primary font-italic"><%= offer.title %> </span></p>
+                <p class="py-2 m-0" style="font-size: .80rem;"><%= offer.description %></p>
+                <p class="py-2 m-0" style="font-size: .90rem;">Avaibility: <%= offer.tag %></p>
+              </div>
             </div>
-            <div class="my-2 ">
-            <h3><%= offer.title %></h3>
-            </div>
-            <div class="my-2 ">
-            <p><%= offer.description %></p>
-            </div>
-            <ul class="tags-ul">
-              <li class="tags mt-2">
-                <%= offer.tag %>
-              </li>
-              <li class="tags mt-2">
-                <%= link_to "More info", offer_path(offer) %>
-              </li>
-            </ul>
           </div>
         <% end %>
       </div>
+    </div>
   </div>
-</section>
+</div>

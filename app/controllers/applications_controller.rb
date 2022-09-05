@@ -55,6 +55,11 @@ class ApplicationsController < ApplicationController
     redirect_to applications_path
   end
 
+  def destroy
+    @application.destroy
+    redirect_to applications_path
+  end
+
   private
 
   def application_params
