@@ -1,12 +1,13 @@
+.navbar {
+  height: 70px;
+}
 .navbar-nav {
   display: flex;
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-  align-items: flex-start;
-  background-color: rgba(180, 190, 203, 0.1);
-  height: 56px;
+  align-items: center;
 }
 
 .navbar-brand {
@@ -16,8 +17,4 @@
 
 .navbar-nav .nav-item:hover {
   background-color: rgba(180, 190, 203, 0.1);
-}
-
-#email {
-  color: aliceblue;
 }
