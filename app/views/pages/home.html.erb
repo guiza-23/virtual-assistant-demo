@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path 'background.jpg' %>);">
+<div class="banner vh-100" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path 'background.jpg' %>);">
   <div class="container flex-wrap ">
     <div class="py-3">
       <h1>The N°1 <strong><span>Offer</span> <span>Marketplace</span></strong> </h1>
@@ -7,11 +7,188 @@
       <h2>Find your dream in 1 click !</h2>
     </div>
     <div class="py-3">
-      <%= link_to "See all avilable offers", offers_path, class:"btn btn-look btn-outline-light"%>
+      <%= link_to "See offers", offers_path, class:"btn btn-look btn-outline-light m-2"%>
       <% if user_signed_in? == false %>
-      <%= link_to "Our Assistants", assistants_path, class: "btn btn-look btn-outline-light" %>
-      <%= link_to "Our Companies", companies_path, class: "btn btn-look btn-outline-light" %>
+      <%= link_to "Our Assistants", assistants_path, class: "btn btn-look btn-outline-light m-2" %>
+      <%= link_to "Our Companies", companies_path, class: "btn btn-look btn-outline-light m-2" %>
       <% end %>
     </div>
   </div>
 </div>
+
+
+
+
+
+<!-- ======= Testimonials Section ======= -->
+<section id="testimonials" class="testimonials">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>Testimonials</h2>
+      <p>Voluptatem quibusdam ut ullam perferendis repellat non ut consequuntur est eveniet deleniti fignissimos eos quam</p>
+    </div>
+
+    <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+      <div class="swiper-wrapper">
+        <!-- Start testimonial item -->
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <div class="d-flex align-items-center">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img flex-shrink-0" alt="">
+                <div>
+                  <h3>Saul Goodman</h3>
+                  <h4>Ceo &amp; Founder</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- End testimonial item -->
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section>
+<!-- End Testimonials Section -->
+
+
+
+
+
+
+
+
+
+
+
+<section class="section_one">
+  <div class="container">
+      <div class="text-center">
+          <h2 class="section-heading text-uppercase">Lorem ipsum dolor sit amet, consectetur?</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+      <div class="row text-center">
+          <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <i class="fas fa-circle fa-stack-2x text-info"></i>
+                  <i class="fas fa-calendar-check fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="my-3">Lorem</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
+          </div>
+          <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <i class="fas fa-circle fa-stack-2x text-info"></i>
+                  <i class="fas fa-bell fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="my-3">Lorem</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
+          </div>
+          <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <i class="fas fa-circle fa-stack-2x text-info"></i>
+                  <i class="fas fa-mobile fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="my-3">Lorem</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="section_two pv-large section-light">
+  <div class="list-comparison section section--large">
+    <div class="list-comparison__col list-comparison__col--left">
+      <h3 class="mb-tiny"> Hiring an assistant</h3>
+      <ul class="list-comparison__col-items animate-list animated">
+        <li class="list-comparison__col-item list-comparison__col-item--cross">Difficult</li>Expensive</li>
+        <li class="list-comparison__col-item list-comparison__col-item--cross">Inflexible</li>
+        <li class="list-comparison__col-item list-comparison__col-item--cross">Difficult to cancel</li>
+      </ul>
+      </div>
+      <span class="list-comparison__vs-badge">VS</span>
+      <div class="list-comparison__col list-comparison__col--right">
+        <h3 class="mb-tiny">Time etc</h3>
+        <ul class="list-comparison__col-items animate-list animated">
+          <li class="list-comparison__col-item list-comparison__col-item--check">Easy</li>Affordable</li>
+          <li class="list-comparison__col-item list-comparison__col-item--check">Flex up and down</li>
+          <li class="list-comparison__col-item list-comparison__col-item--check">Cancel any time</li>
+        </ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="section_three">
+  <div class="py-5">
+    <div class="container">
+        <p class="txt-center text-muted">Since 2022, we've assisted companies, Big and Small.</p>
+        <ul class="row align-items-center logos">
+          <li class="col-xs-2 col-md-2 col-lg-2 logos-item">
+            <img loading="lazy" src="//timeetc.b-cdn.net/assets/img/content/logos/google.png" alt="Google logo">
+          </li>
+          <li class="col-xs-2 col-md-2 col-lg-2 logos-item">
+            <img loading="lazy" src="//timeetc.b-cdn.net/assets/img/content/logos/virgin.png" alt="Virgin logo">
+          </li>
+          <li class="col-xs-2 col-md-2 col-lg-2 logos-item">
+            <img loading="lazy" src="//timeetc.b-cdn.net/assets/img/content/logos/hermanmiller.png" alt="Herman Miller logo">
+          </li>
+          <li class="col-xs-2 col-md-2 col-lg-2 logos-item">
+            <img loading="lazy" src="//timeetc.b-cdn.net/assets/img/content/logos/facebook.png" alt="Facebook logo">
+          </li>
+          <li class="col-xs-2 col-md-2 col-lg-2 logos-item">
+            <img loading="lazy" src="//timeetc.b-cdn.net/assets/img/content/logos/hubspot.png" alt="Hubspot logo">
+          </li>
+          <li class="col-xs-2 col-md-2 col-lg-2 logos-item">
+            <img loading="lazy" src="//timeetc.b-cdn.net/assets/img/content/logos/kfc.png" alt="KFC logo">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section_four">
+  <div class="container">
+      <div class="text-center">
+          <h2 class="section-heading text-uppercase">Lorem ipsum dolor sit amet, consectetur?</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+      <div class="row text-center">
+          <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_100,w_100/v1657317230/wmj8m8sfcgvezp3fz4j3.jpg" alt="">
+              </span>
+              <h4 class="my-3">Micaela</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
+          </div>
+          <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_100,w_100/v1657467847/mezjda9hlupboefuj1dr.jpg" alt="">
+              </span>
+              <h4 class="my-3">Ignacio</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
+          </div>
+          <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <img src="https://res.cloudinary.com/watchlistcreator/image/upload/c_fill,g_face,h_100,w_100/v1662411017/development/72514688_lfr3vn.jpg" alt="">
+              </span>
+              <h4 class="my-3">Cédric</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
+          </div>
+      </div>
+  </div>
+</section>

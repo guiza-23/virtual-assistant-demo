@@ -104,7 +104,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_200327) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
-
   create_table "mensajes", force: :cascade do |t|
     t.string "content"
     t.bigint "chatroom_id", null: false
@@ -113,7 +112,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_200327) do
     t.datetime "updated_at", null: false
     t.index ["chatroom_id"], name: "index_mensajes_on_chatroom_id"
     t.index ["user_id"], name: "index_mensajes_on_user_id"
-
   end
 
   create_table "offers", force: :cascade do |t|
