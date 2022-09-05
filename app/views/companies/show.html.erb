@@ -1,4 +1,4 @@
-<h1 class="py-4 m-0">About <%= @company.name %></h1>
+<h1 class="margin-padding">About <%= @company.name %></h1>
 <div class="container py-4">
   <div class="row g-3">
     <div class="col-12 col-md-6 col-lg-4">
@@ -68,9 +68,9 @@
         <div class="row">
         <% @offers.each do |offer| %>
           <div class="col-12 col-md-12 col-lg-6">
-            <div class="card py-2 my-2">
+            <div class="card py2">
               <div class="card-body">
-                <p class="py-2 m-0"><span class="text-primary font-italic"><%= offer.title %> </span>Id: <%= offer.company.id %></p>
+                <p class="py-2 m-0"><span class="text-primary font-italic"><%= offer.title %> </span></p>
                 <p class="py-2 m-0" style="font-size: .80rem;"><%= offer.description %></p>
                 <p class="py-2 m-0" style="font-size: .90rem;">Avaibility: <%= offer.tag %></p>
               </div>
