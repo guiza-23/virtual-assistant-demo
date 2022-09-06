@@ -8,8 +8,8 @@ class MensajesController < ApplicationController
       ChatroomChannel.broadcast_to(
         @chatroom,
         mensaje: render_to_string(partial: "mensaje", locals: {mensaje: @mensaje }),
-        sender_id: @mensaje.user.id )
-
+        sender_id: @mensaje.user.id
+      )
       head :ok
     else
       render "chatrooms/show", status: :unprocessable_entity

@@ -3,7 +3,7 @@ class Company < ApplicationRecord
   has_many :offers, dependent: :destroy
   has_many :applications, through: :offers
   has_many :chatrooms, dependent: :destroy
-  has_many :mensajes, through: :offers
+  has_many :mensajes, through: :chatrooms
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
