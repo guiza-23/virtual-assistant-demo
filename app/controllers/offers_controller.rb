@@ -1,17 +1,18 @@
 class OffersController < ApplicationController
   before_action :set_user
   before_action :set_offer, only: %i[show edit update destroy]
+  OFFERS_PER_PAGE = 6
 
   def index
     # @assistants = policy_scope(Assistant)
     if params[:query].present?
       sql_query = "title ILIKE :query OR tag ILIKE :query"
       @offers = Offer.where(sql_query, query: "%#{params[:query]}%")
-      # @page =  params[:page].to_i
+      @page =  params[:page].to_i
     else
-      @offers = Offer.all
-      # @page =  params[:page].to_i
-      # @flats = Flat.offset(@page * FLATS_PER_PAGE).limit(FLATS_PER_PAGE)
+      #@offers = Offer.all
+      @page =  params[:page].to_i
+      @offers = Offer.offset(@page * OFFERS_PER_PAGE).limit(OFFERS_PER_PAGE)
     end
   end
 
