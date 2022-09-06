@@ -60,17 +60,11 @@
     <div class="col-sm-6">
       <div class="float-sm-end">
         <ul class="pagination mb-sm-0">
-          <li class="page-item disabled">
-            <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-          </li>
-          <li class="page-item active"><a href="#" class="page-link">1</a></li>
-          <li class="page-item"><a href="#" class="page-link">2</a></li>
-          <li class="page-item"><a href="#" class="page-link">3</a></li>
-          <li class="page-item"><a href="#" class="page-link">4</a></li>
-          <li class="page-item"><a href="#" class="page-link">5</a></li>
-          <li class="page-item">
-            <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-          </li>
+    <li class="page-item"><a class="page-link" <%= link_to "<", companies_path(page: @page - 1) %> </li>
+          <li class="page-item"><a class="page-link" <%= link_to "1", companies_path %> </li>
+          <li class="page-item"><a class="page-link" <%= link_to "2", companies_path(page: 1) %> </li>
+          <li class="page-item"><a class="page-link" <%= link_to "3", companies_path(page: 2) %> </li>
+          <li class="page-item"><a class="page-link" <%= link_to ">", companies_path(page: @page + 1) %> </li>
         </ul>
       </div>
     </div>
