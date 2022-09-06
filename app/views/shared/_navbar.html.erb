@@ -3,19 +3,14 @@
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ms-md-auto gap-2">
+  <div class="collapse navbar-collapse bg-dark" id="navbarNav">
+    <ul class="navbar-nav ms-md-auto align-items-start p-2">
 
       <% if user_signed_in? %>
         <li><%= link_to "Home", root_path, class: "nav-item rounded nav-link active", "aria-current":"page" %></li>
-        <li><%= link_to "Offers", offers_path, class: "nav-item rounded nav-link" %></li>
-        <li><%= link_to "Assistants", assistants_path, class: "nav-item rounded nav-link" %></li>
-        <li><%= link_to "Companies", companies_path, class: "nav-item rounded nav-link" %></li>
-        <li><%= link_to "Comments", comments_path, class: "nav-item rounded nav-link" %></li>
-        <%# <li><%= link_to "Messages", chatroom_path(1), class: "nav-item rounded nav-link" %></li> %>
-        <li><%#= link_to "Contact", "/", class: "nav-item rounded nav-link" %></li>
+        <li><%= link_to "Contact", "/", class: "nav-item rounded nav-link" %></li>
 
-        <a class="nav-link nav-item rounded" href="#" data-bs-toggle="dropdown"><%= current_user.username %></a>
+        <a class="nav-link nav-item rounded" href="#" data-bs-toggle="dropdown"><%= current_user.email %></a>
         <%# TODO: NO LOGRO A QUE SE MUESTRA LA IMAGEN DEL USUARIO COMPANY O ASSISTANT ME DICE PHOT: NIL %>
         <li class="nav-item rounded dropdown">
           <% if current_user.photo.key != nil %>
@@ -26,22 +21,27 @@
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <% if current_user.type_of_user == 'Company' && current_user.company != nil %>
               <li><%= link_to "Dashboard", company_path(current_user.company.id),  class: "nav-item rounded dropdown-item"%></li>
-              <li><%= link_to "Post a Job Offer", new_offer_path, class: "nav-item rounded dropdown-item" %></li>
+              <li><%= link_to "All assistants", assistants_path, class: "nav-item rounded dropdown-item" %></li>
+              <li><%= link_to "All companies", companies_path, class: "nav-item rounded dropdown-item" %></li>
+              <li><%= link_to "All comments", comments_path, class: "nav-item rounded dropdown-item" %></li>
+              <li><%= link_to "Complete Profile", new_company_path, class: "nav-item rounded dropdown-item" %></li>
             <% elsif current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
               <li><%= link_to "My Profile", assistant_path(current_user.assistant.id),  class: "nav-item rounded dropdown-item"%></li>
+              <li><%= link_to "All offers", offers_path, class: "nav-item rounded dropdown-item" %></li>
+              <li><%= link_to "All companies", companies_path, class: "nav-item rounded dropdown-item" %></li>
+              <li><%= link_to "All comments", comments_path, class: "nav-item rounded dropdown-item" %></li>
+              <li><%= link_to "Complete Profile", new_assistant_path, class: "nav-item rounded dropdown-item" %></li>
             <% end %>
-            <li><%= link_to "Edit account", edit_user_registration_path, class: "nav-item rounded dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
+            <li><%= link_to "Edit account", edit_user_registration_path, class: "nav-item rounded dropdown-item" %></li>
+            <li><%#= link_to "Complete Profile", new_company_path, class: "nav-item rounded dropdown-item" %></li>
+            <%# <li><%= link_to "Messages", chatroom_path(1), class: "nav-item rounded dropdown-item" %></li>
             <li><%= link_to "Log out", destroy_user_session_path, class: "nav-item rounded dropdown-item", data: {turbo_method: :delete} %></li>
           </ul>
         </li>
 
       <% else %>
         <li><%= link_to "Home", root_path, class: "nav-item rounded nav-link active", "aria-current":"page" %></li>
-        <li><%= link_to "Offers", offers_path, class: "nav-item rounded nav-link" %></li>
-        <li><%= link_to "Assistants", assistants_path, class: "nav-item rounded nav-link" %></li>
-        <li><%= link_to "Companies", companies_path, class: "nav-item rounded nav-link" %></li>
-        <li><%= link_to "Comments", comments_path, class: "nav-item rounded nav-link" %></li>
         <li><%= link_to "Contact", "/", class: "nav-item rounded nav-link" %></li>
         <li><%= link_to "Log In", new_user_session_path, class:"nav-item rounded nav-link" %></li>
         <li><%= link_to "Sign Up", new_user_registration_path, class:"nav-item rounded nav-link" %></li>

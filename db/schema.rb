@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.0].define(version: 2022_09_05_200327) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,12 +63,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_200327) do
     t.string "lastname"
     t.string "photo"
     t.index ["user_id"], name: "index_assistants_on_user_id"
-  end
-
-  create_table "chatroms", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "chatrooms", force: :cascade do |t|
@@ -158,10 +150,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_200327) do
   add_foreign_key "applications", "assistants"
   add_foreign_key "applications", "offers"
   add_foreign_key "assistants", "users"
-  add_foreign_key "comments", "assistants"
-  add_foreign_key "companies", "users"
   add_foreign_key "chatrooms", "assistants"
   add_foreign_key "chatrooms", "companies"
+  add_foreign_key "comments", "assistants"
   add_foreign_key "companies", "users"
   add_foreign_key "mensajes", "chatrooms"
   add_foreign_key "mensajes", "users"
