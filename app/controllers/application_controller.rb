@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  helper_method :mis_mensajes
+
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:type_of_user])
@@ -31,4 +33,23 @@ class ApplicationController < ActionController::Base
   # def skip_pundit?
   #   devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   # end
+
+
+  def mis_mensajes
+    last_mensaje = 0
+    notification = false
+
+    if current_page?(chatroom_path)
+      chatroom = Chatroom.find(params[:id])
+      last_mensaje = chatroom.mensajes.last.id
+    end
+
+    mensaje = current_user.company.mensajes.last.id
+    if mensaje == last_mensaje
+      notification = false
+    else
+      notification = true
+    end
+  end
+
 end
