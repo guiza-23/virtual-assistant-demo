@@ -15,6 +15,7 @@
         <li class="nav-item rounded dropdown">
           <% if current_user.photo.key != nil %>
             <%= cl_image_tag current_user.photo.key, class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% raise %>
           <% else %>
             <%= image_tag "avatar-logout.png", class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
@@ -30,7 +31,6 @@
               <li><%= link_to "All offers", offers_path, class: "nav-item rounded dropdown-item" %></li>
               <li><%= link_to "All companies", companies_path, class: "nav-item rounded dropdown-item" %></li>
               <li><%= link_to "All comments", comments_path, class: "nav-item rounded dropdown-item" %></li>
-              <li><%= link_to "Complete Profile", new_assistant_path, class: "nav-item rounded dropdown-item" %></li>
             <% end %>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to "Edit account", edit_user_registration_path, class: "nav-item rounded dropdown-item" %></li>
