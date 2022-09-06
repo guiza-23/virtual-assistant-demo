@@ -1,0 +1,47 @@
+<div class="modal modal-signin position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalSignin">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h2 class="fw-bold mb-0">Sign up for free</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= f.error_notification %>
+      <div class="modal-body p-5 pt-0">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}, class:"simple-form simple-form-registrer") do |f| %>
+          <div class="form-floating mb-3">
+            <%= f.input_field :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, class:"form-control rounded-3", id:"floatingInput", placeholder:"name@example.com" %>
+          </div>
+          <div class="form-floating mb-3">
+            <%= f.input_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, class:"form-control rounded-3", id:"floatingPassword", placeholder:"Password" %>
+          </div>
+          <div class="form-floating mb-3">
+            <%= f.input_field password_confirmation, required: true, input_html: { autocomplete: "new-password" }, class:"form-control rounded-3", id:"floatingPassword", placeholder:"Password" %>
+          </div>
+          <div class="form-floating mb-3">
+            <%= f.input :type_of_user, as: :radio_buttons,collection: %i[Assistant Company], wrapper: :vertical_collection_inline, prompt: "Choose a type of user" %>
+          </div>
+          <%= f.button :submit, "Sign up", id:"Sign-up-btn", class:"w-100 mb-2 btn btn-lg rounded-3 btn-primary" %>
+          <small class="text-center text-muted">By clicking Sign up, you agree to the terms of use.</small>
+          <hr class="my-4">
+          <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
+          <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3" type="submit">
+            <svg class="bi me-1" width="16" height="16"><use xlink:href="#twitter"/></svg>
+            Sign up with Twitter
+          </button>
+          <div class="form-floating mb-3">
+            <%= f.button :submit, "Sign up", new_session_path(resource_name), class:"w-100 mb-2 btn btn-lg rounded-3 btn-primary" class:"register-btn" %>
+          </div>
+
+          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
+            <svg class="bi me-1" width="16" height="16"><use xlink:href="#facebook"/></svg>
+            Sign up with Facebook
+          </button>
+          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+            <svg class="bi me-1" width="16" height="16"><use xlink:href="#github"/></svg>
+            Sign up with GitHub
+          </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
