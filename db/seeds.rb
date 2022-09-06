@@ -27,9 +27,12 @@ puts "Created COMPANIES"
 
 assistant1 = Assistant.new(user_id: user2.id, skills: "Computer Software", availability: 'Full-time', firstname: "Pedro", lastname: "Piedra")
 assistant1.photo.attach(io: URI.open("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"), filename: "assistant1.png", content_type: "image/jpeg")
+assistant1.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662495271/development/Documento_sin_t%C3%ADtulo_ujgpki.pdf"), filename: "assistant1.pdf", content_type: "file/pdf")
 assistant1.save!
+
 assistant2 = Assistant.new(user_id: user3.id, skills: "Flexibility", availability: 'Part-time', firstname: "Coco", lastname: "Channel")
 assistant2.photo.attach(io: URI.open("https://images.unsplash.com/photo-1629747387925-6905ff5a558a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"), filename: "assistant2.png", content_type: "image/jpeg")
+assistant2.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662494652/development/Coco_cv_ucn06d.pdf"), filename: "assistant2.pdf", content_type: "file/pdf")
 assistant2.save!
 
 puts "Created OFFERS"
