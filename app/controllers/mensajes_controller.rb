@@ -7,7 +7,9 @@ class MensajesController < ApplicationController
     if @mensaje.save
       ChatroomChannel.broadcast_to(
         @chatroom,
-        render_to_string(partial: "mensaje", locals: {mensaje: @mensaje}))
+        mensaje: render_to_string(partial: "mensaje", locals: {mensaje: @mensaje }),
+        sender_id: @mensaje.user.id
+      )
       head :ok
     else
       render "chatrooms/show", status: :unprocessable_entity
