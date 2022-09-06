@@ -2,9 +2,9 @@ class CommentsController < ApplicationController
   COMMENTS_PER_PAGE = 6
 
   def index
-    #@comments = Comment.all
-    #@page =  params[:page].to_i
-    @page =  params[:page].to_i
+    # @comments = Comment.all
+    # @page =  params[:page].to_i
+    @page = params[:page].to_i
     @comments = Comment.offset(@page * COMMENTS_PER_PAGE).limit(COMMENTS_PER_PAGE)
   end
 
