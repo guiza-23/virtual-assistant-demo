@@ -19,6 +19,7 @@ class ChatroomsController < ApplicationController
 
   def show
     @mensaje = Mensaje.new
+    raise
   end
 
   def destroy

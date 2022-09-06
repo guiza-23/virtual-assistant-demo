@@ -7,7 +7,7 @@ class Assistant < ApplicationRecord
   has_many :reviews
   has_many :comments
   has_many :chatrooms, dependent: :destroy
-  has_many :mensajes, through: :offers
+  has_many :mensajes, through: :chatrooms
   #validates :skills, inclusion: { in: SKILLS }
   validates :skills, presence: true
   validates :availability, inclusion: { in: AVAILABILITY }

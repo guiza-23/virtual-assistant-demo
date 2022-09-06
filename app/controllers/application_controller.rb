@@ -24,22 +24,28 @@ class ApplicationController < ActionController::Base
   #   devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   # end
 
-
   def mis_mensajes
     last_mensaje = 0
     notification = false
 
-    if current_page?(chatroom_path)
+    if controller_name == "chatrooms" && action_name == "show"
       chatroom = Chatroom.find(params[:id])
       last_mensaje = chatroom.mensajes.last.id
     end
 
-    mensaje = current_user.company.mensajes.last.id
+    if current_user.company != nil
+      mensaje = current_user.company.mensajes.last.id
+    elsif current_user.assistant != nil
+      mensaje = current_user.assistant.mensajes.last.id
+    end
+
     if mensaje == last_mensaje
       notification = false
     else
       notification = true
     end
+
+    return notification
   end
 
 end
