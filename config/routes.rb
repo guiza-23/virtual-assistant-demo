@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+
   resources :companies
   resources :offers do
     resources :applications, only: :new

@@ -1,18 +1,18 @@
 class AssistantsController < ApplicationController
   before_action :set_assistant, only: [:show, :edit, :update]
   before_action :set_user
-  #ASSISTANTS_PER_PAGE = 6
+  ASSISTANTS_PER_PAGE = 6
 
   def index
     @assistants = policy_scope(Assistant)
     if params[:query].present?
       sql_query = "skills ILIKE :query OR availability ILIKE :query"
       @assistants = Assistant.where(sql_query, query: "%#{params[:query]}%")
-      # @page =  params[:page].to_i
+      @page =  params[:page].to_i
     else
-      @assistants = Assistant.all
-      # @page =  params[:page].to_i
-      # @flats = Flat.offset(@page * FLATS_PER_PAGE).limit(FLATS_PER_PAGE)
+      #@assistants = Assistant.all
+      @page =  params[:page].to_i
+      @assistants = Assistant.offset(@page * ASSISTANTS_PER_PAGE).limit(ASSISTANTS_PER_PAGE)
     end
   end
 

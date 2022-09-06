@@ -1,8 +1,11 @@
 class CompaniesController < ApplicationController
-
+  COMPANIES_PER_PAGE =6
+  
   def index
     # para mi que index no va
-    @companies = Company.all
+    #@companies = Company.all
+    @page =  params[:page].to_i
+    @companies = Company.offset(@page * COMPANIES_PER_PAGE).limit(COMPANIES_PER_PAGE)
   end
 
   def show
