@@ -1,6 +1,8 @@
 class ChatroomsController < ApplicationController
+  before_action :set_chatroom, only: %i[show destroy]
+
   def index
-    @chatrooms = Chatrooms.all
+    @chatrooms = Chatroom.all
   end
 
   def new
@@ -16,11 +18,19 @@ class ChatroomsController < ApplicationController
   end
 
   def show
-    @chatroom = Chatroom.find(params[:id])
     @mensaje = Mensaje.new
   end
 
+  def destroy
+    @chatroom.destroy
+    redirect_to chatrooms_path
+  end
+
   private
+
+  def set_chatroom
+    @chatroom = Chatroom.find(params[:id])
+  end
 
   def chatroom_params
     params.require(:chatroom).permit(:assistant_id, :name)
