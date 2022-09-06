@@ -16,142 +16,108 @@
   </div>
 </div>
 
+<section class="section_one">
+  <div class="container">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-dark pb-4" data-bs-ride="true">
 
-
-
-
-<!-- ======= Testimonials Section ======= -->
-<section id="testimonials" class="testimonials">
-  <div class="container" data-aos="fade-up">
-
-    <div class="section-header">
-      <h2>Testimonials</h2>
-      <p>Voluptatem quibusdam ut ullam perferendis repellat non ut consequuntur est eveniet deleniti fignissimos eos quam</p>
-    </div>
-
-    <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
-      <div class="swiper-wrapper">
-        <!-- Start testimonial item -->
-        <div class="swiper-slide">
-          <div class="testimonial-wrap">
-            <div class="testimonial-item">
-              <div class="d-flex align-items-center">
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img flex-shrink-0" alt="">
-                <div>
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      <div class="carousel-inner">
+        <% @comments.each_with_index do |comment, index| %>
+          <div class="carousel-item <%= index == 0 ? "active" : "" %> ">
+            <div class="row">
+              <div class="col-md-6 mx-auto">
+                <div class="card border border-0 m-0" style="max-width: 600px;">
+                  <div class="row justify-content-center align-items-center" >
+                    <div class="col-md-4 p-0">
+                      <%= cl_image_tag comment.assistant.photo.key, class:"img-fluid rounded-start h-100", crop: :thumb, gravity: :face %>
+                    </div>
+                    <div class="col-md-8 m-0 p-0">
+                      <div class="card-body">
+                        <h5 class="card-title "><i class="text-muted fas fa-quote-left"></i> <%= comment.title %> <i class="text-muted fas fa-quote-right" ></i></h5>
+                        <p class="card-text text-muted"><i class="fas fa-regular fa-comment-dots" style="color:#FF385C"></i><br> <%= comment.content %></p>
+                        <p class="card-text text-muted "><% comment.rating.times do %><i class="fas fa-star" style="color:#FF385C"></i>
+                        <% end %>
+                        </p>
+                        <div>
+                          <small><% cl_image_tag comment.assistant.photo.key, class:"avatar-square-shadow", crop: :thumb, gravity: :face %></small>
+                          <p class="card-text"><small class="text-muted"><%= comment.name %></small></p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
               </div>
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- End testimonial item -->
+        <% end %>
       </div>
-      <div class="swiper-pagination"></div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-
   </div>
 </section>
-<!-- End Testimonials Section -->
-
-
-
-
-
-
-
-
-
-
 
 <section class="section_one">
   <div class="container">
-      <div class="text-center">
-          <h2 class="section-heading text-uppercase">Lorem ipsum dolor sit amet, consectetur?</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+      <div class="text-center py-4">
+          <h3 class="section-heading text-uppercase py-3 m-0">Lorem ipsum dolor sit amet, consectetur?</h3>
+          <h4 class=" text-muted py-3 m-0">Lorem ipsum dolor sit amet consectetur.</h4>
       </div>
       <div class="row text-center">
           <div class="col-md-4">
               <span class="fa-stack fa-4x">
-                  <i class="fas fa-circle fa-stack-2x text-info"></i>
-                  <i class="fas fa-calendar-check fa-stack-1x fa-inverse"></i>
+                  <i class="fas fa-solid fa-circle fa-stack-2x text-color"></i>
+                  <i class="fas fa fa-handshake fa-stack-1x fa-inverse"></i>
               </span>
-              <h4 class="my-3">Lorem</h4>
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
+              <h4 class="m-0 py-4">Lorem</h4>
+              <p class="text-muted m-0 py-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
           </div>
           <div class="col-md-4">
               <span class="fa-stack fa-4x">
-                  <i class="fas fa-circle fa-stack-2x text-info"></i>
-                  <i class="fas fa-bell fa-stack-1x fa-inverse"></i>
+                  <i class="fas fa-circle fa-stack-2x text-color"></i>
+                  <i class="fas fa-desktop fa-stack-1x fa-inverse"></i>
               </span>
-              <h4 class="my-3">Lorem</h4>
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
+              <h4 class="m-0 py-4">Lorem</h4>
+              <p class="text-muted m-0 py-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
           </div>
           <div class="col-md-4">
               <span class="fa-stack fa-4x">
-                  <i class="fas fa-circle fa-stack-2x text-info"></i>
+                  <i class="fas fa-circle fa-stack-2x text-color"></i>
                   <i class="fas fa-mobile fa-stack-1x fa-inverse"></i>
               </span>
-              <h4 class="my-3">Lorem</h4>
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
+              <h4 class="m-0 py-4">Lorem</h4>
+              <p class="text-muted m-0 py-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
           </div>
       </div>
   </div>
 </section>
 
-
-<section class="section_two pv-large section-light">
-  <div class="list-comparison section section--large">
-    <div class="list-comparison__col list-comparison__col--left">
-      <h3 class="mb-tiny"> Hiring an assistant</h3>
-      <ul class="list-comparison__col-items animate-list animated">
-        <li class="list-comparison__col-item list-comparison__col-item--cross">Difficult</li>Expensive</li>
-        <li class="list-comparison__col-item list-comparison__col-item--cross">Inflexible</li>
-        <li class="list-comparison__col-item list-comparison__col-item--cross">Difficult to cancel</li>
-      </ul>
-      </div>
-      <span class="list-comparison__vs-badge">VS</span>
-      <div class="list-comparison__col list-comparison__col--right">
-        <h3 class="mb-tiny">Time etc</h3>
-        <ul class="list-comparison__col-items animate-list animated">
-          <li class="list-comparison__col-item list-comparison__col-item--check">Easy</li>Affordable</li>
-          <li class="list-comparison__col-item list-comparison__col-item--check">Flex up and down</li>
-          <li class="list-comparison__col-item list-comparison__col-item--check">Cancel any time</li>
-        </ul>
-    </div>
-  </div>
-</section>
-
-
-<section class="section_three">
-  <div class="py-5">
+<section class="section_one" style="background-color:#00a6991f">
+  <div class="">
     <div class="container">
-        <p class="txt-center text-muted">Since 2022, we've assisted companies, Big and Small.</p>
-        <ul class="row align-items-center logos">
-          <li class="col-xs-2 col-md-2 col-lg-2 logos-item">
+        <h5 class="txt-center text-muted m-0 py-4">Since 2022, we've assisted companies, Big and Small.</h5>
+        <ul class="row align-items-center logos p-4">
+          <li class="col-xs-2 col-md-2 col-lg-2 logos-item py-2">
             <img loading="lazy" src="//timeetc.b-cdn.net/assets/img/content/logos/google.png" alt="Google logo">
           </li>
-          <li class="col-xs-2 col-md-2 col-lg-2 logos-item">
+          <li class="col-xs-2 col-md-2 col-lg-2 logos-item py-2">
             <img loading="lazy" src="//timeetc.b-cdn.net/assets/img/content/logos/virgin.png" alt="Virgin logo">
           </li>
-          <li class="col-xs-2 col-md-2 col-lg-2 logos-item">
+          <li class="col-xs-2 col-md-2 col-lg-2 logos-item py-2">
             <img loading="lazy" src="//timeetc.b-cdn.net/assets/img/content/logos/hermanmiller.png" alt="Herman Miller logo">
           </li>
-          <li class="col-xs-2 col-md-2 col-lg-2 logos-item">
+          <li class="col-xs-2 col-md-2 col-lg-2 logos-item py-2">
             <img loading="lazy" src="//timeetc.b-cdn.net/assets/img/content/logos/facebook.png" alt="Facebook logo">
           </li>
-          <li class="col-xs-2 col-md-2 col-lg-2 logos-item">
+          <li class="col-xs-2 col-md-2 col-lg-2 logos-item py-2">
             <img loading="lazy" src="//timeetc.b-cdn.net/assets/img/content/logos/hubspot.png" alt="Hubspot logo">
           </li>
-          <li class="col-xs-2 col-md-2 col-lg-2 logos-item">
+          <li class="col-xs-2 col-md-2 col-lg-2 logos-item py-2">
             <img loading="lazy" src="//timeetc.b-cdn.net/assets/img/content/logos/kfc.png" alt="KFC logo">
           </li>
         </ul>
@@ -160,34 +126,33 @@
   </div>
 </section>
 
-
-<section class="section_four">
+<section class="section_one">
   <div class="container">
       <div class="text-center">
-          <h2 class="section-heading text-uppercase">Lorem ipsum dolor sit amet, consectetur?</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase m-0">Lorem ipsum dolor sit amet, consectetur?</h2>
+          <h3 class="section-subheading text-muted m-0 py-4">Lorem ipsum dolor sit amet consectetur.</h3>
       </div>
       <div class="row text-center">
-          <div class="col-md-4">
+          <div class="col-md-4 py-4">
               <span class="fa-stack fa-4x">
-                  <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_100,w_100/v1657317230/wmj8m8sfcgvezp3fz4j3.jpg" alt="">
+                  <img class=" shadow-lg bg-body rounded" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_100,w_100/v1657317230/wmj8m8sfcgvezp3fz4j3.jpg" alt="">
               </span>
-              <h4 class="my-3">Micaela</h4>
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
+              <h4 class="py-3 m-0">Micaela</h4>
+              <p class="text-muted m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 py-4">
               <span class="fa-stack fa-4x">
-                  <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_100,w_100/v1657467847/mezjda9hlupboefuj1dr.jpg" alt="">
+                  <img class=" shadow-lg bg-body rounded" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_100,w_100/v1657467847/mezjda9hlupboefuj1dr.jpg" alt="">
               </span>
-              <h4 class="my-3">Ignacio</h4>
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
+              <h4 class="py-3 m-0">Ignacio</h4>
+              <p class="text-muted m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 py-4">
               <span class="fa-stack fa-4x">
-                  <img src="https://res.cloudinary.com/watchlistcreator/image/upload/c_fill,g_face,h_100,w_100/v1662411017/development/72514688_lfr3vn.jpg" alt="">
+                  <img class=" shadow-lg bg-body rounded" src="https://res.cloudinary.com/watchlistcreator/image/upload/c_fill,g_face,h_100,w_100/v1662411017/development/72514688_lfr3vn.jpg" alt="">
               </span>
-              <h4 class="my-3">Cédric</h4>
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
+              <h4 class="py-3 m-0">Cédric</h4>
+              <p class="text-muted m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut magna dapibus, condimentum dui ac.</p>
           </div>
       </div>
   </div>
