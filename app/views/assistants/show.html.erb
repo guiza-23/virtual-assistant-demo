@@ -15,8 +15,6 @@
               <%#= link_to "Cancel", assitant_path(@assistant), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
             <% else %>
               <%= link_to "Chat", new_assistant_chatroom_path(@assistant), type: "button", class:"btn btn-outline-primary ms-1" %>
-              <%= link_to "My Applications", applications_path, type: "button", class:"btn btn-outline-primary ms-1" %>
-              <%= link_to "Edit Profile", edit_assistant_path, type: "button", class:"btn btn-outline-primary ms-1" %>
             <% end %>
           </div>
         </div>
