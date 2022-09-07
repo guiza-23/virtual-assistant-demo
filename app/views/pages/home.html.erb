@@ -18,11 +18,11 @@
 
 <section class="section_one" style="background: #4b8b85b3">
   <div class="container">
-    <div id="carouselExampleIndicators" class="carousel slide carousel-dark pb-4" data-bs-ride="true">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-dark pb-4" data-bs-ride="carousel">
 
       <div class="carousel-inner">
         <% @comments.each_with_index do |comment, index| %>
-          <div class="carousel-item <%= index == 0 ? "active" : "" %> ">
+          <div class="carousel-item <%= index == 0 ? "active" : "" %> " data-bs-interval="3500">
             <div class="row">
               <div class="col-md-6 mx-auto">
                 <div class="card border border-0 m-0" style="max-width: 600px;">
@@ -38,7 +38,6 @@
                         <% end %>
                         </p>
                         <div>
-                          <small><% cl_image_tag comment.assistant.photo.key, class:"avatar-square-shadow", crop: :thumb, gravity: :face %></small>
                           <p class="card-text"><small class="text-muted"><%= comment.name %></small></p>
                         </div>
                       </div>
@@ -172,3 +171,4 @@
       </div>
   </div>
 </section>
+<script type='text/javascript'></script>
