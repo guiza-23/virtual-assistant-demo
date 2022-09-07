@@ -5,7 +5,7 @@
       <div class="card search-form">
         <div class="card-body p-0">
           <%= form_with url: assistants_path, method: :get, id:"search-form", class: "d-flex" do %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an assistant by availability" %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an assistant by skills or availability" %>
           <%= submit_tag "Search", class: "btn btn-outline-primary" %>
         <% end %>
         </div>
@@ -40,9 +40,10 @@
             <p class="text-muted mb-0"><i class="mdi mdi-phone font-size-15 align-middle pe-2 text-primary"></i> <%= assistant.user.phone %></p>
             <p class="text-muted mb-0 mt-2"><i class="mdi mdi-email font-size-15 align-middle pe-2 text-primary"></i> <%= assistant.user.email %></p>
             <p class="text-muted mb-0 mt-2"><i class="mdi mdi-google-maps font-size-15 align-middle pe-2 text-primary"></i> <%= assistant.availability %></p>
+            <p class="text-muted mb-0 mt-2"><i class="mdi mdi-briefcase-plus font-size-15 align-middle pe-2 text-primary"></i> <%= assistant.skills.gsub(/\"/, '').split(",").join(",").gsub('[,', '').gsub(']', '') %> </p>
           </div>
           <div class="d-flex gap-2 pt-4">
-            <div class="btn btn-soft-primary btn-sm w-50"><i class="bx bx-user me-1"></i> <%= link_to "Profile", assistant_path(assistant) %></div>
+            <div class="btn btn-soft-primary btn-sm w-50"><i class="mdi mdi-forum font-size-15 me-1"></i> <%= link_to "Chat", assistant_path(assistant) %></div>
             <%= link_to "Profile", assistant_path(assistant), class:"btn btn-primary btn-sm w-50" %>
           </div>
         </div>
