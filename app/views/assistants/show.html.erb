@@ -173,7 +173,7 @@
         <% if current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
           <%= link_to "Leave us your comment about the platform", new_comment_path, "data-bs-toggle" => "modal", "data-bs-target" => "#staticBackdrop",type: "button", class:"btn btn-outline-primary ms-1" %>
 
-<%# <%= link_to "Reserve this now", new_flat_reservation_path(@flat), "data-bs-toggle" => "modal", "data-bs-target" => "#staticBackdrop", class: "btn btn-success mt-2", style: "width: 100%" %> %>
+<%# <%= link_to "Reserve this now", new_flat_reservation_path(@flat), "data-bs-toggle" => "modal", "data-bs-target" => "#staticBackdrop", class: "btn btn-success mt-2", style: "width: 100%" %>
 
         <% else %>
           <%= link_to "Add a review for this assistant", new_assistant_review_path(@assistant.id), type: "button", class:"btn btn-outline-primary ms-1" %>
@@ -188,29 +188,28 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+        <h2 class="text-center">Leave us your comment</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       <section class="vh-100" style="background-color: #eee;">
-  <div class="container py-5  mt-5">
-    <div class="container">
-      <h2>Leave us your comment</h2>
-      <div class="row">
-        <div class="col-xs-4">
-          <%= simple_form_for [@comment] do |f| %>
-            <%= f.input :title, placeholder: "Describe your experience" %>
-            <%= f.input :content, placeholder: "What do you like about our service?" %>
-            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
-            <%= f.input :name, placeholder: "Leave us your name" %>
-            <%= f.submit "Send your comment" %>
-          <% end %>
+        <div>
+          <div class="py-5">
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-4">
+                  <%= simple_form_for [@comment] do |f| %>
+                    <%= f.input :title, placeholder: "Describe your experience" %>
+                    <%= f.input :content, placeholder: "What do you like about our service?" %>
+                    <%= f.input :rating, collection: (1..5).to_a, label: " Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+                    <%= f.input :name, placeholder: "Leave us your name" %>
+                    <%= f.submit "Send your comment", class:"btn btn-look btn-outline-dark m-2" %>
+                    <h6 class="text-center text-muted py-2">Thank your for trusting in us!</h6>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <h6>Thank your for trusting in us!</h6>
-    </div>
-  </div>
-</section>
-
       </div>
     </div>
   </div>

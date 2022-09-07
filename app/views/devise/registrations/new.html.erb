@@ -7,19 +7,16 @@
       <h1 class="py-3">Sign Up</h1>
       <%= f.error_notification %>
       <div class="pass-icon w-100 px-4">
-        <%= f.input_field :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, id:"email", placeholder:"Enter an email valid", class:"text-center w-100" %>
-        <%= f.input_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, id:"password", class:"text-center w-100", placeholder:"Password" %>
-        <%= f.input_field :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, id:"password", class:"text-center w-100", placeholder:"Confirm your Password" %>
-
-        <%# <%= f.input :file, as: :file, hint: 'Choose a profile picture', :label => false %>
+        <%= f.input_field :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, id:"email", placeholder:"Enter an email valid", class:"w-100" %>
+        <%= f.input_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, id:"password", class:"w-100", placeholder:"Password" %>
+        <%= f.input_field :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, id:"password", class:"w-100", placeholder:"Confirm your Password" %>
         <%= f.input :type_of_user, as: :radio_buttons,collection: %i[Assistant Company], wrapper: :vertical_collection_inline, prompt: "Choose a type of user" %>
-      <%= f.button :submit, "Sign up", id:"Sign-up-btn", class:"text-center w-100" %>
-      <div class="register">
-        <p>You have an account</p>
-        <%= link_to "LogIn", new_session_path(resource_name), class:"register-btn" %>
-      </div>
+        <%= f.button :submit, "Sign up", id:"Sign-up-btn", class:"text-center w-100" %>
+        <div class="register">
+          <p>You have an account</p>
+          <%= link_to "LogIn", new_session_path(resource_name), class:"register-btn" %>
+        </div>
       </div>
     <% end %>
   </div>
-  <%= render "devise/shared/links" %>
 </div>
