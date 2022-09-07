@@ -9,7 +9,7 @@
         <%= f.input_field :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, id:"email", placeholder:"Enter an email valid", class:"w-100" %>
         <%= f.input_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, id:"password", class:"w-100", placeholder:"Password" %>
         <%= f.input_field :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, id:"password", class:"w-100", placeholder:"Confirm your Password" %>
-        <%= f.input :type_of_user, as: :radio_buttons,collection: %i[Assistant Company], wrapper: :vertical_collection_inline, prompt: "Choose a type of user" %>
+        <%= f.input :type_of_user, as: :radio_buttons, collection: %i[Assistant Company], wrapper: :vertical_collection_inline, prompt: "Choose a type of user" %>
         <%= f.button :submit, "Sign up", id:"Sign-up-btn", class:"text-center w-100" %>
         <div class="register">
           <p>You have an account</p>

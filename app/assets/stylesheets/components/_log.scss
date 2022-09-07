@@ -10,12 +10,18 @@
   align-items: center;
 }
 
-.wrapper-log {
+.wrapper-log, .wrapper-profile {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 350px;
-  height: 500px!important;
+  height: 525px!important;
+}
+.wrapper-profile {
+  height: 550px!important;
+}
+.text-area-profile {
+  height: 120px!important;
 }
 
 .simple-form {
@@ -68,7 +74,8 @@ h1 {
   height: 40px;
   width: 250px;
   border-radius: 15px;
-  padding-left: 15px;
+  padding: 15px 0;
+  text-align: center;
   border: 1px solid #00A699;
   margin-bottom: 10px;
   position: relative;
@@ -82,6 +89,9 @@ h1 {
   right: 0;
   margin-right: 10px;
   filter: opacity(0.3);
+}
+.offer_tag {
+  margin: 0!important;
 }
 
 a {
@@ -100,6 +110,11 @@ a {
   background-color: #00A699!important;
   border-color: #00A699!important;
 }
+.form-check-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: #00A699!important;
+}
 
 #login-btn, #Sign-up-btn {
   margin: 10px 0;
@@ -116,19 +131,6 @@ a {
 span {
   text-align: center;
   position: relative;
-}
-.cancel-account {
-  width: 250px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-.cancel-account hr {
-  width: 100%;
-  height: 1px;
-  background-color: #00A699;
-  border: none;
-  margin: 0 0 20px 0;
 }
 
 .register {

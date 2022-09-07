@@ -11,9 +11,8 @@
         <%= f.input_field :current_password, hint: "we need your current password to confirm your changes", required: true, input_html: { autocomplete: "current-password" }, class:"password", placeholder:"Current Password" %>
         <%= f.input_field :password, hint: "leave it blank if you don't want to change it", required: false, input_html: { autocomplete: "new-password" }, id:"password", placeholder:"New Password", class:"w-100" %>
         <%= f.input_field :password_confirmation, required: false, input_html: { autocomplete: "new-password" }, id:"password", class:"password", placeholder:"Confirm New Password" %>
-        <%= f.button :submit, "Save changes", id:"login-btn", class:"w-100" %>
-        <%= link_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"w-100 register-btn", id:"login-btn" %>
-        <div class="register">
+        <%= f.button :submit, "Save changes", id:"login-btn", class:"text-center w-100" %>
+        <%= link_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, id:"login-btn", class:"btn text-center w-100" %>
         <div class="register">
           <%= link_to "Back", root_path, class:"register-btn" %>
         </div>
