@@ -5,7 +5,7 @@
       <div class="card search-form">
         <div class="card-body p-0">
           <%= form_with url: assistants_path, method: :get, id:"search-form", class: "d-flex" do %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an assistant by skills or availability" %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an assistant by availability" %>
           <%= submit_tag "Search", class: "btn btn-outline-primary" %>
         <% end %>
         </div>
@@ -34,7 +34,6 @@
               <h3 class="font-size-16 mb-1">
                 <%= assistant.firstname %> <%= assistant.lastname %>
               </h3>
-              <span class="badge badge-soft-success mb-0"><%= assistant.skills.chop.gsub(/\"/, '').split(",").drop(1).join(",") %></span>
             </div>
           </div>
           <div class="mt-3 pt-1">
