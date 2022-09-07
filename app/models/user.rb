@@ -13,6 +13,6 @@ class User < ApplicationRecord
   has_one :assistant, dependent: :destroy
 
   validates :type_of_user, inclusion: { in: TYPES }
-  validates :email, uniqueness: { scope: :email, message: "email already has an account" }
   validates :email, presence: true
+  validates :email, uniqueness: { scope: :email, message: "email already has an account" }
 end
