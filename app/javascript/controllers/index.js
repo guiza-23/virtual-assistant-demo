@@ -13,6 +13,9 @@ application.register("form-submit", FormSubmitController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import SearchAssistantsController from "./search_assistants_controller"
+application.register("search-assistants", SearchAssistantsController)
+
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
 

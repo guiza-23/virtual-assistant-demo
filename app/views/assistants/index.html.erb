@@ -4,10 +4,12 @@
     <div class="col-12">
       <div class="card search-form">
         <div class="card-body p-0">
-          <%= form_with url: assistants_path, method: :get, id:"search-form", class: "d-flex" do %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an assistant by skills or availability" %>
-          <%= submit_tag "Search", class: "btn btn-outline-primary" %>
-        <% end %>
+          <div data-controller="search-assistants">
+            <%= form_with url: assistants_path, method: :get, html: {class: "mb-4", data: {search_movies_target: "form"}} do |f| %>
+            <%= f.text_field :query, class: "form-control", placeholder: "Search by skill or availability", value: params[:query], data: {search_assistants_target: "input", action: "keyup->search-assistants#update"} %>
+            <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
