@@ -13,9 +13,6 @@ class User < ApplicationRecord
   has_one :assistant, dependent: :destroy
 
   validates :type_of_user, inclusion: { in: TYPES }
-
-  # validates :username, uniqueness: { scope: :username, message: "username already taken" }
+  validates :email, presence: true
   validates :email, uniqueness: { scope: :email, message: "email already has an account" }
-  # validates :avatar, presence: true
-  has_one_attached :photo
 end
