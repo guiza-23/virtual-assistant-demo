@@ -4,7 +4,7 @@
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card mb-4">
         <div class="card-body text-center">
-          <%= cl_image_tag @assistant.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb, gravity: :face %>
+          <%= cl_image_tag @assistant.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb %>
           <h5 class="my-3"><%= @assistant.firstname %></h5>
           <p class="text-muted mb-1">Assistant</p>
           <p class="text-muted mb-4">Available: <%= @assistant.availability %></p>

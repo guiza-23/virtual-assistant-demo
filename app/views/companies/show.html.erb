@@ -5,7 +5,7 @@
       <div class="card mb-4">
         <div class="card-body text-center">
           <%= cl_image_tag @company.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb, gravity: :face %>
-          <h3 class="my-3"><%= @company.name %></h3>
+          <h5 class="my-3"><%= @company.name %></h5>
           <div class="d-flex justify-content-center mb-2">
             <%# if policy(@company).edit? %>
               <%= link_to "My Applications", applications_path, type: "button", class:"btn btn-outline-primary ms-1" %>
