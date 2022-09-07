@@ -28,19 +28,19 @@
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
               <i class="fab fa-github fa-lg" style="color: #333333;"></i>
-              <p class="mb-0">virtualassistant</p>
+              <a href="#">Github/<%= @assistant.firstname %>_<%= @assistant.lastname %></a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
               <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
-              <p class="mb-0">@virtualassistant</p>
+              <a href="#">Twitter/<%= @assistant.firstname %>_<%= @assistant.lastname %></a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
               <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-              <p class="mb-0">virtualassistant</p>
+              <a href="#">Instagram/<%= @assistant.firstname %>_<%= @assistant.lastname %></a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
               <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-              <p class="mb-0">virtualassistant</p>
+              <a href="#">Facebook/<%= @assistant.firstname %>_<%= @assistant.lastname %></a>
             </li>
           </ul>
         </div>
@@ -81,7 +81,7 @@
               <p class="mb-0">Skills</p>
             </div>
             <div class="col-sm-9">
-              <p class="text-muted mb-0"><%= @assistant.skills.chop.gsub(/\"/, '').split(",").drop(1).join(",") %></p>
+              <p class="text-muted mb-0"><%= @assistant.skills.gsub(/\"/, '').split(",").join(",").gsub('[,','').gsub(']','') %></p>
             </div>
           </div>
           <hr>
@@ -95,7 +95,7 @@
           </div>
         </div>
       </div>
-      <div class="row g-4">
+      <%# <div class="row g-4">
         <div class="col-12 col-md-8 col-lg-6">
           <div class="card mb-4 mb-md-0">
             <div class="card-body">
@@ -149,7 +149,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> %>
         <div class="col-12 col-md-8 col-lg-6">
           <div class="card mb-4 mb-md-0">
             <div class="card-body">
@@ -165,17 +165,14 @@
                   </li>
                 <% end %>
                 </ul>
+            <% if current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
+            <%= link_to "Leave us your review about the platform", new_comment_path, "data-bs-toggle" => "modal", "data-bs-target" => "#staticBackdrop",type: "button", class:"btn btn-outline-primary ms-1" %>
+            <% else %>
+            <%= link_to "Add a review for this assistant", new_assistant_review_path(@assistant.id), type: "button", class:"btn btn-outline-primary ms-1" %>
+            <% end %>
             </div>
           </div>
         </div>
-        <% if current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
-          <%= link_to "Leave us your comment about the platform", new_comment_path, "data-bs-toggle" => "modal", "data-bs-target" => "#staticBackdrop",type: "button", class:"btn btn-outline-primary ms-1" %>
-
-<%# <%= link_to "Reserve this now", new_flat_reservation_path(@flat), "data-bs-toggle" => "modal", "data-bs-target" => "#staticBackdrop", class: "btn btn-success mt-2", style: "width: 100%" %> %>
-
-        <% else %>
-          <%= link_to "Add a review for this assistant", new_assistant_review_path(@assistant.id), type: "button", class:"btn btn-outline-primary ms-1" %>
-        <% end %>
       </div>
     </div>
   </div>
@@ -192,7 +189,7 @@
        <section class="vh-100" style="background-color: #eee;">
   <div class="container py-5  mt-5">
     <div class="container">
-      <h2>Leave us your comment</h2>
+      <h2>Leave us your review</h2>
       <div class="row">
         <div class="col-xs-4">
           <%= simple_form_for [@comment] do |f| %>
