@@ -3,11 +3,11 @@ class Assistant < ApplicationRecord
   AVAILABILITY = ["Any", "Part-time", "Full-time"]
 
   belongs_to :user
-  has_many :applications
-  has_many :reviews
-  has_many :comments
+  has_many :applications, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :chatrooms, dependent: :destroy
-  has_many :mensajes, through: :offers
+  has_many :mensajes, through: :chatrooms
   #validates :skills, inclusion: { in: SKILLS }
   validates :skills, presence: true
   validates :availability, inclusion: { in: AVAILABILITY }

@@ -1,6 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :assistant
 
+  validates :rating, presence: true
   validates :title, presence: true
   validates :title, length: { minimum: 5, maximum: 20 }
   validates :content, presence: true

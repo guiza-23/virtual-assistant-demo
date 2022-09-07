@@ -19,6 +19,7 @@ class AssistantsController < ApplicationController
   #profile / show externo de mas info
   def show
     #@assistant = Assistant.find(params[:id])
+    @comment = Comment.new
     authorize @assistant
   end
 
