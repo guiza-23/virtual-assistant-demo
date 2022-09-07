@@ -13,9 +13,10 @@
         <a class="nav-link nav-item rounded" href="#" data-bs-toggle="dropdown"><%= current_user.email %></a>
         <%# TODO: NO LOGRO A QUE SE MUESTRA LA IMAGEN DEL USUARIO COMPANY O ASSISTANT ME DICE PHOT: NIL %>
         <li class="nav-item rounded dropdown">
-          <% if current_user.photo.key != nil %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% raise %>
+          <% if current_user.type_of_user == 'Company' && current_user.company != nil && current_user.company.photo.key != nil%>
+            <%= cl_image_tag current_user.company.photo.key, class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% elsif current_user.type_of_user == 'Assistant' && current_user.assistant != nil && current_user.assistant.photo.key != nil %>
+            <%= cl_image_tag current_user.assistant.photo.key, class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
             <%= image_tag "avatar-logout.png", class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
