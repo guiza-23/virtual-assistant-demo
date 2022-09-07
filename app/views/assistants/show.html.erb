@@ -23,27 +23,33 @@
         <div class="card-body p-0">
           <ul class="list-group list-group-flush rounded-3">
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+              <p class="text-muted mb-1">Curriculum Vitae <%= link_to cl_image_path(@assistant.cv.key, flags: :attachment) do %> </p>
               <i class="fas fa-globe fa-lg text-warning"></i>
-              <p class="mb-0"> <%= link_to "Curriculum Vitae", cl_image_path(@assistant.cv.key, flags: :attachment) %> </p>
+              <% end %>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-              <i class="fab fa-github fa-lg" style="color: #333333;"></i>
-              <a href="#">Github/<%= @assistant.firstname %>_<%= @assistant.lastname %></a>
+              <p class="text-muted mb-1">Github/<%= @assistant.firstname %>_<%= @assistant.lastname %></p>
+              <a href="#"><i class="fab fa-github fa-lg" style="color: #333333;"></i></a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-              <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
-              <a href="#">Twitter/<%= @assistant.firstname %>_<%= @assistant.lastname %></a>
+              <p class="text-muted mb-1">Twitter/<%= @assistant.firstname %>_<%= @assistant.lastname %></p>
+              <a href="#"><i class="fab fa-twitter fa-lg" style="color: #55acee;"></i></a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-              <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-              <a href="#">Instagram/<%= @assistant.firstname %>_<%= @assistant.lastname %></a>
+              <p class="text-muted mb-1">Instagram/<%= @assistant.firstname %>_<%= @assistant.lastname %></p>
+              <a href="#"><i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i></a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-              <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-              <a href="#">Facebook/<%= @assistant.firstname %>_<%= @assistant.lastname %></a>
+              <p class="text-muted mb-1">Facebook/<%= @assistant.firstname %>_<%= @assistant.lastname %></p>
+              <a href="#"><i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i></a>
             </li>
           </ul>
         </div>
+          <% if current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
+          <%= link_to "Leave us your review", new_comment_path, "data-bs-toggle" => "modal", "data-bs-target" => "#staticBackdrop",type: "button", class:"btn btn-outline-primary mt-2 w-100" %>
+          <% else %>
+          <%= link_to "Add a review for this assistant", new_assistant_review_path(@assistant.id), type: "button", class:"btn btn-outline-primary mt-2 w-100" %>
+          <% end %>
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-8">
@@ -95,83 +101,17 @@
           </div>
         </div>
       </div>
-      <%# <div class="row g-4">
-        <div class="col-12 col-md-8 col-lg-6">
-          <div class="card mb-4 mb-md-0">
-            <div class="card-body">
-              <p class="mb-4"><span class="text-primary font-italic me-1">assigment 1</span> Project Status
-              </p>
-              <p class="mb-1" style="font-size: .77rem;">Development Design</p>
-              <div class="progress rounded" style="height: 5px;">
-                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
-                  aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              <p class="mt-4 mb-1" style="font-size: .77rem;">Project Markup</p>
-              <div class="progress rounded" style="height: 5px;">
-                <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                  aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-8 col-lg-6">
-          <div class="card mb-4 mb-md-0">
-            <div class="card-body">
-              <p class="mb-4"><span class="text-primary font-italic me-1">assigment 2</span> Project Status
-              </p>
-              <p class="mb-1" style="font-size: .77rem;">Development Design</p>
-              <div class="progress rounded" style="height: 5px;">
-                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
-                  aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              <p class="mt-4 mb-1" style="font-size: .77rem;">Project Markup</p>
-              <div class="progress rounded" style="height: 5px;">
-                <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                  aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-8 col-lg-6">
-          <div class="card mb-4 mb-md-0">
-            <div class="card-body">
-              <p class="mb-4"><span class="text-primary font-italic me-1">assigment 3</span> Project Status
-              </p>
-              <p class="mb-1" style="font-size: .77rem;">Development Design</p>
-              <div class="progress rounded" style="height: 5px;">
-                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
-                  aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              <p class="mt-4 mb-1" style="font-size: .77rem;">Project Markup</p>
-              <div class="progress rounded" style="height: 5px;">
-                <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                  aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-          </div>
-        </div> %>
-        <div class="col-12 col-md-8 col-lg-6">
-          <div class="card mb-4 mb-md-0">
-            <div class="card-body">
-              <p class="mb-4"><span class="text-primary font-italic me-1">Reviews</span>
-              </p>
-                <ul class="list-group" style="font-size: .77rem;">
-                  <% @assistant.reviews.each do |review| %>
-                  <li class="list-group-item">
-                    <%= review.content %>
-                    <% review.rating.times do %>
-                      <i class="fas fa-star"></i>
-                    <% end %>
-                  </li>
-                <% end %>
-                </ul>
-            <% if current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
-            <%= link_to "Leave us your review about the platform", new_comment_path, "data-bs-toggle" => "modal", "data-bs-target" => "#staticBackdrop",type: "button", class:"btn btn-outline-primary ms-1" %>
-            <% else %>
-            <%= link_to "Add a review for this assistant", new_assistant_review_path(@assistant.id), type: "button", class:"btn btn-outline-primary ms-1" %>
+      <div class="card mb-4 mb-lg-0">
+        <div class="card-body p-0">
+          <h5 class="mb-4 mt-4">Reviews about <%= @assistant.firstname %></h5>
+          <ul class="list-group list-group-flush rounded-3">
+            <% @assistant.reviews.each do |review| %>
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+              "<%= review.content %>"<div class="w-25"><% review.rating.times do %><i class="fas fa-star"></i>
+              <% end %></div>
+              </li>
             <% end %>
-            </div>
-          </div>
+          </ul>
         </div>
       </div>
     </div>
