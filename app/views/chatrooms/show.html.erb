@@ -21,7 +21,7 @@
                           <%= cl_image_tag chatroom.assistant.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb, gravity: :face %>
                           <div class="about">
                             <%= link_to chatroom.assistant.lastname , chatroom_path(chatroom), class:"name", style:"color: black"%>
-                            <p style="font-size: 9px; font-weight: bolder;"><%= chatroom.mensajes.count %> mensajes</p>
+                            <p style="font-size: 9px; font-weight: bolder;"><%= chatroom.mensajes.count %> Messages</p>
                           </div>
                       </li>
                     <% end %>
@@ -32,7 +32,7 @@
                           <%= cl_image_tag chatroom.company.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb, gravity: :face %>
                           <div class="about">
                             <%= link_to chatroom.company.name, chatroom_path(chatroom), class:"name", style:"color: black" %>
-                            <p style="font-size: 9px; font-weight: bolder;"><%= chatroom.mensajes.count %> mensajes</p>
+                            <p style="font-size: 9px; font-weight: bolder;"><%= chatroom.mensajes.count %> Messages</p>
                           </div>
                       </li>
                     <% end %>
@@ -48,13 +48,13 @@
                               <%= cl_image_tag @chatroom.company.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb, gravity: :face %>
                                 <div class="chat-about">
                                     <h6 style="margin: 0px"><%= @chatroom.company.name %></h6>
-                                    <small>online</small>
+                                    <p style="font-size: 9px; font-weight: bolder;">Online</p>
                                 </div>
                               <% else %>
                                 <%= cl_image_tag @chatroom.assistant.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb, gravity: :face %>
                                 <div class="chat-about">
                                     <h6 style="margin: 0px"><%= @chatroom.assistant.firstname %></h6>
-                                    <small>online</small>
+                                    <p style="font-size: 9px; font-weight: bolder;">Online</p>
                                 </div>
                               <% end %>
                           </div>
@@ -63,6 +63,8 @@
                   <div class="chat-history" style="height: 400px">
                     <div class="messages" data-chatroom-subscription-target="mensajes">
                       <% @chatroom.mensajes.each do |mensaje| %>
+                        <% @chatroom.company.user.username = @chatroom.company.name%>
+                        <% @chatroom.assistant.user.username = @chatroom.assistant.firstname%>
                         <div class="message-row d-flex <%= mensaje.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
                           <div class="<%= mensaje.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
                             <%= render "mensajes/mensaje", mensaje: mensaje %>
@@ -70,7 +72,7 @@
                         </div>
                       <% end %>
                     </div>
-                    <div class="rounded" style="margin-top: 10px; background-color: #80808057; padding-top: 10px; height: 61px; padding-left: 10px;">
+                    <div class="rounded" style="margin-top: 10px; background-color: #80808017; padding-top: 10px; height: 61px; padding-left: 10px;">
                       <%= simple_form_for [@chatroom, @mensaje],
                         html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex justify-content-between" } do |f|
                       %>
@@ -80,8 +82,8 @@
                           wrapper_html: {class: "flex-grow-1"},
                           input_html: {"data-chatroom-subscription-target": "inputs"}
                         %>
-                        <%= f.submit "Send", class: "btn btn-primary mb-3 mx-3" %>
-                        <%= link_to "back", chatrooms_path, class: "btn btn-primary mb-3" %>
+                        <%= f.submit "Send", class: "btn mb-3 mx-3", style:"background-color: #00A699; border: 1px solid #00A699; color: #fff" %>
+                        <%= link_to "Back", chatrooms_path, class: "btn btn-primary mb-3", style:"background-color: #00A699; border: 1px solid #00A699; color: #fff" %>
                       <% end %>
                     </div>
                   </div>
