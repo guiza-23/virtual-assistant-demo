@@ -17,18 +17,18 @@
 </div>
 
 <section class="section_one" style="background: #4b8b85b3">
+  <div><h2 style="margin-bottom: 50px;">What our customers say</h2></div>
   <div class="container">
-    <div id="carouselExampleIndicators" class="carousel slide carousel-dark pb-4" data-bs-ride="carousel">
-
+    <div id="carouselExampleIndicators" class="carousel slide carousel-dark pb-4" data-bs-ride="true">
       <div class="carousel-inner">
         <% @comments.each_with_index do |comment, index| %>
           <div class="carousel-item <%= index == 0 ? "active" : "" %> " data-bs-interval="3500">
             <div class="row">
               <div class="col-md-6 mx-auto">
-                <div class="card border border-0 m-0" style="max-width: 600px;">
-                  <div class="row justify-content-center align-items-center" >
+                <div class="card border border-0 m-0" style="max-width: 600px; height: 260px; box-shadow: 0 0 15px rgb(0 0 0 / 25%); border-radius: 4px;">
+                  <div class="row justify-content-center align-items-center" style="height: 260px;" >
                     <div class="col-md-4 p-0">
-                      <%= cl_image_tag comment.assistant.photo.key, class:"img-fluid rounded-start h-100", crop: :thumb, gravity: :face %>
+                      <%= cl_image_tag comment.assistant.photo.key, class:"img-fluid rounded-start h-100", style:"box-shadow: 0 0 15px rgb(0 0 0 / 25%); border-radius: 4px;", crop: :thumb, gravity: :face %>
                     </div>
                     <div class="col-md-8 m-0 p-0">
                       <div class="card-body">
@@ -42,12 +42,9 @@
                         </div>
                       </div>
                     </div>
-
                   </div>
+                </div>
               </div>
-
-              </div>
-
             </div>
           </div>
         <% end %>
@@ -62,6 +59,7 @@
       </button>
     </div>
   </div>
+  <div><a class="btn btn-look btn-outline-light" style="margin-top: 40px;" href="/comments">see all reviews!</a></div>
 </section>
 
 <section class="section_one">
@@ -97,6 +95,7 @@
           </div>
       </div>
   </div>
+  <div><a class="btn btn-look btn-outline-light" id="btn-pink" style="margin-top: 40px;" href="/comments">start now!</a></div>
 </section>
 
 <section class="section_one" style="background-color:#e200002e">
