@@ -7,7 +7,7 @@
           <%= form_with url: assistants_path, method: :get, id:"search-form", class: "d-flex" do %>
           <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an assistant by skills or availability" %>
           <%= submit_tag "Search", class: "btn btn-soft profile-btn btn-sm" %>
-        <% end %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -44,10 +44,10 @@
     </div>
   <% end %>
   </div>
-  <div class="row g-0 align-items-center py-4">
-    <div class="col-sm-6">
-        <div><p class="mb-sm-0">Showing 1 to 6 of 57 entries</p></div>
-    </div>
+
+  <div class="row g-0 align-items-center pb-4">
+    <div class="col-sm-6"></div>
+
     <div class="col-sm-6">
       <div class="float-sm-end">
         <ul class="pagination mb-sm-0">

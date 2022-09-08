@@ -158,8 +158,15 @@ application5.save!
 puts "Created APPLICATIONS"
 
 
-review1 = Review.new(assistant_id: assistant1.id, content: 'Excellent assistant!', rating: 5)
+review1 = Review.new(assistant_id: assistant1.id, content: 'Excellent assistant! Knows how to work in a team', rating: 5)
 review1.save!
+review22 = Review.new(assistant_id: assistant1.id, content: 'Very impressed by his organizational skills', rating: 5)
+review22.save!
+review23 = Review.new(assistant_id: assistant1.id, content: 'The assistant we needed as a group for a long time', rating: 5)
+review23.save!
+review24 = Review.new(assistant_id: assistant1.id, content: 'Very patient and mind-reading, knows everything!', rating: 5)
+review24.save!
+
 review2 = Review.new(assistant_id: assistant2.id, content: 'Amazing bilingual assistant!', rating: 4)
 review2.save!
 review3 = Review.new(assistant_id: assistant3.id, content: 'Good job!', rating: 4)
