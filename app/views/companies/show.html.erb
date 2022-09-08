@@ -1,4 +1,4 @@
-<h1 class="margin-padding">Dashboard</h1>
+<h1 class="margin-padding">Dashboard of <%= @company.name %></h1>
 <div class="container py-4">
   <div class="row g-3">
     <div class="col-12 col-md-6 col-lg-4">
@@ -8,9 +8,9 @@
           <h5 class="my-3"><%= @company.name %></h5>
           <div class="d-flex justify-content-center mb-2">
             <%# if policy(@company).edit? %>
-              <%= link_to "My Applications", applications_path, type: "button", class:"btn profile-btn btn-sm w-50" %>
+              <%= link_to "Applications to Offers", applications_path, type: "button", class:"btn profile-btn btn-sm w-50" %>
               <%= link_to "Edit Profile", edit_company_path, type: "button", class:"btn profile-btn btn-sm w-50" %>
-              <%= link_to "Post offer", new_offer_path, type: "button", class:"btn profile-btn btn-sm w-50" %>
+              <%= link_to "Post new Offer", new_offer_path, type: "button", class:"btn profile-btn btn-sm w-50" %>
               <%#= link_to "Cancel", assitant_path(@company), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
             <%# else %>
               <%#= link_to "Chat", applications_path, type: "button", class:"btn btn-outline-primary ms-1" %>
@@ -20,8 +20,8 @@
           </div>
         </div>
       </div>
-      <div class="card mb-4 mb-lg-0">
-        <div class="card-body p-0">
+      <div class="card">
+        <div class="card-body border-0 rounded bg-light shadow-lg p-0">
           <ul class="list-group list-group-flush rounded-3">
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
               <i class="fas fa-globe fa-lg text-warning"></i>
@@ -35,8 +35,8 @@
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-8">
-      <div class="card mb-4">
-        <div class="card-body">
+      <div class="card">
+        <div class="card-body border-0 rounded bg-light shadow-lg">
           <div class="row">
             <div class="col-sm-3">
               <p class="mb-0">Email</p>
@@ -65,18 +65,19 @@
           </div>
         </div>
       </div>
-        <div class="row">
-        <% @offers.each do |offer| %>
-          <div class="col-12 col-md-12 col-lg-6">
-            <div class="card py2">
-              <div class="card-body">
-                <p class="py-2 m-0"><span class="text-primary font-italic"><%= offer.title %> </span></p>
+      <div class="card mb-4 mb-lg-0">
+        <div class="card-body p-0">
+          <h5 class="mb-4 mt-4">Your open Offers</h5>
+          <ul class="list-group list-group-flush rounded-3">
+            <% @offers.each do |offer| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="mdi mdi-briefcase-plus font-size-15 align-middle pe-2 icon-text"></i><p class="py-2 m-0"><%= offer.title %></p>
                 <p class="py-2 m-0" style="font-size: .80rem;"><%= offer.description %></p>
                 <p class="py-2 m-0" style="font-size: .90rem;">Avaibility: <%= offer.tag %></p>
-              </div>
-            </div>
-          </div>
-        <% end %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
