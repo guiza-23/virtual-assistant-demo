@@ -16,7 +16,7 @@ class AssistantsController < ApplicationController
     end
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: "assistants/list", locals: {assistants: @assistants}, formats: [:html] }
+      format.text { render "assistants/index", formats: [:html] }
     end
   end
 
