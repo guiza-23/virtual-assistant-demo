@@ -1,4 +1,4 @@
-<div class="banner vh-100" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path 'background.jpg' %>);">
+<div class="banner vh-100" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path 'background.jpg' %>); margin-top: -60px;">
   <div class="container flex-wrap ">
     <div class="media-title py-3">
       <h1>The N°1 <strong><span>Offer</span> <span>Marketplace</span></strong> </h1>
@@ -16,10 +16,10 @@
   </div>
 </div>
 
-<section class="section_one" style="background: #4b8b85b3">
+<section class="section_one" style="background: #4b8b85b3;">
   <div><h2 style="margin-bottom: 50px;">What our customers say</h2></div>
   <div class="container">
-    <div id="carouselExampleIndicators" class="carousel slide carousel-dark pb-4" data-bs-ride="true">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-dark pb-4" data-bs-ride="carousel">
       <div class="carousel-inner">
         <% @comments.each_with_index do |comment, index| %>
           <div class="carousel-item <%= index == 0 ? "active" : "" %> " data-bs-interval="3500">
