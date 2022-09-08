@@ -15,7 +15,7 @@
               <%#= link_to "Cancel", assitant_path(@assistant), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
             <% else %>
 
-              <%= link_to "Chat", new_assistant_chatroom_path(@assistant), type: "button", class:"btn btn-outline-primary ms-1" %>
+              <%= link_to "Chat", new_assistant_chatroom_path(@assistant), type: "button", class:"btn btn-soft profile-btn btn-sm mx-1" %>
 
             <% end %>
           </div>
@@ -48,9 +48,9 @@
           </ul>
         </div>
           <% if current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
-          <%= link_to "Leave us your review", new_comment_path, "data-bs-toggle" => "modal", "data-bs-target" => "#staticBackdrop",type: "button", class:"btn btn-outline-primary mt-2 w-100" %>
+          <%= link_to "Leave us your review", new_comment_path, "data-bs-toggle" => "modal", "data-bs-target" => "#staticBackdrop",type: "button", class:"btn btn-soft profile-btn btn-sm mx-1" %>
           <% else %>
-          <%= link_to "Add a review for this assistant", new_assistant_review_path(@assistant.id), type: "button", class:"btn btn-outline-primary mt-2 w-100" %>
+          <%= link_to "Add a review for this assistant", new_assistant_review_path(@assistant.id), type: "button", class:"btn btn-soft profile-btn btn-sm mx-1"%>
           <% end %>
       </div>
     </div>

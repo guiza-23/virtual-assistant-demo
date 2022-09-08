@@ -53,7 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_200327) do
   end
 
   create_table "assistants", force: :cascade do |t|
-    t.text "description"
     t.string "cv"
     t.string "skills"
     t.string "availability"
