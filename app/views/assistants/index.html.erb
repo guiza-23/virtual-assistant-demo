@@ -47,15 +47,14 @@
 
   <div class="row g-0 align-items-center pb-4">
     <div class="col-sm-6"></div>
-
     <div class="col-sm-6">
       <div class="float-sm-end">
         <ul class="pagination mb-sm-0">
-          <li class="page-item"><a class="pe-2 icon-text" <%= link_to "<", assistants_path(page: @page - 1) %> </li>
-          <li class="page-item"><a class="pe-2 icon-text" <%= link_to "1", assistants_path %> </li>
-          <li class="page-item"><a class="pe-2 icon-text" <%= link_to "2", assistants_path(page: 1) %> </li>
-          <li class="page-item"><a class="pe-2 icon-text" <%= link_to "3", assistants_path(page: 2) %> </li>
-          <li class="page-item"><a class="pe-2 icon-text" <%= link_to ">", assistants_path(page: @page + 1) %> </li>
+          <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "<", assistants_path(page: @page - 1) %> </li>
+          <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "1", assistants_path %> </li>
+          <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "2", assistants_path(page: 1) %> </li>
+          <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "3", assistants_path(page: 2) %> </li>
+          <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to ">", assistants_path(page: @page + 1) %> </li>
         </ul>
       </div>
     </div>
