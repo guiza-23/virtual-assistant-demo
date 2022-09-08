@@ -10,29 +10,40 @@
   align-items: center;
 }
 
-.wrapper-log {
+.wrapper-log, .wrapper-profile {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 350px;
-  height: 500px!important;
+  width: 525px;
+  height: 550px!important;
+  border-radius: 25px;
+}
+.wrapper-profile {
+  height: 550px!important;
+}
+.text-area-profile {
+  height: 120px!important;
+}
+.wrapper-profile-assistant {
+  width: 70%;
+  margin: 0!important;
 }
 
 .simple-form {
   display: flex;
   flex-direction: column;
-  width: 250px;
+  // width: 250px;
   justify-content: space-around;
 }
 
-.simple-form-registrer {
-  width: 300px;
-}
+// .simple-form-registrer {
+  // width: 300px;
+// }
 
 .main-img {
   background-image: url(https://res.cloudinary.com/daa9wpodl/image/upload/v1662577138/bg-sign_ruy0kf.jpg);
   background-size: cover;
-  padding: 250px 150px;
+  padding: 275px 150px;
   border-radius: 25px;
 }
 @media (max-width: 750px) and (min-width: 650px) {
@@ -68,9 +79,10 @@ h1 {
   height: 40px;
   width: 250px;
   border-radius: 15px;
-  padding-left: 15px;
+  padding: 15px 0;
+  text-align: center;
   border: 1px solid #00A699;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -82,6 +94,9 @@ h1 {
   right: 0;
   margin-right: 10px;
   filter: opacity(0.3);
+}
+.offer_tag {
+  margin: 0!important;
 }
 
 a {
@@ -95,14 +110,25 @@ a {
 // #password {
 //   margin-bottom: 15px;
 // }
-
+#assistant_description, #assistant_firstname, #assistant_lastname, #assistant_photo, #assistant_availability, .form-check #assistant_cv {
+  font-size: 14px;
+  font-weight: 500;
+}
 .form-check-input:checked {
   background-color: #00A699!important;
   border-color: #00A699!important;
 }
+.form-check-label, #assistant_description {
+  font-size: 12px;
+  font-weight: 500;
+  color: #00A699!important;
+}
+.form-check {
+  text-align: left;
+}
 
 #login-btn, #Sign-up-btn {
-  margin: 20px 0;
+  margin: 10px 0;
   height: 40px;
   border-radius: 15px;
   border: none;
@@ -116,19 +142,6 @@ a {
 span {
   text-align: center;
   position: relative;
-}
-.cancel-account {
-  width: 250px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-.cancel-account hr {
-  width: 100%;
-  height: 1px;
-  background-color: #00A699;
-  border: none;
-  margin: 0 0 20px 0;
 }
 
 .register {
@@ -167,4 +180,30 @@ span {
 
 button:hover, #login-btn:hover, #Sign-up-btn:hover {
   transform: scale(1.1);
+}
+.chat-profile-btn {
+  background-color: white!important;
+  border: 1px solid #00A699!important;
+  color: #00A699!important;
+  transition: 0.5s!important;
+}
+.icon-text {
+  color: #FF385C!important;
+  transition: 0.5s!important;
+}
+.profile-btn {
+  background-color: #00A699!important;
+  border: 1px solid #00A699!important;
+  color: #fff!important;
+  transition: 0.5s!important;
+}
+.icon-btn {
+  background-color: #fff!important;
+  border: 1px solid #FF385C!important;
+  // color: #fff!important;
+  transition: 0.5s!important;
+}
+.fa-calendar-alt {
+  color: #00A699!important;
+  font-size: 24px!important;
 }
