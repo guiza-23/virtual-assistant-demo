@@ -2,14 +2,6 @@
   <h1 class="">My applications</h1>
     <div class="row pb-4">
       <div class="col-12 ">
-        <div class="card border rounded bg-light shadow-lg mb-0 search-form">
-          <div class="card-body p-0">
-            <%= form_with url: offers_path, method: :get, id:"search-form", class: "d-flex" do %>
-              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an offer by Tag: part-time, full-time, any OR by title" %>
-              <%= submit_tag "Search", class: "btn btn-soft profile-btn btn-sm" %>
-            <% end %>
-          </div>
-        </div>
       </div>
     </div>
     <div class="row pb-4">

@@ -4,7 +4,6 @@ class OffersController < ApplicationController
   OFFERS_PER_PAGE = 6
 
   def index
-    # @assistants = policy_scope(Assistant)
     if params[:query].present?
       sql_query = "title ILIKE :query OR tag ILIKE :query"
       @offers = Offer.where(sql_query, query: "%#{params[:query]}%")
