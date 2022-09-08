@@ -95,7 +95,9 @@
           </div>
       </div>
   </div>
-<div><a class="btn btn-look btn-outline-light" id="btn-pinki" href="/comments">I want to start now!</a></div>
+  <% if !user_signed_in? %>
+    <div><a class="btn btn-look btn-outline-light" id="btn-pinki" href="new_user_registration_path">I want to start now!</a></div>
+  <% end %>
 </section>
 
 <section class="section_one" style="background-color:#e200002e">
