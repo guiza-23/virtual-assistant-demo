@@ -2,16 +2,17 @@
 <div class="container d-flex flex-column">
   <div class="row">
     <div class="col-12">
-      <div class="card search-form">
+      <div class="card border rounded bg-light shadow-lg mb-0 search-form">
         <div class="card-body p-0">
           <%= form_with url: offers_path, method: :get, id:"search-form", class: "d-flex" do %>
             <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an offer by Tag: part-time, full-time, any OR by title" %>
-            <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+            <%= submit_tag "Search", class: "btn btn-soft profile-btn btn-sm" %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-12">
       <div class="card card-margin">
@@ -78,7 +79,7 @@
                           </td>
                           <td class="px-2 col">
                             <div class="widget-26-job-starred">
-                              <%= link_to "Apply", new_offer_application_path(offer) %>
+                              <%= link_to "Apply", new_offer_application_path(offer), class:"btn profile-btn btn-sm w-50" %>
                               </a>
                             </div>
                           </td>
@@ -94,11 +95,11 @@
           </div>
           <nav class="d-flex justify-content-center">
             <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
-              <li class="page-item"><a class="page-link" <%= link_to "<", offers_path(page: @page - 1) %> </li>
-              <li class="page-item"><a class="page-link" <%= link_to "1", offers_path %> </li>
-              <li class="page-item"><a class="page-link" <%= link_to "2", offers_path(page: 1) %> </li>
-              <li class="page-item"><a class="page-link" <%= link_to "3", offers_path(page: 2) %> </li>
-              <li class="page-item"><a class="page-link" <%= link_to ">", offers_path(page: @page + 1) %> </li>
+              <li class="page-item"><a class="pe-2 icon-text" <%= link_to "<", offers_path(page: @page - 1) %> </li>
+              <li class="page-item"><a class="pe-2 icon-text" <%= link_to "1", offers_path %> </li>
+              <li class="page-item"><a class="pe-2 icon-text" <%= link_to "2", offers_path(page: 1) %> </li>
+              <li class="page-item"><a class="pe-2 icon-text" <%= link_to "3", offers_path(page: 2) %> </li>
+              <li class="page-item"><a class="pe-2 icon-text" <%= link_to ">", offers_path(page: @page + 1) %> </li>
             </ul>
           </nav>
         </div>

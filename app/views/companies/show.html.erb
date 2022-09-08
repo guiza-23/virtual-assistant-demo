@@ -8,9 +8,9 @@
           <h5 class="my-3"><%= @company.name %></h5>
           <div class="d-flex justify-content-center mb-2">
             <%# if policy(@company).edit? %>
-              <%= link_to "My Applications", applications_path, type: "button", class:"btn btn-outline-primary ms-1" %>
-              <%= link_to "Edit Profile", edit_company_path, type: "button", class:"btn btn-outline-primary ms-1" %>
-              <%= link_to "Post offer", new_offer_path, type: "button", class:"btn btn-outline-primary ms-1" %>
+              <%= link_to "My Applications", applications_path, type: "button", class:"btn profile-btn btn-sm w-50" %>
+              <%= link_to "Edit Profile", edit_company_path, type: "button", class:"btn profile-btn btn-sm w-50" %>
+              <%= link_to "Post offer", new_offer_path, type: "button", class:"btn profile-btn btn-sm w-50" %>
               <%#= link_to "Cancel", assitant_path(@company), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
             <%# else %>
               <%#= link_to "Chat", applications_path, type: "button", class:"btn btn-outline-primary ms-1" %>

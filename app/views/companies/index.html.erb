@@ -30,7 +30,7 @@
           <div class="d-flex flex-column align-items-start py-2">
             <p class="text-muted py-1 mb-0"><i class="mdi mdi-phone font-size-15 align-middle pe-2 icon-text"></i> <%= company.user.phone %></p>
             <p class="text-muted py-1 mb-0"><i class="mdi mdi-email font-size-15 align-middle pe-2 icon-text"></i> <%= company.user.email %></p>
-            <p class="text-muted py-1 mb-0"><i class="mdi mdi-google-maps font-size-15 align-left pe-2 icon-text"></i> <%= company.user.address %></p>
+            <p class="text-muted py-1 mb-0"><i class="mdi mdi-google-maps font-size-15 align-middle pe-2 icon-text"></i> <%= company.user.address %></p>
           </div>
           <div class="d-flex gap-2 pt-4">
             <div class="w-50"></div>
@@ -48,11 +48,11 @@
     <div class="col-sm-6">
       <div class="float-sm-end">
         <ul class="pagination mb-sm-0">
-          <li class="page-item"><a class="page-link" <%= link_to "<", companies_path(page: @page - 1) %> </li>
-          <li class="page-item"><a class="page-link" <%= link_to "1", companies_path %> </li>
-          <li class="page-item"><a class="page-link" <%= link_to "2", companies_path(page: 1) %> </li>
-          <li class="page-item"><a class="page-link" <%= link_to "3", companies_path(page: 2) %> </li>
-          <li class="page-item"><a class="page-link" <%= link_to ">", companies_path(page: @page + 1) %> </li>
+          <li class="page-item"><a class="pe-2 icon-text" <%= link_to "<", companies_path(page: @page - 1) %> </li>
+          <li class="page-item"><a class="pe-2 icon-text" <%= link_to "1", companies_path %> </li>
+          <li class="page-item"><a class="pe-2 icon-text" <%= link_to "2", companies_path(page: 1) %> </li>
+          <li class="page-item"><a class="pe-2 icon-text" <%= link_to "3", companies_path(page: 2) %> </li>
+          <li class="page-item"><a class="pe-2 icon-text" <%= link_to ">", companies_path(page: @page + 1) %> </li>
         </ul>
       </div>
     </div>
