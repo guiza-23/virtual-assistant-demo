@@ -1,24 +1,22 @@
 <%= simple_form_for(@assistant) do |f| %>
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-6">
-        <%= f.input :firstname, placeholder: "Write your given name" %>
+      <div class="col-12 col-md-6 col-lg-6 m-0 p-2">
+        <%= f.input :firstname, placeholder: "Write your given name", label: false %>
       </div>
-      <div class="col-12 col-md-6 col-lg-6">
-        <%= f.input :lastname, placeholder: "Write your last name"  %>
+      <div class="col-12 col-md-6 col-lg-6 m-0 p-2">
+        <%= f.input :lastname, placeholder: "Write your last name", label: false  %>
       </div>
     </div>
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-6">
+      <div class="d-flex justify-content-start px-2 col-12 col-md-6 col-lg-6 m-0 p-2">
         <%= f.input :skills, as: :check_boxes, collection: %w[Organization Problem-Solving Flexibility Communication Creativity Responsibility Computer-proficiency Customer-service Research Computer-Software Marketing Content-creation Administrative Writing-editing Languages Design], include_blank: false, class: "text-primary" %>
       </div>
-      <div class="col-12 col-md-6 col-lg-6">
-        <label for="exampleFormControlTextarea1">
-        <p>Describe the skills you marked</p></label>
-        <textarea class="form-control mb-2" id="exampleFormControlTextarea1"></textarea>
+      <div class="col-12 col-md-6 col-lg-6 m-0 p-2">
+        <%= f.input :description, placeholder: "Describe the skills you marked", label: false, id:"email", input_html: { class: "w-100 text-area-profile"} %>
         <%= f.input :availability, collection: %w[Any Part-time Full-time] %>
         <%= f.input :cv, as: :file, placeholder: "Must be PDF or DOC type" %>
         <%= f.input :photo, as: :file %>
       </div>
     </div>
-    <%= f.submit class: "btn btn-primary btn-lg active" %>
+    <%= f.submit "Save changes", id:"Sign-up-btn", class: "m-0 text-center w-75" %>
 <% end %>
