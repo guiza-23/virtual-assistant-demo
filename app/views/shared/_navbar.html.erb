@@ -35,12 +35,16 @@
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <% if current_user.type_of_user == 'Company' && current_user.company != nil %>
             <li><%= link_to "Dashboard", company_path(current_user.company.id),  class: "nav-item rounded dropdown-item"%></li>
-            <li><%= link_to "Messages", chatroom_path(@chatroom), class: "nav-item rounded dropdown-item" %></li>
+            <% if !@chatroom.nil? %>
+              <li><%= link_to "Messages", chatroom_path(@chatroom), class: "nav-item rounded dropdown-item" %></li>
+            <% end %>
             <li><%= link_to "Post a job offer", new_offer_path, class: "nav-item rounded dropdown-item" %></li>
             <li><%= link_to "See all companies", companies_path, class: "nav-item rounded dropdown-item" %></li>
           <% elsif current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
             <li><%= link_to "My Profile", assistant_path(current_user.assistant.id),  class: "nav-item rounded dropdown-item"%></li>
-            <li><%= link_to "Messages", chatroom_path(@chatroom), class: "nav-item rounded dropdown-item" %></li>
+            <% if !@chatroom.nil? %>
+              <li><%= link_to "Messages", chatroom_path(@chatroom), class: "nav-item rounded dropdown-item" %></li>
+            <% end %>
           <% elsif current_user.type_of_user == 'Company'%>
             <li><%= link_to "Complete Profile", new_company_path, class: "nav-item rounded dropdown-item" %></li>
             <li><%= link_to "Post a job offer", new_company_path, class: "nav-item rounded dropdown-item" %></li>
