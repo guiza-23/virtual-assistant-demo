@@ -20,9 +20,6 @@
       <% end %>
     </div>
 
-
-
-
     <%= simple_form_for [@chatroom, @mensaje],
       html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex justify-content-between" } do |f|
     %>

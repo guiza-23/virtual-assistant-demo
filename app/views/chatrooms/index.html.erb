@@ -13,7 +13,7 @@
           <p><strong> Last message</strong></p>
           </div>
           <div>
-          <p><%= chatroom.mensajes.last.content %></p>
+          <p><%= chatroom.mensajes.last.content if !chatroom.mensajes.last.nil? %></p>
           </div>
         </div>
         <%= link_to "go to conversation", chatroom_path(chatroom), type: "button", class:"btn btn-outline-primary ms-1" %>
