@@ -5,13 +5,13 @@ User.destroy_all
 puts "Data Base CLEANED"
 
 
-user1 = User.new(username: 'Coca-Cola', email: 'coca-cola@gmail.com', password: '123456', type_of_user: 'Company', address: 'Niceto Vega 1234, Minessotta, United States', phone: '+1 (404) 676-2121')
+user1 = User.new(username: 'Coca-Cola', email: 'coca-cola@gmail.com', password: '123456', type_of_user: 'Company', address: '120 Javier street, Minnesota, USA', phone: '+1 (404) 676-2121')
 user1.save!
 user2 = User.new(username: 'Pedro', email: 'pedro@gmail.com', password: '123456', type_of_user: 'Assistant', address: 'Independence Av. 3004, London, United Kingdom', phone: '+4 (420) 6578-9809')
 user2.save!
 user3 = User.new(username: 'Emma', email: 'emma@gmail.com', password: '123456', type_of_user: 'Assistant', address: 'Bogota 1234, Lima, Peru', phone: '+5 (101) 9123-6767')
 user3.save!
-user4 = User.new(username: 'Netflix', email: 'netflix@gmail.com', password: '123456', type_of_user: 'Company', address: '100 Winchester Cir, California, United States', phone: '+1 (408) 540-3700')
+user4 = User.new(username: 'Netflix', email: 'netflix@gmail.com', password: '123456', type_of_user: 'Company', address: '100 Winchester Cir, California, USA', phone: '+1 (408) 540-3700')
 user4.save!
 user5 = User.new(username: 'Sarah', email: 'sarah@gmail.com', password: '123456', type_of_user: 'Assistant', address: 'Saint James 3005, Paris, France', phone: '+33140250808')
 user5.save!
@@ -34,13 +34,13 @@ user13.save!
 user14 = User.new(username: 'Jimena', email: 'jimena@gmail.com', password: '123456', type_of_user: 'Assistant', address: '2311 5th Avenue, Toronto, Canada', phone: '+1 (95) 276-0353')
 user14.save!
 
-user15 = User.new(username: 'Instagram', email: 'instagram@gmail.com', password: '123456', type_of_user: 'Company', address: '181 Fremont St, San Francisco, United States', phone: '+1 (650) 543-4800')
+user15 = User.new(username: 'Instagram', email: 'instagram@gmail.com', password: '123456', type_of_user: 'Company', address: '181 Fremont St, San Francisco, USA', phone: '+1 (650) 543-4800')
 user15.save!
 user16 = User.new(username: 'McDonalds', email: 'mcdonalds@gmail.com', password: '123456', type_of_user: 'Company', address: '181 Fremont St, Sao Paulo, Brazil', phone: '+1 (650) 543-4809')
 user16.save!
-user17 = User.new(username: 'Facebook', email: 'facebook@gmail.com', password: '123456', type_of_user: 'Company', address: '1601 Willow Rd., Menlo Park, United States', phone: '+1 (650) 308-7300')
+user17 = User.new(username: 'Facebook', email: 'facebook@gmail.com', password: '123456', type_of_user: 'Company', address: '1601 Willow, Menlo Park, Germany', phone: '+1 (650) 308-7300')
 user17.save!
-user18 = User.new(username: 'Google LLC', email: 'google@gmail.com', password: '123456', type_of_user: 'Company', address: '1600 Amphitheatre, CA, United States', phone: '+1 (650) 309-7355')
+user18 = User.new(username: 'Google LLC', email: 'google@gmail.com', password: '123456', type_of_user: 'Company', address: '1600 Amphitheatre, CA, USA', phone: '+1 (650) 309-7355')
 user18.save!
 puts "Created USERS"
 
@@ -49,14 +49,14 @@ company1.photo.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/
 company1.save!
 
 company2 = Company.new(user_id: user4.id, name: 'Netflix Inc', description: 'Netflix Inc (Netflix) provides internet entertainment services for watching movies and television shows. The company offers TV shows and movies such as original series, documentaries, and feature films through an internet subscription on the TV, computer, and mobile devices.')
-company2.photo.attach(io: URI.open("https://images.unsplash.com/photo-1661077150377-26922fb352bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"), filename: "company2.png", content_type: "image/jpeg")
+company2.photo.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662648754/development/Netflix_Logo_netflix_netflixoriginal_elite_strangerthings_friends_narcos_peakyblinders_prisonbreak_tigerking_onmyblock_afterlife_moneyheist_ozark_locke_key_riverdale_toyboy_shooter_power_designa_yisoy1.jpg"), filename: "company2.png", content_type: "image/jpeg")
 company2.save!
 
 company3 = Company.new(user_id: user15.id, name: 'Instagram', description: 'Instagram is a free, online photo-sharing application and social network platform that was acquired by Facebook in 2012. Instagram allows users to edit and upload photos and short videos through a mobile app.')
 company3.photo.attach(io: URI.open("https://images.unsplash.com/photo-1633886897663-44c707d71904?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "company3.png", content_type: "image/jpeg")
 company3.save!
 
-company4 = Company.new(user_id: user16.id, name: 'McDonalds Co.', description: 'McDonalds is the worlds largest restaurant chain by revenue, serving over 69 million customers daily in over 100 countries in more than 40.000 outlets as of 2021. McDonalds is best known for its hamburgers, cheeseburgers and french fries, although their menus include other items like chicken, fish, fruit, and salads.')
+company4 = Company.new(user_id: user16.id, name: 'McDonalds', description: 'McDonalds is the worlds largest restaurant chain by revenue, serving over 69 million customers daily in over 100 countries in more than 40.000 outlets as of 2021. McDonalds is best known for its hamburgers, cheeseburgers and french fries, although their menus include other items like chicken, fish, fruit, and salads.')
 company4.photo.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662577326/development/Qualities_of_great_logos_g3qtvt.png"), filename: "company4.png", content_type: "image/jpeg")
 company4.save!
 

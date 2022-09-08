@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :applications, except: :new
   resources :comments
   resources :reviews, only: %i[new create]
+  resources :assistants, only: [:index, :update]
   resources :assistants do
     resources :chatrooms, only: %i[new create]
     resources :reviews, only: %i[new create]
