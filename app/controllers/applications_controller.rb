@@ -2,7 +2,10 @@ class ApplicationsController < ApplicationController
   before_action :set_user
   before_action :set_application, only: %i[show edit update destroy]
 
+  APPLICATIONS_PER_PAGE = 6
+
   def index
+
     if user_signed_in?
       if current_user.assistant != nil
         @applications = Application.where(assistant: @user.assistant)
