@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  COMPANIES_PER_PAGE =6
+  COMPANIES_PER_PAGE = 6
 
   def index
     # para mi que index no va
