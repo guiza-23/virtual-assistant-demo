@@ -19,7 +19,6 @@ class ApplicationsController < ApplicationController
   end
 
   def new
-
     if @user.assistant != nil
       @application = Application.new
     else
