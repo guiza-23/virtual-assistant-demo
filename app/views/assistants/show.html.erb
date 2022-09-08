@@ -10,12 +10,15 @@
           <p class="text-muted mb-4">Available: <%= @assistant.availability %></p>
           <div class="d-flex justify-content-center py-2">
             <% if policy(@assistant).edit? %>
-              <%= link_to "Applications", applications_path, type: "button", class:"btn btn-soft profile-btn btn-sm mx-1", style:"width: 60%;" %>
-              <%= link_to "Edit", edit_assistant_path, type: "button", class:"btn btn-soft profile-btn btn-sm mx-1", style:"width: 40%;" %>
+              <%= link_to "My Applications", applications_path, type: "button", class:"btn btn-soft profile-btn btn-sm mx-1", style:"width: 60%;" %>
+              <%= link_to "Edit Profile", edit_assistant_path, type: "button", class:"btn btn-soft profile-btn btn-sm mx-1", style:"width: 40%;" %>
               <%#= link_to "Cancel", assitant_path(@assistant), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+              <%= link_to "Leave us your review", new_comment_path, "data-bs-toggle" => "modal", "data-bs-target" => "#staticBackdrop",type: "button", class:"btn btn-soft profile-btn btn-sm mx-1" %>
+
             <% else %>
 
-              <%= link_to "Chat", new_assistant_chatroom_path(@assistant), type: "button", class:"btn btn-soft profile-btn btn-sm mx-1" %>
+            <%= link_to "Chat", new_assistant_chatroom_path(@assistant), type: "button", class:"btn btn-soft profile-btn btn-sm mx-1" %>
+            <%= link_to "Add a review for this assistant", new_assistant_review_path(@assistant.id), type: "button", class:"btn btn-soft profile-btn btn-sm mx-1"%>
 
             <% end %>
           </div>
@@ -47,11 +50,6 @@
             </li>
           </ul>
         </div>
-          <% if current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
-          <%= link_to "Leave us your review", new_comment_path, "data-bs-toggle" => "modal", "data-bs-target" => "#staticBackdrop",type: "button", class:"btn btn-soft profile-btn btn-sm mx-1" %>
-          <% else %>
-          <%= link_to "Add a review for this assistant", new_assistant_review_path(@assistant.id), type: "button", class:"btn btn-soft profile-btn btn-sm mx-1"%>
-          <% end %>
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-8">
@@ -125,7 +123,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="text-center">Leave us your comment</h2>
+        <h2 class="text-center">Leave us your review</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
