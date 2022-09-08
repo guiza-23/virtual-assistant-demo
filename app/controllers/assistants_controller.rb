@@ -14,6 +14,10 @@ class AssistantsController < ApplicationController
       @page =  params[:page].to_i
       @assistants = Assistant.offset(@page * ASSISTANTS_PER_PAGE).limit(ASSISTANTS_PER_PAGE)
     end
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "assistants/list", locals: {assistants: @assistants}, formats: [:html] }
+    end
   end
 
   #profile / show externo de mas info

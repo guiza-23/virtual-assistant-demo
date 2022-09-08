@@ -9,6 +9,7 @@
             <%= f.text_field :query, class: "form-control", placeholder: "Search by skill or availability", value: params[:query], data: {search_assistants_target: "input", action: "keyup->search-assistants#update"} %>
             <%= submit_tag "Search", class: "btn btn-outline-primary" %>
             <% end %>
+            <%= render 'list', assistants: @assistants %>
           </div>
         </div>
       </div>
