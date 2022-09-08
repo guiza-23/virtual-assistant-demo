@@ -49,7 +49,7 @@ company1.photo.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/
 company1.save!
 
 company2 = Company.new(user_id: user4.id, name: 'Netflix Inc', description: 'Netflix Inc (Netflix) provides internet entertainment services for watching movies and television shows. The company offers TV shows and movies such as original series, documentaries, and feature films through an internet subscription on the TV, computer, and mobile devices.')
-company2.photo.attach(io: URI.open("https://images.unsplash.com/photo-1661077150377-26922fb352bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"), filename: "company2.png", content_type: "image/jpeg")
+company2.photo.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662648754/development/Netflix_Logo_netflix_netflixoriginal_elite_strangerthings_friends_narcos_peakyblinders_prisonbreak_tigerking_onmyblock_afterlife_moneyheist_ozark_locke_key_riverdale_toyboy_shooter_power_designa_yisoy1.jpg"), filename: "company2.png", content_type: "image/jpeg")
 company2.save!
 
 company3 = Company.new(user_id: user15.id, name: 'Instagram', description: 'Instagram is a free, online photo-sharing application and social network platform that was acquired by Facebook in 2012. Instagram allows users to edit and upload photos and short videos through a mobile app.')
