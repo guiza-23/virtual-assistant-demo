@@ -19,6 +19,7 @@
   min-width: 150px;
   text-align: left;
   align-content: center;
+  font-size: 14px;
   // padding: 0 0 0 15px;
 }
 @media screen and (max-width: 1450px) {
@@ -37,9 +38,48 @@
 .child-two {
   width: 150px;
   text-align: center;
+  font-size: 14px;
 }
-
-
+.child-three {
+  height: 70px;
+  width: 100px;
+  text-align: left;
+  align-content: center;
+  font-size: 20px;
+  // padding: 0 0 0 15px;
+}
+@media screen and (max-width: 1450px) {
+  .child-three {
+  width: 100px;
+  height: 70px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .child-three {
+    width: 100px;
+    height: 70px;
+  }
+}
+.child-four {
+  height: 70px;
+  width: 150px;
+  text-align: left;
+  align-content: center;
+  font-size: 14px;
+  // padding: 0 0 0 15px;
+}
+@media screen and (max-width: 1450px) {
+  .child-four {
+  width: 150px;
+  height: 70px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .child-four {
+    width: 150px;
+    height: 70px;
+  }
+}
 // .widget-26 tr:first-child td, .widget-26 tr:first-child th {
 // border: 0;
 // width: 200px;

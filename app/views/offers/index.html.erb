@@ -1,9 +1,9 @@
-<h1 class="margin-padding">All offers</h1>
-<div class="container d-flex flex-column">
-  <div class="row">
-    <div class="col-12">
-      <div class="card border rounded bg-light shadow-lg mb-0 search-form">
-        <div class="card-body p-0">
+<div class="container vh-100"">
+<h1 class="">All offers</h1>
+  <div class="row pb-4">
+      <div class="col-12 ">
+        <div class="card border rounded bg-light shadow-lg mb-0 search-form">
+          <div class="card-body p-0">
           <%= form_with url: offers_path, method: :get, id:"search-form", class: "d-flex" do %>
             <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an offer by Tag: part-time, full-time, any OR by title" %>
             <%= submit_tag "Search", class: "btn btn-soft profile-btn btn-sm" %>
@@ -12,73 +12,53 @@
       </div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-12">
-      <div class="card card-margin">
-        <div class="card-body">
-          <div class="row search-body">
-            <div class="col-12">
-              <div class="search-result">
-                <div class="result-header">
-                  <%# <div class="row d-flex align-items-center">
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <div class="records">Showing: <b>1-20</b> of <b>200</b> result</div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <div class="result-actions">
-                        <div class="result-sorting">
-                          <span>Sort By:</span>
-                          <select class="form-control border-0" id="exampleOption">
-                            <option value="1">Relevance</option>
-                            <option value="2">Names (A-Z)</option>
-                            <option value="3">Names (Z-A)</option>
-                          </select>
-                        </div>
-                        <div class="result-views">
-                        </div>
-                      </div>
-                    </div>
-                  </div> %>
-                </div>
-                <div class="result-body">
+  <div class="row pb-4">
+      <div class="col-12">
+        <div class="card d-flex justify-content-center align-items-cemter m-0 border rounded shadow-lg">
+          <div class="card-body">
+              <div class="card-content d-flex-inline justify-content-center align-items-cemter">
                   <%# <div class="table-responsive"> %>
-                    <table class="table widget-26">
-                      <thead class="d-flex align-items-center">
-                        <tr class="d-flex align-items-center justify-content-between row">
-                        </tr>
-                      </thead>
+                  <table class="d-flex flex-column align-items-cemter">
+                    <thead class="d-flex justify-content-around align-items-center">
+                      <tr class="d-flex align-items-center justify-content-around flex-row">
+                        <th class="d-flex align-items-center justify-content-start child-three flex-col" scope="col"></th>
+                        <th class="d-flex align-items-center justify-content-start child-four flex-col" scope="col">Company</th>
+                        <th class="d-flex align-items-center justify-content-center child-four flex-col" scope="col">Status</th>
+                        <th class="d-flex align-items-center justify-content-center child-one flex-col" scope="col">Job offer</th>
+                        <th class="d-flex align-items-center justify-content-center child-two flex-col" scope="col">Actions</th>
+                      </tr>
+                    </thead>
                     <% @offers.each do |offer| %>
-                      <tbody class="d-flex align-items-center">
-                        <tr class="d-flex align-items-center justify-content-between row">
-                          <td class="px-2 col">
-                            <div>
-                              <%= cl_image_tag offer.company.photo.key, class:"avatar-square-shadow-m", crop: :thumb, gravity: :face %>
+                      <tbody class="d-flex justify-content-around align-items-center">
+                          <tr class="d-flex align-items-center justify-content-around flex-row">
+                            <td class="d-flex align-items-center justify-content-start child-three flex-col">
+                              <div class="p-2 m-0">
+                                <%= cl_image_tag offer.company.photo.key, class:"avatar-square-shadow-lg", crop: :thumb, gravity: :face %>
+                              </div>
+                          </td>
+                          <td class="d-flex align-items-center justify-content-start px-2 child-four flex-col">
+                            <div class="p-2">
+                              <span><%= offer.company.name %><span>
                             </div>
                           </td>
-                          <td class="px-2 col">
-                            <div class="widget-26-job-title">
-                              <span class="m-0"><%= offer.company.name %><span>
+                          <%# <td class="d-flex align-items-center justify-content-center child-two flex-col">
+                            <div class="p-2">
+                              <span class="text-muted time"> days ago</span>
                             </div>
-                          </td>
-                          <td class="px-2 col">
-                            <div class="widget-26-job-title">
-                              <span class="text-muted time"><%= (Time.now - offer.created_at).round %> days ago</span>
-                            </div>
-                          </td>
-                          <td class="px-2 col">
-                            <div class="widget-26-job-info">
+                          </td> %><%#= (Time.now - offer.created_at).round %>
+                          <td class="d-flex align-items-center justify-content-start px-2 child-four flex-col">
+                            <div class="p-2">
                               <p class="type m-0"><%= offer.tag %></p>
                             </div>
                           </td>
-                          <td class="px-2 col">
-                            <div class="widget-26-job-category bg-soft-base">
+                          <td class="d-flex align-items-center justify-content-start px-2 child-one flex-col">
+                            <div class="p-2">
                                 <i class="indicator bg-base"></i>
                                 <p><%= offer.title %></p>
                             </div>
                           </td>
-                          <td class="px-2 col">
-                            <div class="widget-26-job-starred">
+                          <td class="d-flex-inlne align-items-center justify-content-start px-2 child-two flex-col">
+                            <div class="p-2">
                               <%= link_to "Apply", new_offer_application_path(offer), class:"btn profile-btn btn-sm w-50" %>
                               </a>
                             </div>
@@ -89,17 +69,17 @@
                     </table>
 
                   <%# </div> %>
-                </div>
-              </div>
+                <%# </div> %>
+              <%# </div> %>
             </div>
           </div>
           <nav class="d-flex justify-content-center">
             <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
-              <li class="page-item"><a class="pe-2 icon-text" <%= link_to "<", offers_path(page: @page - 1) %> </li>
-              <li class="page-item"><a class="pe-2 icon-text" <%= link_to "1", offers_path %> </li>
-              <li class="page-item"><a class="pe-2 icon-text" <%= link_to "2", offers_path(page: 1) %> </li>
-              <li class="page-item"><a class="pe-2 icon-text" <%= link_to "3", offers_path(page: 2) %> </li>
-              <li class="page-item"><a class="pe-2 icon-text" <%= link_to ">", offers_path(page: @page + 1) %> </li>
+              <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "<", offers_path(page: @page - 1) %> </li>
+              <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "1", offers_path %> </li>
+              <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "2", offers_path(page: 1) %> </li>
+              <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "3", offers_path(page: 2) %> </li>
+              <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to ">", offers_path(page: @page + 1) %> </li>
             </ul>
           </nav>
         </div>
