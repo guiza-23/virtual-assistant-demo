@@ -107,7 +107,7 @@
           <ul class="list-group list-group-flush rounded-3">
             <% @assistant.reviews.each do |review| %>
               <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-              "<%= review.content %>"<div class="w-25"><% review.rating.times do %><i class="fas fa-star"></i>
+              "<%= review.content %>"<div class="w-25"><% review.rating.times do %><i class="fas fa-star pe-2 icon-text"></i>
               <% end %></div>
               </li>
             <% end %>
