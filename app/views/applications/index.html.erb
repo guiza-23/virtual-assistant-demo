@@ -21,24 +21,32 @@
                   <%# <div class=""> %>
                       <table class="d-flex flex-column align-items-cemter">
                         <thead class="d-flex justify-content-around align-items-center">
-                          <tr class="d-flex align-items-center justify-content-around flex-row">
-                            <th class="d-flex align-items-center justify-content-start child-one flex-col" scope="col">Offer</th>
-                            <th class="d-flex align-items-center justify-content-center child-two flex-col" scope="col">Applicant</th>
+                          <tr class="d-flex align-items-center justify-content-around flex-row" style="border-bottom: solid 1px #80808021; padding-bottom: 10px">
+                            <% if current_user.type_of_user == "Company" %>
+                              <th class="d-flex align-items-center justify-content-center child-two flex-col" scope="col">Applicant</th>
+                            <% else %>
+                              <th class="d-flex align-items-center justify-content-center child-two flex-col" scope="col">Company</th>
+                            <% end %>
+                            <th style="width: 500px;" class="d-flex align-items-center justify-content-center child-two flex-col" scope="col">Offer</th>
                             <th class="d-flex align-items-center justify-content-center child-two flex-col" scope="col">Status</th>
                             <th class="d-flex align-items-center justify-content-center child-two flex-col" scope="col">Actions</th>
                           </tr>
                         </thead>
                         <% @applications.each do |application| %>
                           <tbody class="d-flex justify-content-around align-items-center">
-                            <tr class="d-flex align-items-center justify-content-around flex-row">
-                              <td class="d-flex align-items-center justify-content-start child-one flex-col">
-                                <div class="p-2 m-0">
-                                  <p><%= application.offer.description %></p>
-                                </div>
-                              </td>
+                            <tr class="d-flex align-items-center justify-content-around flex-row" style="border-bottom: solid 1px #80808021;">
                               <td class="d-flex align-items-center justify-content-center child-two flex-col">
                                 <div class="p-2">
+                                <% if current_user.type_of_user == "Company" %>
                                   <span><%= application.assistant.firstname %> <%= application.assistant.lastname %></span>
+                                <% else %>
+                                  <span><%= application.company.name %></span>
+                                <% end %>
+                                </div>
+                              </td>
+                              <td class="d-flex align-items-center justify-content-start child-one flex-col" style="width: 500px;">
+                                <div class="p-2" >
+                                  <p style="margin-bottom: 0px"><%= application.offer.description %></p>
                                 </div>
                               </td>
                               <td class="d-flex align-items-center justify-content-center child-two flex-col">
