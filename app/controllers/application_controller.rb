@@ -20,10 +20,18 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(_resource)
     # stored_location_for(resource) || welcome_path
-    if current_user.type_of_user == "Assistant" && current_user.assistant != nil
-      assistant_path(current_user.assistant.id)
-    elsif current_user.type_of_user == "Company" && current_user.company != nil
-      company_path(current_user.company.id)
+    # if current_user.type_of_user == "Assistant" && current_user.assistant != nil
+    #   assistant_path(current_user.assistant.id)
+    # elsif current_user.type_of_user == "Company" && current_user.company != nil
+    #   company_path(current_user.company.id)
+    # else
+    #   root_path
+    # end
+
+    if current_user.type_of_user == "Assistant"
+      assistants_path
+    elsif current_user.type_of_user == "Company"
+      companies_path
     else
       root_path
     end

@@ -26,7 +26,6 @@
               <li><%= link_to "All assistants", assistants_path, class: "nav-item rounded dropdown-item" %></li>
               <li><%= link_to "All companies", companies_path, class: "nav-item rounded dropdown-item" %></li>
               <li><%= link_to "All comments", comments_path, class: "nav-item rounded dropdown-item" %></li>
-              <li><%= link_to "Complete Profile", new_company_path, class: "nav-item rounded dropdown-item" %></li>
             <% elsif current_user.type_of_user == 'Assistant' && current_user.assistant != nil %>
               <li><%= link_to "My Profile", assistant_path(current_user.assistant.id),  class: "nav-item rounded dropdown-item"%></li>
               <li><%= link_to "All offers", offers_path, class: "nav-item rounded dropdown-item" %></li>
@@ -35,8 +34,12 @@
             <% end %>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to "Edit account", edit_user_registration_path, class: "nav-item rounded dropdown-item" %></li>
-            <li><%#= link_to "Complete Profile", new_company_path, class: "nav-item rounded dropdown-item" %></li>
+            <% if current_user.type_of_user == 'Company' && current_user.company == nil %>
+            <li><%= link_to "Complete Profile", new_company_path, class: "nav-item rounded dropdown-item" %></li>
             <%# <li><%= link_to "Messages", chatroom_path(1), class: "nav-item rounded dropdown-item" %></li>
+            <% elsif current_user.type_of_user == 'Assistant' && current_user.assistant == nil %>
+            <li><%= link_to "Complete Profile", new_assistant_path, class: "nav-item rounded dropdown-item" %></li>
+            <% end %>
             <li><%= link_to "Log out", destroy_user_session_path, class: "nav-item rounded dropdown-item", data: {turbo_method: :delete} %></li>
           </ul>
         </li>

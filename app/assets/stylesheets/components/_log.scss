@@ -23,6 +23,10 @@
 .text-area-profile {
   height: 120px!important;
 }
+.wrapper-profile-assistant {
+  width: 70%;
+  margin: 0!important;
+}
 
 .simple-form {
   display: flex;
@@ -105,15 +109,21 @@ a {
 // #password {
 //   margin-bottom: 15px;
 // }
-
+#assistant_description, #assistant_firstname, #assistant_lastname, #assistant_photo, #assistant_availability, .form-check #assistant_cv {
+  font-size: 14px;
+  font-weight: 500;
+}
 .form-check-input:checked {
   background-color: #00A699!important;
   border-color: #00A699!important;
 }
-.form-check-label {
-  font-size: 10px;
+.form-check-label, #assistant_description {
+  font-size: 12px;
   font-weight: 500;
   color: #00A699!important;
+}
+.form-check {
+  text-align: left;
 }
 
 #login-btn, #Sign-up-btn {
