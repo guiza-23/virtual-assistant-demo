@@ -1,33 +1,92 @@
-<div class="container chatroom"
-  data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
-  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
->
-  <h1><%= current_user.email %></h1>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
-  <div class="messages" data-chatroom-subscription-target="mensajes">
-    <% @chatroom.mensajes.each do |mensaje| %>
-      <div class="message-row d-flex <%= mensaje.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-        <div class="<%= mensaje.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-          <%= render "mensajes/mensaje", mensaje: mensaje %>
+<div class="container">
+<div class="row clearfix">
+    <div class="col-lg-12">
+        <div class="card chat-app">
+            <div id="plist" class="people-list">
+                <div style="border-bottom: solid grey 1px">
+                  <h4>chats</h4>
+                </div>
+                <ul class="list-unstyled chat-list mt-2 mb-0">
+                <% if current_user.company != nil %>
+                  <% chatrooms = @chatrooms.where(company: current_user.company) %>
+                  <% chatrooms.each do |chatroom| %>
+                    <li class="clearfix">
+                        <%= cl_image_tag chatroom.assistant.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb, gravity: :face %>
+                        <div class="about">
+                          <div class="name"><%= chatroom.assistant.firstname %> <%= chatroom.assistant.lastname %></div>
+                          <p><%= chatroom.mensajes.last.content if !chatroom.mensajes.last.nil? %></p>
+                        </div>
+                    </li>
+                  <% end %>
+                <% else %>
+                  <% chatrooms = @chatrooms.where(assistant: current_user.assistant) %>
+                  <% chatrooms.each do |chatroom| %>
+                    <li class="clearfix">
+                        <%= cl_image_tag chatroom.company.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb, gravity: :face %>
+                        <div class="about">
+                            <div class="name"><%= chatroom.company.name %></div>
+                            <p><%= chatroom.mensajes.last.content if chatroom.mensajes.last.exists %></p>
+                        </div>
+                    </li>
+                  <% end %>
+                <% end %>
+                </ul>
+            </div>
+
+
+            <div class="chat">
+                <div class="chat-header clearfix">
+                    <div class="row">
+                        <div class="col-lg-6">
+                          <%= cl_image_tag @chatroom.company.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb, gravity: :face %>
+                            <div class="chat-about">
+                                <h6 class="m-b-0"><%= @chatroom.company.name %></h6>
+                                <small>Last seen: 2 hours ago</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 hidden-sm text-right">
+                            <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-history">
+                    <ul class="m-b-0">
+                        <li class="clearfix">
+                            <div class="message-data text-right">
+                                <span class="message-data-time">10:10 AM, Today</span>
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
+                            </div>
+                            <div class="message other-message float-right"> Hi Aiden, how are you? How is the project coming along? </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="message-data">
+                                <span class="message-data-time">10:12 AM, Today</span>
+                            </div>
+                            <div class="message my-message">Are we meeting today?</div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="message-data">
+                                <span class="message-data-time">10:15 AM, Today</span>
+                            </div>
+                            <div class="message my-message">Project has been already finished and I have results to show you.</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="chat-message clearfix">
+                    <div class="input-group mb-0">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-send"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter text here...">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-
-
-
-
-<%= simple_form_for [@chatroom, @mensaje],
-  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex justify-content-between" } do |f|
-%>
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message ##{@chatroom.name}",
-    wrapper_html: {class: "flex-grow-1"},
-    input_html: {"data-chatroom-subscription-target": "inputs"}
-  %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3 mx-3" %>
-  <%= link_to "back", chatrooms_path, class: "btn btn-primary mb-3" %>
-<% end %>
+    </div>
+</div>
 </div>
