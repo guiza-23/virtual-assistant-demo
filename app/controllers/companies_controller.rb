@@ -4,8 +4,14 @@ class CompaniesController < ApplicationController
   def index
     # para mi que index no va
     #@companies = Company.all
-    @page =  params[:page].to_i
-    @companies = Company.offset(@page * COMPANIES_PER_PAGE).limit(COMPANIES_PER_PAGE)
+    if params[:query].present?
+      sql_query = "name ILIKE :query"
+      @companies = Company.where(sql_query, query: "%#{params[:query]}%")
+      @page =  params[:page].to_i
+    else
+      @page =  params[:page].to_i
+      @companies = Company.offset(@page * COMPANIES_PER_PAGE).limit(COMPANIES_PER_PAGE)
+    end
   end
 
   def show
