@@ -1,5 +1,5 @@
-<h1 class="margin-padding">See all our companies</h1>
 <div class="container d-flex flex-column">
+<h1 class="margin-padding">See all our companies</h1>
   <div class="row pb-4">
     <div class="col-12">
       <div class="card border rounded bg-light shadow-lg mb-0 search-form">
@@ -41,20 +41,13 @@
     </div>
     <% end %>
   </div>
-  <div class="row g-0 align-items-center py-4">
-    <div class="col-sm-6">
-        <div><p class="mb-sm-0"></p></div>
-    </div>
-    <div class="col-sm-6">
-      <div class="float-sm-end">
-        <ul class="pagination mb-sm-0">
-          <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "<", companies_path(page: @page - 1) %> </li>
-          <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "1", companies_path %> </li>
-          <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "2", companies_path(page: 1) %> </li>
-          <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "3", companies_path(page: 2) %> </li>
-          <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to ">", companies_path(page: @page + 1) %> </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <nav class="d-flex justify-content-center py-4">
+    <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
+      <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "<", companies_path(page: @page - 1) %> </li>
+      <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "1", companies_path %> </li>
+      <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "2", companies_path(page: 1) %> </li>
+      <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "3", companies_path(page: 2) %> </li>
+      <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to ">", companies_path(page: @page + 1) %> </li>
+    </ul>
+</nav>
 </div>
