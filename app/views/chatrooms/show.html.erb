@@ -19,7 +19,7 @@
                       <li class="clearfix">
                           <%= cl_image_tag chatroom.assistant.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb, gravity: :face %>
                           <div class="about">
-                            <div class="name"><%= chatroom.assistant.firstname %> <%= chatroom.assistant.lastname %></div>
+                            <%= link_to chatroom.assistant.lastname , chatroom_path(chatroom), class:"name" %>
                             <p style="font-size: 9px; font-weight: bolder;"><%= chatroom.mensajes.count %> mensajes</p>
                           </div>
                       </li>
@@ -30,7 +30,7 @@
                       <li class="clearfix" style= "background-color: #80808024">
                           <%= cl_image_tag chatroom.company.photo.key, class:"avatar-square-shadow-xlg", crop: :thumb, gravity: :face %>
                           <div class="about">
-                            <div class="name"><%= chatroom.company.name %></div>
+                            <%= link_to chatroom.company.name, chatroom_path(chatroom), class:"name" %>
                             <p style="font-size: 9px; font-weight: bolder;"><%= chatroom.mensajes.count %> mensajes</p>
                           </div>
                       </li>
