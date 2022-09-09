@@ -8,6 +8,7 @@ class ChatroomsController < ApplicationController
   def new
     @assistant = Assistant.find(params[:assistant_id])
     @chatroom = Chatroom.new
+    @chatroom.assistant_id = @assistant.id
   end
 
   def create
@@ -34,6 +35,6 @@ class ChatroomsController < ApplicationController
   end
 
   def chatroom_params
-    params.require(:chatroom).permit(:assistant_id, :name)
+    params.require(:chatroom).permit(:assistant_id)
   end
 end
