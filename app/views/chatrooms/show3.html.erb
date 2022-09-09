@@ -30,7 +30,11 @@
         input_html: {"data-chatroom-subscription-target": "inputs"}
       %>
       <%= f.submit "Send", class: "btn btn-primary mb-3 mx-3" %>
-      <%= link_to "back", chatrooms_path, class: "btn btn-primary mb-3" %>
+      <% if !current_user.assistant.nil? %>
+        <%= link_to "back", assistant_path(@chatroom.assistant), class: "btn btn-primary mb-3" %>
+      <% else %>
+        <%= link_to "back", company_path(@chatroom.company), class: "btn btn-primary mb-3" %>
+      <% end %>
     <% end %>
   </div>
 </div>

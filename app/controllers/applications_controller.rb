@@ -24,6 +24,7 @@ class ApplicationsController < ApplicationController
   def new
     if @user.assistant != nil
       @application = Application.new
+      @offer = Offer.find(params[:offer_id])
     else
       redirect_to new_assistant_path
     # authorize @offer
