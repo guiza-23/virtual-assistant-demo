@@ -14,9 +14,9 @@ class Assistant < ApplicationRecord
   has_one_attached :photo
   validates :photo, presence: true
 
-  validates :cv, presence: true
+  # validates :cv, presence: true
   has_one_attached :cv
-  validate :correct_cv_mime_type
+  # validate :correct_cv_mime_type
 
   private
   def correct_cv_mime_type

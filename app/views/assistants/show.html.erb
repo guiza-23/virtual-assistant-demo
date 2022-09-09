@@ -1,5 +1,5 @@
 <div class="container main py-4">
-  <div class="pt-5"><h1 class="py-4 text-center">About <%= @assistant.firstname %> <%= @assistant.lastname %></h1></div>
+  <div class="pt-5"><h1 class="py-4 text-center"><%= @assistant.firstname %> <%= @assistant.lastname %></h1></div>
   <div class="row g-4">
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card">
@@ -25,9 +25,8 @@
         <div class="card-body border-0 rounded bg-light shadow-lg p-0">
           <ul class="list-group list-group-flush rounded-3">
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-              <p class="text-muted mb-1">Curriculum Vitae <%= link_to cl_image_path(@assistant.cv.key, flags: :attachment) do %> </p>
-              <i class="fas fa-globe fa-lg text-warning"></i>
-              <% end %>
+              <p class="text-muted mb-1">Curriculum Vitae</p>
+              <a href="#"><i class="fas fa-globe fa-lg text-warning fa-lg"></i></a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
               <p class="text-muted mb-1">Github/<%= @assistant.firstname %>_<%= @assistant.lastname %></p>

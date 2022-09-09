@@ -21,22 +21,22 @@
                   <table class="d-flex flex-column align-items-cemter">
                     <thead class="d-flex justify-content-around align-items-center">
                       <tr class="d-flex align-items-center justify-content-around flex-row">
-                        <th class="d-flex align-items-center justify-content-start child-three flex-col" scope="col"></th>
-                        <th class="d-flex align-items-center justify-content-start child-four flex-col" scope="col">Company</th>
+                        <th class="d-flex align-items-center justify-content-center child-three flex-col" scope="col"></th>
+                        <th class="d-flex align-items-center justify-content-center child-four flex-col" scope="col">Company</th>
                         <th class="d-flex align-items-center justify-content-center child-four flex-col" scope="col">Status</th>
                         <th class="d-flex align-items-center justify-content-center child-one flex-col" scope="col">Job offer</th>
                         <th class="d-flex align-items-center justify-content-center child-two flex-col" scope="col">Actions</th>
                       </tr>
                     </thead>
                     <% @offers.each do |offer| %>
-                      <tbody class="d-flex justify-content-around align-items-center">
+                      <tbody class="d-flex justify-content-around align-items-center" style="border-top: 1px solid grey">
                           <tr class="d-flex align-items-center justify-content-around flex-row">
-                            <td class="d-flex align-items-center justify-content-start child-three flex-col">
+                            <td class="d-flex align-items-center justify-content-center child-three flex-col">
                               <div class="p-2 m-0">
                                 <%= cl_image_tag offer.company.photo.key, class:"avatar-square-shadow-lg", crop: :thumb, gravity: :face %>
                               </div>
                           </td>
-                          <td class="d-flex align-items-center justify-content-start px-2 child-four flex-col">
+                          <td class="d-flex align-items-center justify-content-center px-2 child-four flex-col">
                             <div class="p-2">
                               <span><%= offer.company.name %><span>
                             </div>
@@ -46,18 +46,18 @@
                               <span class="text-muted time"> days ago</span>
                             </div>
                           </td> %><%#= (Time.now - offer.created_at).round %>
-                          <td class="d-flex align-items-center justify-content-start px-2 child-four flex-col">
+                          <td class="d-flex align-items-center justify-content-center px-2 child-four flex-col">
                             <div class="p-2">
                               <p class="type m-0"><%= offer.tag %></p>
                             </div>
                           </td>
-                          <td class="d-flex align-items-center justify-content-start px-2 child-one flex-col">
+                          <td class="d-flex align-items-center justify-content-center px-2 child-one flex-col">
                             <div class="p-2">
                                 <i class="indicator bg-base"></i>
                                 <p><%= offer.title %></p>
                             </div>
                           </td>
-                          <td class="d-flex-inlne align-items-center justify-content-start px-2 child-two flex-col">
+                          <td class="d-flex-inlne align-items-center justify-content-center px-2 child-two flex-col">
                             <div class="p-2">
                               <%= link_to "Apply", new_offer_application_path(offer), class:"btn profile-btn btn-sm w-50" %>
                               </a>
