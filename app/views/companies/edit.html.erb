@@ -1,7 +1,7 @@
-<div class="container-log vh-100 ">
-  <div class="wrapper-log card shadow-lg mb-0 mx-3">
+<div class="container-log vh-100">
+  <div class="wrapper-log card shadow-lg py-2">
+    <div class=""><h1 class="pt-2 text-center">Edite Profile</h1></div>
     <%= simple_form_for(@company, html: { class: "simple-form simple-form-registrer"}) do |f| %>
-      <h1 class="py-3">Edit Profile</h1>
       <%= f.error_notification %>
       <div class="pass-icon w-100 px-4">
         <%= f.input :name, placeholder: "what's the name of the company?", id:"email", input_html: { class: "w-100"}   %>

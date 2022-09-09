@@ -1,5 +1,5 @@
-<div class="container vh-100"">
-<h1 class="">All offers</h1>
+<div class="container main py-4">
+  <div class="pt-5"><h1 class="pt-4 text-center">All offers</h1></div>
   <div class="row pb-4">
       <div class="col-12 ">
         <div class="card border rounded bg-light shadow-lg mb-0 search-form">
@@ -73,7 +73,7 @@
               <%# </div> %>
             </div>
           </div>
-          <nav class="d-flex justify-content-center">
+          <nav class="d-flex justify-content-center py-4">
             <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
               <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "<", offers_path(page: @page - 1) %> </li>
               <li class="page-item icon-text"><a class="page-link icon-text" <%= link_to "1", offers_path %> </li>

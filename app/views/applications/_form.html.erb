@@ -1,9 +1,14 @@
 <h4>Are you sure you want to continue?</h4>
 <h5>Great!...Select Apply</h5>
-
 <%= simple_form_for(@application) do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :offer_id, as: :hidden, input_html: { value: params[:offer_id] } %>
-  <%= f.button :submit, "Apply", class: "btn-outline-succes btn-sm mx-1" %>
-  <%= link_to 'Back', offers_path, class:"btn btn-soft profile-btn btn-sm mx-1" %>
+  <div class="row justify-content-center align-items-center">
+    <%= f.error_notification %>
+    <div class="col-12 col-md-12 col-lg-12">
+      <%= f.input :offer_id, as: :hidden, input_html: { value: params[:offer_id] } %>
+    </div>
+    <%= f.button :submit, "Apply", id:"Sign-up-btn", class: "profile-btn w-50 btn-sm" %>
+    <div class="register">
+      <%= link_to "Back", offers_path, class:"register-btn" %>
+    </div>
+  </div>
 <% end %>
