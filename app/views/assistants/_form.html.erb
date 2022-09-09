@@ -17,10 +17,13 @@
         <%= f.input :cv, as: :file, placeholder: "Must be PDF or DOC type" %>
         <%= f.input :photo, as: :file %>
       </div>
-    <%= f.submit "Save changes", id:"Sign-up-btn", class: "profile-btn w-75 btn-sm" %>
+      <%= f.submit "Save changes", id:"Sign-up-btn", class: "profile-btn w-75 btn-sm" %>
     <div class="register">
-      <%= link_to "Back", assistant_path, class:"register-btn" %>
+      <% if !current_user.assistant.nil? %>
+        <%= link_to "Back", assistant_path, class:"register-btn" %>
+      <% else %>
+        <%= link_to "Back", offers_path, class:"register-btn" %>
+      <% end %>
     </div>
   <% end %>
-    </div>
 </div>

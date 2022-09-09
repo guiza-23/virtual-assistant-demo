@@ -45,11 +45,11 @@ user18.save!
 puts "Created USERS"
 
 company1 = Company.new(user_id: user1.id, name: 'Coca-Cola Co.', description: 'The Coca-Cola Co. is the nonalcoholic beverage company, which engages in the manufacture, market, and sale of non-alcoholic beverages which include sparkling soft drinks, water, enhanced water and sports drinks, juice, dairy and plant-based beverages, tea and coffee and energy drinks.')
-company1.photo.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662577213/development/Police_Coca-Cola_-_G%C3%A9n%C3%A9rateur_de_police_Coca-Cola_bt6ys7.png"), filename: "company1.png", content_type: "image/jpeg")
+company1.photo.attach(io: URI.open("https://images.unsplash.com/photo-1554866585-cd94860890b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29jYWNvbGF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"), filename: "company3.png", content_type: "image/jpeg")
 company1.save!
 
 company2 = Company.new(user_id: user4.id, name: 'Netflix Inc', description: 'Netflix Inc (Netflix) provides internet entertainment services for watching movies and television shows. The company offers TV shows and movies such as original series, documentaries, and feature films through an internet subscription on the TV, computer, and mobile devices.')
-company2.photo.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662648754/development/Netflix_Logo_netflix_netflixoriginal_elite_strangerthings_friends_narcos_peakyblinders_prisonbreak_tigerking_onmyblock_afterlife_moneyheist_ozark_locke_key_riverdale_toyboy_shooter_power_designa_yisoy1.jpg"), filename: "company2.png", content_type: "image/jpeg")
+company2.photo.attach(io: URI.open("https://images.unsplash.com/photo-1633793675529-58eecb6ea16f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "company3.png", content_type: "image/jpeg")
 company2.save!
 
 company3 = Company.new(user_id: user15.id, name: 'Instagram', description: 'Instagram is a free, online photo-sharing application and social network platform that was acquired by Facebook in 2012. Instagram allows users to edit and upload photos and short videos through a mobile app.')
@@ -57,77 +57,77 @@ company3.photo.attach(io: URI.open("https://images.unsplash.com/photo-1633886897
 company3.save!
 
 company4 = Company.new(user_id: user16.id, name: 'McDonalds', description: 'McDonalds is the worlds largest restaurant chain by revenue, serving over 69 million customers daily in over 100 countries in more than 40.000 outlets as of 2021. McDonalds is best known for its hamburgers, cheeseburgers and french fries, although their menus include other items like chicken, fish, fruit, and salads.')
-company4.photo.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662577326/development/Qualities_of_great_logos_g3qtvt.png"), filename: "company4.png", content_type: "image/jpeg")
+company4.photo.attach(io: URI.open("https://images.unsplash.com/photo-1649775391951-e3fdf0e7e7ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=581&q=80"), filename: "company3.png", content_type: "image/jpeg")
 company4.save!
 
 company5 = Company.new(user_id: user17.id, name: 'Facebook', description: 'Facebook is a website which allows users, who sign-up for free profiles, to connect with friends, work colleagues or people they dont know, online. It allows users to share pictures, music, videos, and articles, as well as their own thoughts and opinions with however many people they like.')
-company5.photo.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662577378/development/Twitter_Facebook_Instagram_Youtube_-_Fb_Twitter_Youtube_Logo_Transparent_PNG_-_922x922_-_Free_Download_on_NicePNG_oxlycw.jpg"), filename: "company5.png", content_type: "image/jpeg")
+company5.photo.attach(io: URI.open("https://images.unsplash.com/photo-1655199798150-c376e0281f91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "company3.png", content_type: "image/jpeg")
 company5.save!
 
 company6 = Company.new(user_id: user18.id, name: 'Google LLC', description: 'Google LLC (Google), a subsidiary of Alphabet Inc, is a provider of search and advertising services on the internet. The company focuses on business areas such as advertising, search, platforms and operating systems, and enterprise and hardware products.')
-company6.photo.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662568753/development/New_Logo_for_Google_BP_O_mwf8xy.jpg"), filename: "company6.png", content_type: "image/jpeg")
+company6.photo.attach(io: URI.open("https://images.unsplash.com/photo-1572059002053-8cc5ad2f4a38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "company3.png", content_type: "image/jpeg")
 company6.save!
 
 puts "Created COMPANIES"
 
 assistant1 = Assistant.new(user_id: user2.id, skills: "Computer Software", availability: 'Full-time', firstname: "Pedro", lastname: "Castillo")
-assistant1.photo.attach(io: URI.open("https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "assistant1.png", content_type: "image/jpeg")
-assistant1.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant1.pdf", content_type: "file/pdf")
+assistant1.photo.attach(io: URI.open("https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "assistant2.png", content_type: "image/jpeg")
+# assistant1.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant1.pdf", content_type: "file/pdf")
 assistant1.save!
 
 assistant2 = Assistant.new(user_id: user3.id, skills: "Organization Skills", availability: 'Part-time', firstname: "Emma", lastname: "Jhonson")
 assistant2.photo.attach(io: URI.open("https://images.unsplash.com/photo-1499887142886-791eca5918cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "assistant2.png", content_type: "image/jpeg")
-assistant2.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561786/development/Documento_sin_t%C3%ADtulo_2_getpsv.pdf"), filename: "assistant2.pdf", content_type: "file/pdf")
+# assistant2.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561786/development/Documento_sin_t%C3%ADtulo_2_getpsv.pdf"), filename: "assistant2.pdf", content_type: "file/pdf")
 assistant2.save!
 
 assistant3 = Assistant.new(user_id: user5.id, skills: "Flexibility, Creativity", availability: 'Full-time', firstname: "Sarah", lastname: "Nachtingall")
 assistant3.photo.attach(io: URI.open("https://images.unsplash.com/photo-1658932447761-8a59cd02d201?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "assistant3.png", content_type: "image/jpeg")
-assistant3.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant3.pdf", content_type: "file/pdf")
+# assistant3.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant3.pdf", content_type: "file/pdf")
 assistant3.save!
 
 assistant4 = Assistant.new(user_id: user6.id, skills: "Research Skills, Marketing", availability: 'Full-time', firstname: "Maria", lastname: "Kirolinko")
 assistant4.photo.attach(io: URI.open("https://images.unsplash.com/photo-1597248374161-426f0d6d2fc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "assistant4.png", content_type: "image/jpeg")
-assistant4.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant4.pdf", content_type: "file/pdf")
+# assistant4.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant4.pdf", content_type: "file/pdf")
 assistant4.save!
 
 assistant5 = Assistant.new(user_id: user7.id, skills: "Languages, Administrative", availability: 'Full-time', firstname: "Abril", lastname: "Castañeda")
 assistant5.photo.attach(io: URI.open("https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "assistant5.png", content_type: "image/jpeg")
-assistant5.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant5.pdf", content_type: "file/pdf")
+# assistant5.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant5.pdf", content_type: "file/pdf")
 assistant5.save!
 
 assistant6 = Assistant.new(user_id: user8.id, skills: "Responsibility, Customer service", availability: 'Part-time', firstname: "Jose", lastname: "Campoverde")
 assistant6.photo.attach(io: URI.open("https://images.unsplash.com/photo-1623605931891-d5b95ee98459?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=594&q=80"), filename: "assistant6.png", content_type: "image/jpeg")
-assistant6.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant6.pdf", content_type: "file/pdf")
+# assistant6.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant6.pdf", content_type: "file/pdf")
 assistant6.save!
 
 assistant7 = Assistant.new(user_id: user9.id, skills: "Flexibility, Content creation", availability: 'Part-time', firstname: "Austin", lastname: "Wade")
 assistant7.photo.attach(io: URI.open("https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "assistant7.png", content_type: "image/jpeg")
-assistant7.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant7.pdf", content_type: "file/pdf")
+# assistant7.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant7.pdf", content_type: "file/pdf")
 assistant7.save!
 
 assistant8 = Assistant.new(user_id: user10.id, skills: "Flexibility, Design", availability: 'Full-time', firstname: "Simon", lastname: "Lohmann")
 assistant8.photo.attach(io: URI.open("https://images.unsplash.com/photo-1613064756072-52b429a1e06f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "assistant8.png", content_type: "image/jpeg")
-assistant8.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant8.pdf", content_type: "file/pdf")
+# assistant8.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant8.pdf", content_type: "file/pdf")
 assistant8.save!
 
 assistant9 = Assistant.new(user_id: user11.id, skills: "Organization Skills", availability: 'Full-time', firstname: "Alex", lastname: "Supranoff")
 assistant9.photo.attach(io: URI.open("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "assistant9.png", content_type: "image/jpeg")
-assistant9.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant9.pdf", content_type: "file/pdf")
+# assistant9.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant9.pdf", content_type: "file/pdf")
 assistant9.save!
 
 assistant10 = Assistant.new(user_id: user12.id, skills: "Communication Skills", availability: 'Full-time', firstname: "Yannaty", lastname: "Kouth")
 assistant10.photo.attach(io: URI.open("https://images.unsplash.com/photo-1654086438689-ac593fb9387a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=527&q=80"), filename: "assistant10.png", content_type: "image/jpeg")
-assistant10.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant10.pdf", content_type: "file/pdf")
+# assistant10.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant10.pdf", content_type: "file/pdf")
 assistant10.save!
 
 assistant11 = Assistant.new(user_id: user13.id, skills: "Computer proficiency", availability: 'Full-time', firstname: "Laura", lastname: "Alonso")
 assistant11.photo.attach(io: URI.open("https://images.unsplash.com/photo-1615751596346-9df8006e5381?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"), filename: "assistant11.png", content_type: "image/jpeg")
-assistant11.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant11.pdf", content_type: "file/pdf")
+# assistant11.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant11.pdf", content_type: "file/pdf")
 assistant11.save!
 
 assistant12 = Assistant.new(user_id: user14.id, skills: "Customer service", availability: 'Full-time', firstname: "Jimena", lastname: "Rodriguez")
 assistant12.photo.attach(io: URI.open("https://images.unsplash.com/photo-1639619628924-eced0acbab4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=583&q=80"), filename: "assistant12.png", content_type: "image/jpeg")
-assistant12.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant12.pdf", content_type: "file/pdf")
+# assistant12.cv.attach(io: URI.open("https://res.cloudinary.com/watchlistcreator/image/upload/v1662561533/development/Documento_sin_t%C3%ADtulo_1_atwxrz.pdf"), filename: "assistant12.pdf", content_type: "file/pdf")
 assistant12.save!
 
 puts "Created ASSISTANTS"
