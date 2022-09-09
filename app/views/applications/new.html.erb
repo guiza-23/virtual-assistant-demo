@@ -1,10 +1,22 @@
-<div class="container d-flex justify-content-center vw-100 p-4">
-  <div class="d-flex justify-content-center flex-column rounded shadow-lg p-4">
-    <h1 class="m-0 py-2">Apply to this Offer</h1>
-    <p>   </p>
-    <p>   </p>
-    <p><i class="fa-solid fa-earth-americas pe-2 icon-text"></i><em>  “We really want to … turn intentions around inclusion and belonging into real action.”</em></p>
-    <p>   </p>
-        <%= render "form", application: @application %>
+<div class="container-log d-flex justify-content-center vh-100">
+  <div class="d-flex justify-content-center flex-column rounded shadow-lg p-4" style="margin-top: -238px">
+    <div class="card-body">
+      <div class="d-flex justify-content-around align-items-cemter py-2">
+        <div><%= cl_image_tag @offer.company.photo.key, class:"avatar-md rounded-circle", crop: :thumb, gravity: :face %></div>
+        <div class="flex-1 px-4">
+          <h3 class="font-size-16 m-0 py-2">
+            <%= @offer.company.name %>
+          </h3>
+          <span class="badge badge-soft-success mb-0"> <%= @offer.tag %></span>
+        </div>
+      </div>
+      <div class="d-flex flex-column align-items-start py-2">
+        <p><strong><%= @offer.title %></strong></p>
+        <p class="text-muted py-1 mb-0"><%= @offer.description %></p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div><%= render "form", application: @application %></div>
+      </div>
+    </div>
   </div>
 </div>
