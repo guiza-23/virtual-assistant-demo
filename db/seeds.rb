@@ -174,41 +174,41 @@ review3.save!
 review4 = Review.new(assistant_id: assistant3.id, content: 'Works by standars', rating: 3)
 review4.save!
 review5 = Review.new(assistant_id: assistant4.id, content: 'Good admin skills', rating: 4)
-review4.save!
-review5 = Review.new(assistant_id: assistant4.id, content: 'Excellent assistant!', rating: 5)
 review5.save!
-review6 = Review.new(assistant_id: assistant5.id, content: 'Good admin skills', rating: 4)
+review6 = Review.new(assistant_id: assistant4.id, content: 'Excellent assistant!', rating: 5)
 review6.save!
-review7 = Review.new(assistant_id: assistant5.id, content: 'Excellent assistant!', rating: 5)
+review7 = Review.new(assistant_id: assistant5.id, content: 'Good admin skills', rating: 4)
 review7.save!
-review8 = Review.new(assistant_id: assistant6.id, content: 'Good admin skills', rating: 4)
+review8 = Review.new(assistant_id: assistant5.id, content: 'Excellent assistant!', rating: 5)
 review8.save!
-review9 = Review.new(assistant_id: assistant6.id, content: 'Excellent assistant!', rating: 5)
+review9 = Review.new(assistant_id: assistant6.id, content: 'Good admin skills', rating: 4)
 review9.save!
-review10 = Review.new(assistant_id: assistant7.id, content: 'Excellent assistant!', rating: 5)
+review10 = Review.new(assistant_id: assistant6.id, content: 'Excellent assistant!', rating: 5)
 review10.save!
-review11 = Review.new(assistant_id: assistant7.id, content: 'Amazing bilingual assistant!', rating: 4)
+review11 = Review.new(assistant_id: assistant7.id, content: 'Excellent assistant!', rating: 5)
 review11.save!
-review12 = Review.new(assistant_id: assistant8.id, content: 'Excellent assistant!', rating: 5)
+review12 = Review.new(assistant_id: assistant7.id, content: 'Amazing bilingual assistant!', rating: 4)
 review12.save!
-review13 = Review.new(assistant_id: assistant8.id, content: 'Amazing bilingual assistant!', rating: 4)
+review13 = Review.new(assistant_id: assistant8.id, content: 'Excellent assistant!', rating: 5)
 review13.save!
-review14 = Review.new(assistant_id: assistant9.id, content: 'Excellent assistant!', rating: 5)
+review14 = Review.new(assistant_id: assistant8.id, content: 'Amazing bilingual assistant!', rating: 4)
 review14.save!
-review15 = Review.new(assistant_id: assistant9.id, content: 'Amazing bilingual assistant!', rating: 4)
+review15 = Review.new(assistant_id: assistant9.id, content: 'Excellent assistant!', rating: 5)
 review15.save!
-review16 = Review.new(assistant_id: assistant10.id, content: 'Excellent assistant!', rating: 5)
+review16 = Review.new(assistant_id: assistant9.id, content: 'Amazing bilingual assistant!', rating: 4)
 review16.save!
-review17 = Review.new(assistant_id: assistant10.id, content: 'Amazing bilingual assistant!', rating: 4)
+review17 = Review.new(assistant_id: assistant10.id, content: 'Excellent assistant!', rating: 5)
 review17.save!
-review18 = Review.new(assistant_id: assistant11.id, content: 'Excellent assistant!', rating: 5)
+review18 = Review.new(assistant_id: assistant10.id, content: 'Amazing bilingual assistant!', rating: 4)
 review18.save!
-review19 = Review.new(assistant_id: assistant11.id, content: 'Amazing bilingual assistant!', rating: 4)
+review19 = Review.new(assistant_id: assistant11.id, content: 'Excellent assistant!', rating: 5)
 review19.save!
-review20 = Review.new(assistant_id: assistant12.id, content: 'Excellent assistant!', rating: 5)
+review20 = Review.new(assistant_id: assistant11.id, content: 'Amazing bilingual assistant!', rating: 4)
 review20.save!
-review21 = Review.new(assistant_id: assistant12.id, content: 'Amazing bilingual assistant!', rating: 4)
+review21 = Review.new(assistant_id: assistant12.id, content: 'Excellent assistant!', rating: 5)
 review21.save!
+review22 = Review.new(assistant_id: assistant12.id, content: 'Amazing bilingual assistant!', rating: 4)
+review22.save!
 puts "Created REVIEWS"
 
 comment1 = Comment.new(title: 'Amazing Job', content: 'It allows people with skills like me all over the world be able to work remote/online', rating: 5, name: "Pedro", assistant_id: assistant1.id)
